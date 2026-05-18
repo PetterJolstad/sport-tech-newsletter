@@ -4,4 +4,4 @@ Subjects covered in the Tech-talk section. Avoid revisiting within 12 months unl
 
 | Date | Topic | Summary |
 |------|-------|---------|
-| 2026-05-18 | Core body temperature sensors (CORE, CALERA, ingestible pills) | Heat-flux wearable estimates of core temp ahead of summer heat-acclimation blocks; market leaders, validation status, practical caveats. |
+| 2026-05-18 | Instrumented mouthguards (Prevent, HitIQ, ORB) for head impact monitoring | iMG market overview ahead of women's RWC and broader contact-sport adoption; sampling, coupling, World Rugby mandate, skepticism on single-impact concussion correlation. |

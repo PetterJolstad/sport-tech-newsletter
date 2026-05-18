@@ -5,69 +5,131 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sport Tech Weekly — Archive</title>
 <style>
+  * { box-sizing: border-box; }
   body {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f1;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    color: #1f2933;
-    line-height: 1.55;
-  }
-  .wrapper { max-width: 700px; margin: 0 auto; padding: 32px 24px; background: #ffffff; }
-  header { border-bottom: 3px solid #1f2933; padding-bottom: 16px; margin-bottom: 28px; }
-  header h1 { font-size: 28px; margin: 0 0 6px 0; letter-spacing: -0.5px; }
-  header .tagline { font-size: 15px; color: #374151; font-style: italic; margin-top: 6px; }
-  h2 {
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: #0f172a;
-    border-bottom: 1px solid #e5e7eb;
-    padding-bottom: 6px;
-    margin-top: 24px;
-  }
-  .edition {
-    padding: 14px 0;
-    border-bottom: 1px dotted #e5e7eb;
-  }
-  .edition:last-child { border-bottom: none; }
-  .edition .date {
-    font-size: 12px;
-    color: #6b7280;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    font-variant-numeric: tabular-nums;
-  }
-  .edition .title {
+    background-color: #FAF9F5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: #1A1A1A;
+    line-height: 1.65;
     font-size: 17px;
-    font-weight: 600;
-    margin: 4px 0 4px 0;
+    -webkit-font-smoothing: antialiased;
   }
-  .edition .title a { color: #1d4ed8; text-decoration: none; }
-  .edition .title a:hover { text-decoration: underline; }
-  .edition .teaser { font-size: 14.5px; color: #374151; }
-  .footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #9ca3af; text-align: center; }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 32px 32px 32px;
+  }
+  @media (max-width: 600px) {
+    .container { padding: 32px 20px 20px 20px; }
+  }
+
+  /* Masthead */
+  .masthead { text-align: center; margin-bottom: 72px; }
+  .masthead h1 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 48px;
+    color: #CC785C;
+    margin: 0 0 16px 0;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  .masthead .tagline {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    color: #1A1A1A;
+    font-size: 18px;
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* Section header */
+  .section-header {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: #1A1A1A;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+  }
+  .section-rule {
+    width: 40px;
+    height: 2px;
+    background: #CC785C;
+    border: none;
+    margin: 0 0 32px 0;
+  }
+
+  /* Issue card */
+  .issue {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-bottom: 20px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .issue:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(204, 120, 92, 0.14);
+  }
+  .issue .date {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: #CC785C;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .issue .teaser {
+    color: #1A1A1A;
+    font-size: 16px;
+    line-height: 1.55;
+    margin: 0 0 14px 0;
+  }
+  .issue a.read {
+    color: #CC785C;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color 0.15s ease;
+  }
+  .issue a.read:hover { border-bottom-color: #CC785C; }
+
+  /* Footer */
+  .footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid #E8E2D5;
+    text-align: center;
+    color: #6B6B6B;
+    font-size: 14px;
+  }
 </style>
 </head>
 <body>
-<div class="wrapper">
+<div class="container">
 
-<header>
-  <h1>Sport Tech Weekly</h1>
-  <p class="tagline">Weekly intelligence on sensors, wearables, analytics and the research that matters — for international sport-science and performance practitioners.</p>
-</header>
+  <header class="masthead">
+    <h1>Sport Tech Weekly</h1>
+    <p class="tagline">Weekly intelligence on sensors, wearables, analytics and the research that matters — for international sport-science and performance practitioners.</p>
+  </header>
 
-<h2>Archive</h2>
+  <h2 class="section-header">Archive</h2>
+  <hr class="section-rule">
 
-<div class="edition">
-  <div class="date">Edition #1 · Monday 18 May 2026</div>
-  <div class="title"><a href="2026-05-18.html">Garmin pushes the full Human Performance Lab stack to $250, Google's $99 Fitbit Air rattles WHOOP, and a primer on core-body-temperature sensors ahead of summer.</a></div>
-  <div class="teaser">Big stories on Forerunner 70/170, Fitbit Air vs WHOOP, Hudl's Young African Promises scouting deal, and the NBA Draft Combine's open data hub. Tech-talk: CORE vs CALERA vs ingestible pills.</div>
-</div>
+  <article class="issue">
+    <div class="date">Issue 01 · Monday 18 May 2026</div>
+    <p class="teaser">Garmin pushes the Human Performance Lab stack to $250, Google's $99 Fitbit Air rattles WHOOP, Garmin's Cirqa leaks, Hudl's African scouting lock-up, the NBA Combine's open data hub — plus a tech-talk on instrumented mouthguards.</p>
+    <a class="read" href="2026-05-18.html">Read the issue →</a>
+  </article>
 
-<div class="footer">
-  Sport Tech Weekly · Maintained as a personal practitioner brief.
-</div>
+  <div class="footer">
+    Sport Tech Weekly &nbsp;·&nbsp; Maintained as a personal practitioner brief.
+  </div>
 
 </div>
 </body>
