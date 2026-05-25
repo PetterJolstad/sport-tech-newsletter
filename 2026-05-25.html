@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sport Tech Weekly — 25 May 2026</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAF9F5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: #1A1A1A;
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 32px 32px 32px;
+  }
+  @media (max-width: 600px) {
+    .container { padding: 32px 20px 20px 20px; }
+  }
+
+  /* Masthead */
+  .masthead { text-align: center; margin-bottom: 80px; }
+  .masthead h1 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 48px;
+    color: #CC785C;
+    margin: 0 0 12px 0;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  .masthead .date {
+    color: #6B6B6B;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .masthead .tagline {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    color: #1A1A1A;
+    font-size: 18px;
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* Section headers */
+  section { margin-bottom: 64px; }
+  .section-header {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: #1A1A1A;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+  }
+  .section-rule {
+    width: 40px;
+    height: 2px;
+    background: #CC785C;
+    border: none;
+    margin: 0 0 32px 0;
+  }
+  .section-intro {
+    color: #6B6B6B;
+    font-size: 15px;
+    margin: -16px 0 28px 0;
+    line-height: 1.6;
+  }
+
+  /* Cards */
+  .card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-bottom: 24px;
+  }
+  .card h3 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.25;
+    margin: 0 0 14px 0;
+    color: #1A1A1A;
+  }
+  .card p { margin: 0 0 16px 0; }
+  .card p:last-child { margin-bottom: 0; }
+  .takeaway { color: #1A1A1A; }
+  .meta {
+    color: #6B6B6B;
+    font-size: 14px;
+    margin: 0 0 12px 0;
+  }
+  .meta em { font-style: italic; }
+
+  /* Source chips */
+  .sources {
+    margin-top: 18px;
+    font-size: 13px;
+    line-height: 1.9;
+  }
+  .sources a {
+    color: #CC785C;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    margin-right: 14px;
+    transition: border-color 0.15s ease;
+  }
+  .sources a:hover { border-bottom-color: #CC785C; }
+
+  /* Up-and-coming flag */
+  .flag {
+    display: inline-block;
+    background: #F5F1E8;
+    color: #B05B3F;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Other notable papers */
+  .other-papers {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+  }
+  .other-papers h4 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 17px;
+    margin: 0 0 12px 0;
+    color: #1A1A1A;
+  }
+  .other-papers ul { margin: 0; padding-left: 18px; font-size: 15px; color: #1A1A1A; }
+  .other-papers li { margin-bottom: 8px; line-height: 1.5; }
+  .other-papers em { color: #6B6B6B; }
+  .other-papers a { color: #CC785C; text-decoration: none; }
+  .other-papers a:hover { text-decoration: underline; }
+
+  /* Events */
+  .event {
+    display: flex;
+    align-items: flex-start;
+    padding: 18px 0;
+    border-bottom: 1px solid #E8E2D5;
+    gap: 24px;
+  }
+  .event:first-of-type { border-top: 1px solid #E8E2D5; }
+  .event .date-col {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: #CC785C;
+    font-size: 18px;
+    min-width: 140px;
+    flex-shrink: 0;
+    line-height: 1.3;
+  }
+  .event .event-body { flex: 1; }
+  .event .event-title { font-weight: 600; font-size: 16px; display: block; margin-bottom: 4px; }
+  .event .event-meta { color: #6B6B6B; font-size: 14px; }
+  .event a { color: #CC785C; text-decoration: none; }
+  .event a:hover { text-decoration: underline; }
+  @media (max-width: 600px) {
+    .event { flex-direction: column; gap: 6px; }
+    .event .date-col { min-width: 0; }
+  }
+
+  /* Podcast */
+  .podcast-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    border-left: 4px solid #CC785C;
+    padding: 24px 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+  }
+  .podcast-card h3 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 20px;
+    margin: 0 0 8px 0;
+    color: #1A1A1A;
+  }
+  .podcast-card p { margin: 0 0 12px 0; }
+  .podcast-card a { color: #CC785C; text-decoration: none; }
+  .podcast-card a:hover { text-decoration: underline; }
+
+  /* Tech-talk centerpiece */
+  .techtalk {
+    background: #F5F1E8;
+    border-radius: 12px;
+    padding: 40px 32px;
+  }
+  .techtalk .kicker {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #B05B3F;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .techtalk h2 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.2;
+    margin: 0 0 24px 0;
+    color: #1A1A1A;
+  }
+  .techtalk p { font-size: 17px; line-height: 1.65; margin: 0 0 16px 0; }
+  .techtalk h3 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 28px 0 10px 0;
+    color: #1A1A1A;
+  }
+  .techtalk ul { padding-left: 22px; margin: 0 0 16px 0; }
+  .techtalk li { margin-bottom: 8px; line-height: 1.55; }
+  .techtalk a { color: #B05B3F; text-decoration: none; border-bottom: 1px solid transparent; }
+  .techtalk a:hover { border-bottom-color: #B05B3F; }
+  .techtalk .further-reading {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #E8E2D5;
+  }
+  .techtalk .further-reading h3 { margin-top: 0; }
+
+  /* Footer */
+  .footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid #E8E2D5;
+    text-align: center;
+    color: #6B6B6B;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="date">Week ending Monday 25 May 2026 · Issue 02</div>
+    <h1>Sport Tech Weekly</h1>
+    <p class="tagline">Catapult cashes in on its acquisition spree, COROS hands your training data to ChatGPT and Claude, Oura files to go public — and a deep dive on the finger-worn rings that backend just bet the company on.</p>
+  </header>
+
+  <!-- BIG STORIES -->
+  <section>
+    <h2 class="section-header">The big stories</h2>
+    <hr class="section-rule">
+
+    <article class="card">
+      <h3>Catapult posts record FY26 — the consolidation bet starts paying off</h3>
+      <p class="takeaway">Reported 20 May, Catapult's full-year results (year to 31 March 2026) showed record revenue of US$140.7m (+19% constant currency), management EBITDA up 67% to US$24.7m as margin expanded from 13% to 18%, and annualised contract value up 28% to US$133.8m (18% organic, the rest from the Perch and IMPECT acquisitions). It added 576 new pro teams (now &gt;5,500), holds retention above 96%, and sits on &gt;US$53m cash with no debt. The read for practitioners isn't the numbers — it's the strategy they fund: GPS load, weight-room velocity (Perch) and tactical/event data (IMPECT) are being folded into one backend. Expect tighter cross-domain workflows, and less leverage to mix best-of-breed point solutions as the market keeps consolidating. Shares rallied on the result, though they remain down roughly a third over the past year — the market is rewarding the turn to profit, not the growth story alone.</p>
+      <div class="sources">
+        <a href="https://www.fool.com.au/2026/05/20/catapult-sports-reports-record-revenue-in-fy26/">Motley Fool</a>
+        <a href="https://www.proactiveinvestors.com/companies/news/1092569/catapult-delivers-record-revenue-as-operating-profit-jumps-67-1092569.html">Proactive Investors</a>
+        <a href="https://ministryofsport.com/catapult-sports-ltd-record-usd141m-revenue-as-operating-profit-surges-67-per-cent/">Ministry of Sport</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>COROS ships an official MCP — your training data is now queryable by ChatGPT and Claude</h3>
+      <p class="takeaway">Announced 19 May, COROS became the first major wearable brand to ship an officially supported Model Context Protocol server. It exposes ~15 read-only endpoints across five categories — profile and paired hardware, activities, daily health metrics, EvoLab assessments and your current training plan — to ChatGPT Plus and Claude Pro for users in North America and Europe, with AI write-back of plans on the roadmap. For practitioners, this is the first <em>sanctioned</em> path for an LLM to query an athlete's raw device data through their own credentials — no exports, no scripting. That's genuinely useful for athlete self-service, but it quietly raises three questions you now own: athlete consent, where the data flows, and the validity of AI-narrated "readiness" and training advice built on a single device's numbers. If athletes start arriving with chatbot-generated training opinions, this is where they came from.</p>
+      <div class="sources">
+        <a href="https://the5krunner.com/2026/05/13/coros-mcp-ai-data/">the5krunner</a>
+        <a href="https://runningmagazine.ca/sections/gear/coros-introduces-ai-powered-training-analysis/">Canadian Running</a>
+        <a href="https://www.androidauthority.com/coros-launches-mcp-3669570/">Android Authority</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>Oura files confidentially for a US IPO</h3>
+      <p class="takeaway">Oura submitted a confidential draft S-1 to the SEC on 21 May. The smart-ring maker last raised around US$875–900m at an ~US$11bn valuation (Series E, September 2025), has sold &gt;5.5m rings, and owns the enterprise platform (Trinsic) it picked up in the 2024 Sparta Science acquisition. Pricing and timing await SEC review. Why it matters on the performance desk: the most widely deployed readiness ring in elite team settings is heading public — which means more financial transparency and, almost certainly, an accelerated B2B/enterprise push. If you're weighing whether to commit a squad's recovery monitoring to a single vendor's backend, platform longevity just became easier to assess. (See this week's tech-talk for the sensor underneath the score.)</p>
+      <div class="sources">
+        <a href="https://www.cnbc.com/2026/05/21/oura-smart-ring-ipo-filing.html">CNBC</a>
+        <a href="https://techcrunch.com/2026/05/22/smart-ring-maker-oura-files-to-go-public/">TechCrunch</a>
+        <a href="https://www.bloomberg.com/news/articles/2026-05-21/oura-maker-of-popular-smart-rings-files-confidentially-for-ipo">Bloomberg</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>Strava overhauls strength training — 14 integrations, including WHOOP, Garmin and COROS</h3>
+      <p class="takeaway">On 21 May Strava rebuilt its strength experience: a dedicated workout log (sets, reps, weight), auto-generated muscle maps that highlight trained muscle groups, five new shareables, and 14 launch integrations spanning wearables (WHOOP, Garmin, Amazfit), strength apps (HEVY, Fitbod, Motra) and an in-gym tie-in with 24 Hour Fitness. Strength was already one of Strava's fastest-growing activity types (500m+ uploads in 2025). The practitioner angle: Strava is becoming a strength <em>aggregation layer</em> athletes already live in, so resistance-training data will increasingly surface alongside endurance. But keep the5krunner's caveat front of mind — this is self-reported logging, not instrumented load. There's no bar velocity and no objective intensity, so treat the muscle map as an adherence and communication tool, not a training-load metric.</p>
+      <div class="sources">
+        <a href="https://press.strava.com/articles/strava-overhauls-strength-experience-with-expanded-partner-ecosystem-new-workout-log-and-muscle-maps">Strava press</a>
+        <a href="https://9to5mac.com/2026/05/21/strava-adds-dedicated-strength-training-support-for-sets-reps-weight-and-muscle-groups/">9to5Mac</a>
+        <a href="https://the5krunner.com/2026/05/21/strava-strength-training/">the5krunner</a>
+        <a href="https://insider.fitt.co/strava-expands-strength-tracking/">Fitt Insider</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>The Enhanced Games break a swimming world record in Las Vegas</h3>
+      <p class="takeaway">At the inaugural Enhanced Games (21–24 May, Las Vegas) — where athletes openly use performance-enhancing drugs under medical supervision — Greek sprinter Kristian Gkolomeev swam the 50m freestyle in 20.81s on 24 May, inside Cameron McEvoy's 20.88s mark, banking US$250,000 for the win plus a US$1m world-record bonus; sprinter Fred Kerley fell short on the track. Set aside the ethics for a moment: the Games are now a live, public data point on the magnitude of supervised pharmacological gains, and a reminder that "physiologically possible" and "clean" are visibly diverging. It pairs uncomfortably well with this week's <em>Sports Medicine</em> paper on undetectable angiogenic doping (below). Expect athletes, parents and media to ask you what it means — worth having a considered answer ready.</p>
+      <div class="sources">
+        <a href="https://sports.yahoo.com/olympics/article/enhanced-games-results-swimmer-kristian-gkolomeev-breaks-world-record-in-final-event-fred-kerley-falls-short-235007226.html">Yahoo Sports</a>
+        <a href="https://swimswam.com/enhanced-games-live-recap/">SwimSwam</a>
+        <a href="https://www.enhanced.com/newsroom/enhanced-games-announce-host-city-and-dates-breaks-swimming-world-record">Enhanced Games</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="flag">🌱 Up-and-coming</span>
+      <h3>Quiet week for genuinely new tech — one sensor still worth watching</h3>
+      <p class="takeaway">No genuinely new sensor or platform launched into the practitioner market between 18 and 25 May — the week's energy was incumbents (Catapult, Oura, Strava, COROS), not newcomers. The most interesting emerging sensor on our radar still predates the window: <strong>PointFit's PF-Sweat Patch</strong>, a continuous, non-invasive sweat-<em>lactate</em> sensor built on a proprietary nanomembrane, named a CES 2026 Innovation Award honoree and valued at ~US$10m after a February 2026 raise led by Seveno Capital. <strong>Maturity:</strong> beta production (~500 units/month), commercial wellness launch projected for 2026 — not team-grade yet. <strong>Novelty:</strong> continuous field lactate with no finger-prick would fill a real gap in endurance monitoring if it holds up. <strong>Skepticism:</strong> the headline "92% agreement with blood" is a vendor figure, sweat-lactate does not track blood-lactate kinetics one-to-one, and there is no independent peer-reviewed validation yet. At the vaporware-adjacent end, contrast Temple's US$54m-seed temple-worn cerebral-blood-flow wearable (also February 2026): huge raise, no shipping product, no named pilots. We'll flag a real in-window launch the moment one surfaces.</p>
+      <div class="sources">
+        <a href="https://www.ces.tech/ces-innovation-awards/2026/pf-sweat-patch-non-invasive-continuous-lactate-sensor/">CES 2026 Innovation Awards</a>
+        <a href="https://the5krunner.com/2026/02/26/non-invasive-lactate-sensor-sport-pointfit-pf-sweat-patch/">the5krunner</a>
+        <a href="https://athletechnews.com/sweat-reading-wearable-pointfit-10-million-valuation-eyes-us-market/">Athletech News</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- LITERATURE -->
+  <section>
+    <h2 class="section-header">Recent literature</h2>
+    <hr class="section-rule">
+    <p class="section-intro">A thin week for applied sensor and monitoring research inside the 7-day window — most on-topic studies we found published earlier in 2026. The two clearly in-window items are both perspective pieces in <em>Sports Medicine</em>, and both happen to be practitioner-relevant.</p>
+
+    <article class="card">
+      <h3>Obstructive Sleep Apnea: A Potential Sleeping Giant of Sport Performance and Health?</h3>
+      <p class="meta">Driller M, Pearce AJ, Lovato N · <em>Sports Medicine</em> · Online 19 May 2026</p>
+      <p class="takeaway">A short communication arguing that OSA is an under-recognised driver of poor recovery, daytime fatigue and blunted adaptation in athletes — and that prospective work in female, endurance and Paralympic athletes is overdue. The practical read: if your wearable sleep-staging and HRV data keep flagging an athlete as flat despite sensible load, consider screening for OSA rather than attributing it to training. Sleep architecture, not just sleep duration, belongs in the readiness conversation.</p>
+      <div class="sources"><a href="https://link.springer.com/article/10.1007/s40279-026-02427-2">DOI: 10.1007/s40279-026-02427-2</a></div>
+    </article>
+
+    <article class="card">
+      <h3>Angiogenic Doping: Plausible Yet Difficult to Detect</h3>
+      <p class="meta">Lehto S, et al. · <em>Sports Medicine</em> · Online 21 May 2026</p>
+      <p class="takeaway">A physiology-led argument that VEGF-driven angiogenesis — expanding the vascular bed rather than just red-cell mass — is a plausible doping route that WADA currently has no good way to detect. For practitioners it's a useful frame for interpreting outlier endurance adaptations and the limits of the Athlete Biological Passport, and it lands the same week the Enhanced Games made supervised enhancement a public spectacle.</p>
+      <div class="sources"><a href="https://link.springer.com/article/10.1007/s40279-026-02447-y">DOI: 10.1007/s40279-026-02447-y</a></div>
+    </article>
+
+    <div class="other-papers">
+      <h4>Other notable (recent — dates noted, just outside the 7-day window)</h4>
+      <ul>
+        <li>The Algorithmic Athlete: a call to standardise assessment of sensor technologies and AI in sport. <em>IJSPP 21(4), 2026.</em> <a href="https://journals.humankinetics.com/view/journals/ijspp/21/4/article-p505.xml">link</a></li>
+        <li>Development and validation of an algorithm for foot-contact detection in high-dynamic movements using IMUs (vs. force plates, &lt;20 ms offset). <em>Sensors, online 3 Feb 2026.</em> <a href="https://www.mdpi.com/1424-8220/26/3/988">DOI: 10.3390/s26030988</a></li>
+        <li>Taking HRV to the next level in sport: towards multi-signal integration. <em>Frontiers in Sports &amp; Active Living, online 22 Jan 2026.</em> <a href="https://www.frontiersin.org/articles/10.3389/fspor.2026.1720495/full">DOI: 10.3389/fspor.2026.1720495</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section>
+    <h2 class="section-header">Upcoming events</h2>
+    <hr class="section-rule">
+
+    <div class="event">
+      <div class="date-col">2–4 Jun</div>
+      <div class="event-body">
+        <span class="event-title">TheStadiumBusiness Summit 2026</span>
+        <span class="event-meta">In-person, Emirates Old Trafford, Manchester · <a href="https://www.stadiumbusinesssummit.com/">Details</a></span>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="date-col">3–4 Jun</div>
+      <div class="event-body">
+        <span class="event-title">World Football Summit Mexico</span>
+        <span class="event-meta">In-person, Mexico City — one week before the World Cup · <a href="https://worldfootballsummit.com/">Details</a></span>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="date-col">11 Jun</div>
+      <div class="event-body">
+        <span class="event-title">FIFA World Cup 2026 kicks off</span>
+        <span class="event-meta">Estadio Azteca, Mexico City (through 19 Jul) — watch the connected ball, semi-automated offside &amp; in-stadium tracking stack · <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026">FIFA</a></span>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="date-col">Looking ahead</div>
+      <div class="event-body">
+        <span class="event-title">ECSS 31st Annual Congress, Lausanne</span>
+        <span class="event-meta">7–10 July 2026, in-person, SwissTech Convention Center · <a href="https://sport-science.org/index.php/congress/lausanne-2026">sport-science.org</a></span>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="date-col">Looking ahead</div>
+      <div class="event-body">
+        <span class="event-title">SportsPro Investment Summit</span>
+        <span class="event-meta">21 July 2026, in-person, London · <a href="https://invest.sportspro.com/">Details</a></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PODCAST -->
+  <section>
+    <h2 class="section-header">Podcast pick</h2>
+    <hr class="section-rule">
+
+    <div class="podcast-card">
+      <h3>Front Office Sports — "The sports league where doping is legal"</h3>
+      <p>FOS's daily show ran multiple segments on the Enhanced Games as the event unfolded in Las Vegas this week — the cleanest quick brief on what an openly-PED competition just demonstrated, and the performance-science and ethics questions it forces onto practitioners. A useful 20-minute primer before your athletes start asking.</p>
+      <p><a href="https://frontofficesports.com/videos/the-sports-league-where-doping-is-legal/">Watch the segment</a> · <a href="https://podcasts.apple.com/us/podcast/front-office-sports-today/id1579078258">Apple Podcasts</a></p>
+    </div>
+  </section>
+
+  <!-- TECH TALK -->
+  <section>
+    <div class="techtalk">
+      <div class="kicker">Tech-talk · sensor deep-dive</div>
+      <h2>Smart rings: the finger-worn readiness sensor Oura just took to the IPO desk</h2>
+
+      <p>With Oura filing to go public this week and ring data now flowing into LLMs via COROS-style integrations, the finger-worn recovery ring is worth a proper look. It's the rare consumer form factor that has earned a place on elite performance desks — but the score on the app is doing a lot of quiet work you should understand.</p>
+
+      <h3>What it is</h3>
+      <p>A smart ring packs a photoplethysmography (PPG) stack — green/red/infrared LEDs and photodiodes — against the palmar side of the finger, where the digital arteries sit close to the surface and vascular density is high. Add a negative-temperature-coefficient skin-temperature sensor and a 3-axis accelerometer, and you have a device optimised for capturing overnight resting physiology: nocturnal resting heart rate, heart-rate variability (rMSSD), respiratory rate, skin-temperature deviation and a sleep estimate, distilled into a proprietary "readiness" or "recovery" score. Crucially, finger PPG has a better signal-to-noise ratio at rest than wrist PPG, which is why rings often out-measure watches for nocturnal HR and HRV.</p>
+
+      <h3>Who's in the market</h3>
+      <p><strong>Oura</strong> (Gen 4) is the validated incumbent, with the deepest research footprint and a team/enterprise arm via the former Sparta Science platform (Trinsic). <strong>Ultrahuman</strong> (Ring AIR / Ring Pro) competes on no-subscription pricing and more open data, with a CGM tie-in. <strong>Samsung Galaxy Ring</strong> plays the ecosystem card; <strong>RingConn</strong> and <strong>Circular</strong> round out the field on price and features.</p>
+
+      <h3>Specs that matter to practitioners</h3>
+      <ul>
+        <li><strong>It's a rest sensor, not an exercise sensor.</strong> Finger PPG degrades badly with motion and cold-finger vasoconstriction — rings are for sleep and overnight baselines, not session intensity.</li>
+        <li><strong>Temperature is relative.</strong> Skin-temp is reported as a deviation from baseline (useful for illness onset and menstrual-cycle phase), not an absolute core reading.</li>
+        <li><strong>Data access differs.</strong> Oura's API supports team dashboards; Ultrahuman is more open. Check whether you can pull raw nightly HRV, or only the score.</li>
+        <li><strong>Subscriptions and firmware.</strong> Most of the value sits behind a subscription, and algorithm updates can shift an athlete's baseline overnight — log firmware versions if you're trending across a season.</li>
+      </ul>
+
+      <h3>Validation &amp; reasonable skepticism</h3>
+      <p>Oura's nocturnal resting HR and rMSSD show strong agreement with ECG at rest, and it tends to top independent head-to-heads for sleep-period HRV. Sleep <em>staging</em> is weaker — roughly 65–76% four-stage agreement versus polysomnography — and frequency-domain HRV (LF, LF:HF) is unreliable. Ultrahuman tracks Oura closely on HRV/RHR but lacks equivalent peer-reviewed sleep-staging validation. The headline caveat: the readiness score is an opaque composite, not an independently validated metric. Treat the underlying nightly RHR and rMSSD as the defensible signal; treat the single number as a conversation-starter, not ground truth — and if you need court-defensible daily readiness, a chest-strap RR-interval measure remains the criterion.</p>
+
+      <div class="further-reading">
+        <h3>Further reading</h3>
+        <ul>
+          <li>Cao et al. — Deriving accurate nocturnal HR, rMSSD &amp; frequency HRV from the Oura Ring · <em>Sensors</em>, 2024 · <a href="https://www.mdpi.com/1424-8220/24/23/7475">mdpi.com</a></li>
+          <li>Performance of wearable finger-ring trackers for diagnostic sleep measurement · <em>Scientific Reports</em>, 2025 · <a href="https://www.nature.com/articles/s41598-025-93774-z">nature.com</a></li>
+          <li>Oura — University of Tokyo accuracy validation summary · <a href="https://ouraring.com/blog/oura-ring-accuracy-validation-study-university-of-tokyo/">ouraring.com</a></li>
+          <li>Ultrahuman Ring — product &amp; data overview · <a href="https://www.ultrahuman.com/ring/">ultrahuman.com</a></li>
+          <li>CNBC — Oura files confidentially for a US IPO · <a href="https://www.cnbc.com/2026/05/21/oura-smart-ring-ipo-filing.html">read</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Sport Tech Weekly &nbsp;·&nbsp; Issue 25 May 2026 &nbsp;·&nbsp; Generated by Claude
+  </div>
+
+</div>
+</body>
+</html>
