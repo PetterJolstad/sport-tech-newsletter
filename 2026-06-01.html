@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sport Tech Weekly — 1 June 2026</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAF9F5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: #1A1A1A;
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 32px 32px 32px;
+  }
+  @media (max-width: 600px) {
+    .container { padding: 32px 20px 20px 20px; }
+  }
+
+  /* Masthead */
+  .masthead { text-align: center; margin-bottom: 80px; }
+  .masthead h1 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 48px;
+    color: #CC785C;
+    margin: 0 0 12px 0;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  .masthead .date {
+    color: #6B6B6B;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .masthead .tagline {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    color: #1A1A1A;
+    font-size: 18px;
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* Section headers */
+  section { margin-bottom: 64px; }
+  .section-header {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: #1A1A1A;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+  }
+  .section-rule {
+    width: 40px;
+    height: 2px;
+    background: #CC785C;
+    border: none;
+    margin: 0 0 32px 0;
+  }
+  .section-intro {
+    color: #6B6B6B;
+    font-size: 15px;
+    margin: -16px 0 28px 0;
+    line-height: 1.6;
+  }
+
+  /* Cards */
+  .card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-bottom: 24px;
+  }
+  .card h3 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.25;
+    margin: 0 0 14px 0;
+    color: #1A1A1A;
+  }
+  .card p { margin: 0 0 16px 0; }
+  .card p:last-child { margin-bottom: 0; }
+  .takeaway { color: #1A1A1A; }
+  .meta {
+    color: #6B6B6B;
+    font-size: 14px;
+    margin: 0 0 12px 0;
+    display: block;
+  }
+  .emerging-flag {
+    display: inline-block;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: #B05B3F;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    background: #F5F1E8;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .sources {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .sources a {
+    color: #CC785C;
+    font-size: 13px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color 0.15s ease;
+  }
+  .sources a:hover { border-bottom-color: #CC785C; }
+  .sources a + a::before {
+    content: '·';
+    color: #E8E2D5;
+    margin-right: 8px;
+  }
+
+  /* Literature */
+  .lit-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-bottom: 18px;
+  }
+  .lit-card h4 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.3;
+    margin: 0 0 6px 0;
+    color: #1A1A1A;
+  }
+  .lit-card .authors { color: #6B6B6B; font-size: 14px; margin: 0 0 4px 0; }
+  .lit-card .journal { font-style: italic; color: #6B6B6B; font-size: 14px; margin: 0 0 12px 0; }
+  .lit-card .relevance { font-size: 16px; color: #1A1A1A; margin: 0 0 12px 0; }
+  .lit-card a { color: #CC785C; text-decoration: none; font-size: 14px; }
+  .lit-card a:hover { border-bottom: 1px solid #CC785C; }
+
+  .other-papers {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-top: 18px;
+  }
+  .other-papers h5 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 0 12px 0;
+    color: #1A1A1A;
+  }
+  .other-papers ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .other-papers li { margin-bottom: 6px; color: #1A1A1A; }
+  .other-papers a {
+    color: #CC785C;
+    text-decoration: none;
+  }
+  .other-papers a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Events row */
+  .event-row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    padding: 18px 4px;
+    border-bottom: 1px solid #E8E2D5;
+  }
+  .event-row:last-child { border-bottom: none; }
+  .event-date {
+    color: #CC785C;
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    min-width: 130px;
+    flex-shrink: 0;
+  }
+  .event-body {
+    flex: 1;
+  }
+  .event-body .name {
+    font-weight: 600;
+    color: #1A1A1A;
+    font-size: 16px;
+  }
+  .event-body .meta-line {
+    color: #6B6B6B;
+    font-size: 14px;
+    margin-top: 2px;
+  }
+  .event-body a {
+    color: #CC785C;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 4px;
+    display: inline-block;
+  }
+  .event-body a:hover { border-bottom: 1px solid #CC785C; }
+  @media (max-width: 600px) {
+    .event-row { flex-direction: column; gap: 4px; }
+    .event-date { min-width: 0; }
+  }
+
+  /* Podcast */
+  .podcast-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    border-left: 4px solid #CC785C;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+  }
+  .podcast-card h4 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 19px;
+    margin: 0 0 6px 0;
+    line-height: 1.3;
+    color: #1A1A1A;
+  }
+  .podcast-card .show { color: #6B6B6B; font-size: 14px; margin: 0 0 12px 0; }
+  .podcast-card p { margin: 0 0 12px 0; font-size: 16px; }
+  .podcast-card a { color: #CC785C; text-decoration: none; font-size: 14px; }
+  .podcast-card a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Tech-talk feature */
+  .techtalk {
+    background: #F5F1E8;
+    border-radius: 12px;
+    padding: 40px 32px;
+    margin-bottom: 24px;
+  }
+  .techtalk h2 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.2;
+    color: #1A1A1A;
+    margin: 0 0 6px 0;
+  }
+  .techtalk .topic-meta {
+    color: #B05B3F;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 15px;
+    margin: 0 0 24px 0;
+  }
+  .techtalk h3 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #1A1A1A;
+    margin: 28px 0 10px 0;
+  }
+  .techtalk p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0 0 14px 0;
+    color: #1A1A1A;
+  }
+  .techtalk ul {
+    padding-left: 22px;
+    margin: 0 0 14px 0;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .techtalk li { margin-bottom: 6px; }
+  .techtalk .further {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #E8E2D5;
+  }
+  .techtalk .further h3 { margin-top: 0; }
+  .techtalk .further ul { padding-left: 0; list-style: none; margin: 0; }
+  .techtalk .further li { margin-bottom: 8px; font-size: 15px; }
+  .techtalk .further a { color: #CC785C; text-decoration: none; }
+  .techtalk .further a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Footer */
+  .footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid #E8E2D5;
+    text-align: center;
+    color: #6B6B6B;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="masthead">
+    <h1>Sport Tech Weekly</h1>
+    <div class="date">Issue 03 · Monday 1 June 2026</div>
+    <p class="tagline">A week shaped by tournament prep — Hudl tightens its grip on youth scouting, ACSM stages the field's first explicitly Exercise + Technology congress, Roland Garros stays line-judge-only as Rublev erupts, and the FIFA World Cup's connected-ball stack moves from press release to pitch.</p>
+  </header>
+
+  <!-- BIG STORIES -->
+  <section>
+    <h2 class="section-header">Big stories</h2>
+    <hr class="section-rule">
+
+    <article class="card">
+      <span class="meta">28 May 2026 · Vendor &amp; data infrastructure</span>
+      <h3>Hudl locks up the National Football Youth League — youth pipeline data flows into Wyscout</h3>
+      <p class="takeaway">Hudl announced an exclusive multi-year scouting-rights agreement with the National Football Youth League (NFYL), folding every NFYL men's and women's match into the Hudl Wyscout platform. It is the third major youth-pipeline lock-up Hudl has signed in 2026, after Young African Promises (May 11) and the ECNL Wyscout expansion (May 20).</p>
+      <p class="takeaway">For practitioners: the implication is data-ecosystem consolidation, not new sensor capability. If you sit in a senior academy, talent ID department, or national federation, your reference dataset for U14–U21 opposition scouting, recruitment normative data, and longitudinal physical-output benchmarks is increasingly Wyscout's. That tightens the loop with Hudl-Catapult-IMPECT but cuts the air supply for independent youth-data vendors.</p>
+      <div class="sources">
+        <a href="https://www.hudl.com/blog/hudl-national-football-youth-league-multi-year-exclusive-agreement">Hudl announcement</a>
+        <a href="https://www.hudl.com/blog/hudl-young-african-promises-exclusive-rights-agreement">YAP deal · 11 May</a>
+        <a href="https://theecnl.com/news/2026/5/20/general-ecnl-hudl-partner-to-provide-professional-level-data-analytics-to-clubs.aspx">ECNL/Hudl · 20 May</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="meta">26–29 May 2026 · Conference · Salt Lake City</span>
+      <h3>ACSM 2026 puts "Exercise + Technology" on the marquee — and wearables show up everywhere</h3>
+      <p class="takeaway">The 73rd ACSM Annual Meeting closed Friday after four days at the Salt Palace Convention Center. Unusually for ACSM, the official spotlight this year was the convergence of physical activity, exercise and technology — wearables, AI-driven interventions, virtual platforms, and advanced diagnostics ran through plenaries rather than living in a side track. The annual Worldwide Survey of Fitness Trends, released as usual at the meeting, again put wearable technology at #1.</p>
+      <p class="takeaway">For practitioners: this is the first ACSM cycle where the wearables conversation has been integrated rather than ghettoised. Expect a wave of late-2026 publications coming out of this congress on AI-derived training-load classification, sleep-stage validation against PSG, and continuous-glucose responses in non-diabetic athletes — the abstracts to watch already.</p>
+      <div class="sources">
+        <a href="https://acsm.org/events-general/annual-meeting/">ACSM 2026 meeting hub</a>
+        <a href="https://acsm.org/hot-topic-maximizing-human-potential-through-exercise-technology/">Spotlight summary</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="meta">25 May – 8 June 2026 · Federation / officiating tech</span>
+      <h3>Roland Garros stays line-judge-only as the Rublev clash reignites the clay-ELC debate</h3>
+      <p class="takeaway">A week into the 2026 French Open, Andrey Rublev's televised argument with a chair umpire about a mark check has the ATP locker room — again — asking why Roland Garros is the only Grand Slam holding out against Electronic Line Calling. The tournament's position is unchanged: clay leaves a mark, mark wins. Hawk-Eye Live ran the Australian Open and is locked in for the US Open later this summer, and ATP-tour clay events outside the Slams have been on ELC for two seasons.</p>
+      <p class="takeaway">For practitioners: the substantive ELC-on-clay question is not whether the cameras work — they do — but how accurately the projected impact point matches the physical mark on a deformable surface. That's a useful pattern to keep in mind whenever you assess any new tracking modality: ground-truth deviance matters more than precision.</p>
+      <div class="sources">
+        <a href="https://www.profootballnetwork.com/tennis/andrey-rublev-french-open-umpire-clash-june-01-2026/">PFN · Rublev incident, 1 June</a>
+        <a href="https://www.essentiallysports.com/tennis-news-is-there-electronic-line-calling-at-the-french-open-how-roland-garros-handles-line-calls-on-clay-courts/">EssentiallySports background</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="emerging-flag">🌱 Up-and-coming · ten days from kickoff</span>
+      <h3>FIFA's connected-ball stack moves from press kit to pitch as the World Cup nears</h3>
+      <p class="takeaway">A widely-shared Fast Company piece on 29 May walked through the full match-officiating stack that will go live at FIFA World Cup 26 on 11 June: adidas's TRIONDA ball with a side-mounted 500 Hz IMU, twelve Hawk-Eye tracking cameras per stadium sampling player position up to 50 Hz, Lenovo-built 3D player avatars generated from one-second body scans, and a semi-automated offside pipeline that fuses all three.</p>
+      <p class="takeaway"><strong>Maturity:</strong> commercially available for the host tournament (June–July 2026), with the avatar layer trialled at the December 2025 FIFA Intercontinental Cup. <strong>Who's piloting:</strong> all 48 World Cup teams, plus a Lenovo-FIFA test pool. <strong>What's genuinely new:</strong> ball-resident IMU at 500 Hz combined with per-player skeletal avatars closes a long-standing latency and identity gap in semi-automated offside. <strong>Skepticism:</strong> ball-only IMU still depends on the camera mesh for player position; the avatars improve identification but don't replace tracking, and broadcast 3D renderings have been overpromised at every World Cup since 2014. Treat the marketing carefully, watch the actual VAR latency in group stage.</p>
+      <div class="sources">
+        <a href="https://fastcompany.co.za/fast-company/tech/2026-05-29-fifas-digital-referee-how-ai-is-reinventing-trust-in-football/">Fast Company · 29 May</a>
+        <a href="https://inside.fifa.com/media-releases/lenovo-tech-world-ai-powered-innovations-world-cup-2026">FIFA × Lenovo</a>
+        <a href="https://www.iotinsider.com/industries/smart-world/game-of-throw-ins-the-sensors-semiconductors-and-smart-tech-inside-the-fifa-world-cup-2026-ball/">IoT Insider · TRIONDA teardown</a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- LITERATURE -->
+  <section>
+    <h2 class="section-header">Recent literature</h2>
+    <hr class="section-rule">
+    <p class="section-intro">Peer-reviewed work published or accepted in the past seven days, biased toward practitioner-applicable findings.</p>
+
+    <article class="lit-card">
+      <h4>Artificial intelligence and wearables in sport: performance, injury risk, and wellbeing</h4>
+      <p class="authors">Editorial collection, Frontiers in Artificial Intelligence · published 29 May 2026</p>
+      <p class="journal">Frontiers in Artificial Intelligence</p>
+      <p class="relevance">A timely synthesis of where AI + wearables stands in 2026: continuous, multidimensional monitoring is now the default, but the editors are explicit that signal-to-noise on injury-risk predictions remains poor and that most "AI-driven readiness" scores are still trained on small, single-team datasets that don't generalise. Worth reading before your next vendor-pitch meeting.</p>
+      <a href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1838507/full">doi.org/10.3389/frai.2026.1838507</a>
+    </article>
+
+    <article class="lit-card">
+      <h4>Optimizing wearable IMU configurations for running gait analysis: a machine-learning-based sensor fusion approach</h4>
+      <p class="authors">Multiple authors · Frontiers in Bioengineering and Biotechnology · 2026</p>
+      <p class="journal">Frontiers in Bioengineering and Biotechnology</p>
+      <p class="relevance">Twenty-five recreational runners wore the full Xsens MVN 17-IMU set on a treadmill at 8, 10 and 12 km/h while ML methods searched for the minimum sensor count that preserved accuracy. The practical headline: a 3-IMU configuration (pelvis + both shanks) recovers the bulk of the kinematic detail you'd actually use in clinic, with diminishing returns past five sensors.</p>
+      <a href="https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2026.1762919/full">doi.org/10.3389/fbioe.2026.1762919</a>
+    </article>
+
+    <article class="lit-card">
+      <h4>Editorial: Revolutionizing sports science — biomechanical models, wearable tech, and AI</h4>
+      <p class="authors">Field editorial · Frontiers in Sports and Active Living · May 2026</p>
+      <p class="journal">Frontiers in Sports and Active Living</p>
+      <p class="relevance">Short scoping editorial framing the next two years of work in the journal: musculoskeletal-model–driven inverse dynamics from IMU streams, transfer learning across sports for movement-quality scoring, and the open question of how to publish device-firmware version metadata so that 2026 wearable studies are reproducible in 2030.</p>
+      <a href="https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2026.1849247/abstract">doi.org/10.3389/fspor.2026.1849247</a>
+    </article>
+
+    <div class="other-papers">
+      <h5>Other notable papers this week</h5>
+      <ul>
+        <li><a href="https://pubmed.ncbi.nlm.nih.gov/40920738/">Systematic review of velocity-monitoring devices in resistance training</a> — multi-layer framework keeps GymAware, Perch and VmaxPro at the top of the validity hierarchy.</li>
+        <li><a href="https://read.qxmd.com/journal/41383">IJSPP, May 2026</a> — CORE sensor feasibility for non-invasive core-temperature tracking during simulated beach volleyball in the heat.</li>
+        <li><a href="https://www.tandfonline.com/toc/rjsp20/current">Journal of Sports Sciences vol. 44(11)</a> — current issue covers cardiopulmonary testing safety and isometric-integrated multicomponent training in older adults.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section>
+    <h2 class="section-header">Upcoming events</h2>
+    <hr class="section-rule">
+    <p class="section-intro">Conferences, expos and tournament tech debuts in the next four weeks.</p>
+
+    <div class="event-row">
+      <div class="event-date">10–11 Jun</div>
+      <div class="event-body">
+        <div class="name">Wearable Electronics Conference &amp; Exhibition USA 2026</div>
+        <div class="meta-line">In-person · Mountain View, California · component and sensor focus, but several elite-sport applied tracks</div>
+        <a href="https://www.techblick.com/wearablesreshapedusa">Programme</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">11 Jun – 19 Jul</div>
+      <div class="event-body">
+        <div class="name">FIFA World Cup 26 — connected-ball &amp; semi-automated offside go live</div>
+        <div class="meta-line">USA · Canada · Mexico · the first World Cup with a side-mounted 500 Hz ball IMU, Lenovo 3D avatars and full Hawk-Eye optical mesh in every stadium</div>
+        <a href="https://inside.fifa.com/organisation/media-releases/fifa-celebrates-launch-official-match-ball-world-cup-26-trionda">FIFA tech briefing</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">7–10 Jul</div>
+      <div class="event-body">
+        <div class="name">31st Annual Congress of the European College of Sport Science (ECSS Lausanne 2026)</div>
+        <div class="meta-line">In-person · University of Lausanne &amp; EPFL · the largest European applied-sport-science gathering of the year, hosted by Grégoire Millet's group</div>
+        <a href="https://sport-science.org/lausanne-2026/">Congress site</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">throughout Jun</div>
+      <div class="event-body">
+        <div class="name">Roland Garros 2026 final stretch</div>
+        <div class="meta-line">Paris · finals 6–8 June · clay-court officiating without ELC continues to be the live test case for "is human line-calling defensible in 2026?"</div>
+        <a href="https://www.rolandgarros.com/">Tournament site</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PODCAST -->
+  <section>
+    <h2 class="section-header">Podcast pick</h2>
+    <hr class="section-rule">
+
+    <article class="podcast-card">
+      <h4>Dr Ben Rosenblatt on physically preparing players for the 2026 Men's World Cup</h4>
+      <div class="show">Science for Sport Podcast · late May 2026 episode</div>
+      <p>The most-shared performance-podcast episode of the week, ten days before kickoff. Rosenblatt — formerly with the FA and Arsenal — walks through tournament-readiness scaffolding, the unusual combined heat+altitude exposure of the US/Mexico hosts, and how integrated-support teams are individualising recovery for players coming out of three different European post-season schedules.</p>
+      <a href="https://scienceforsport.fireside.fm/">Listen</a>
+    </article>
+  </section>
+
+  <!-- TECH-TALK -->
+  <section>
+    <h2 class="section-header">Tech-talk</h2>
+    <hr class="section-rule">
+
+    <div class="techtalk">
+      <h2>Connected balls — the 14-gram IMU revolution</h2>
+      <p class="topic-meta">A category that left the lab when adidas TRIONDA goes live on 11 June, with Kinexon, Wilson and others quietly building the same primitives.</p>
+
+      <h3>What it is</h3>
+      <p>A "connected ball" is a regulation-spec match ball with a small inertial measurement unit — accelerometer, gyroscope, sometimes magnetometer, increasingly ultra-wideband (UWB) — embedded inside it. The chip streams motion data wirelessly during play, typically at 500 Hz, to a receiver mesh in the stadium. It is not a new idea (adidas's Al Rihla ball at Qatar 2022 carried a 500 Hz IMU centre-mounted on a suspension system), but the 2026 generation is the first to make the sensor reliable enough for officiating decisions rather than broadcast graphics, and to extend the format beyond football.</p>
+
+      <h3>Providers</h3>
+      <ul>
+        <li><strong>adidas</strong> — TRIONDA, with a side-mounted IMU inside one of the four panels rather than centre-suspended; the official ball of FIFA World Cup 26.</li>
+        <li><strong>Kinexon</strong> — xBall, a 14 g UWB+IMU sensor used by the German and European handball federations (EHF EURO 2026 / 2028) and in pilot in football and basketball; reports position, speed, spin and every touch at 500 Hz.</li>
+        <li><strong>Wilson</strong> — connected basketball used by the NBA Combine since 2024; broadcast-only at present.</li>
+      </ul>
+
+      <h3>Specs that matter</h3>
+      <ul>
+        <li>Sampling rate: 500 Hz IMU is now the de-facto floor; below 200 Hz the impact-vs-touch classification falls apart.</li>
+        <li>Latency: TRIONDA's stack targets sub-50 ms ball-event-to-VAR. Kinexon xBall reports ~10 ms in UWB-equipped venues.</li>
+        <li>Weight delta: governing-body match-ball specs are tight (FIFA: 410–450 g for size 5). The current generation adds the sensor inside the foam without changing certified mass — a non-trivial engineering achievement.</li>
+        <li>Battery: induction-charged on the bench; runtime per charge is the practical constraint, not raw electronics.</li>
+      </ul>
+
+      <h3>Validation</h3>
+      <p>Independent validation lags vendor claims by a wide margin. The strongest peer-reviewed work to date is on kick-impact detection (consistently within 5 ms of high-speed video) and ball-speed estimation (typically within 2–3 % of radar). Spin estimation is more variable and depends heavily on whether magnetometer fusion is enabled. Semi-automated offside accuracy improvements in 2022–2024 came largely from the camera mesh, not from the ball itself — practitioners should be careful not to attribute officiating wins to the ball alone.</p>
+
+      <h3>What's new in 2026</h3>
+      <p>Three things. First, side-mounted IMU placement (TRIONDA) removes the central suspension cage that distorted feel for some players in 2022. Second, the camera-ball-avatar fusion stack means the ball is no longer the standalone signal — it's one channel of three, and offside calls draw on whichever is highest-confidence in a given frame. Third, and quietly the most interesting, Kinexon's xBall is starting to move outside football: handball at the EHF EURO 2026, and pilot deployments in basketball and water polo. If the cost curve keeps falling, the next category-jump for an elite-performance team is treating ball IMU as a routine training-data stream the same way you treat GPS pods today.</p>
+
+      <p>The practitioner takeaway is conservative. Connected balls are now infrastructure for officiating and broadcast; they are not yet a routine sport-science data source for clubs. The data is closed inside FIFA/UEFA/EHF systems for the foreseeable future. Worth tracking — not yet worth buying.</p>
+
+      <div class="further">
+        <h3>Further reading</h3>
+        <ul>
+          <li><a href="https://news.adidas.com/football/adidas-unveils--trionda----the-official-match-ball-of-the-fifa-world-cup26-/s/27042e3a-12ba-482d-8839-8a96e056b33e">adidas — TRIONDA reveal &amp; technical brief</a></li>
+          <li><a href="https://kinexon-sports.com/products/xball/">Kinexon — xBall product page</a></li>
+          <li><a href="https://www.iotinsider.com/industries/smart-world/game-of-throw-ins-the-sensors-semiconductors-and-smart-tech-inside-the-fifa-world-cup-2026-ball/">IoT Insider — TRIONDA semiconductor teardown</a></li>
+          <li><a href="https://news.lenovo.com/building-3d-player-avatars-fifa-world-cup-2026/">Lenovo StoryHub — 3D avatar fusion with ball data</a></li>
+          <li><a href="https://inside.fifa.com/media-releases/lenovo-tech-world-ai-powered-innovations-world-cup-2026">FIFA × Lenovo — Tech World 2026 unveil</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    Sport Tech Weekly &nbsp;·&nbsp; Issue 03 · 1 June 2026 &nbsp;·&nbsp; Generated by Claude
+  </div>
+
+</div>
+</body>
+</html>
