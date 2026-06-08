@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sport Tech Weekly — 8 June 2026</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAF9F5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: #1A1A1A;
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 32px 32px 32px;
+  }
+  @media (max-width: 600px) {
+    .container { padding: 32px 20px 20px 20px; }
+  }
+
+  /* Masthead */
+  .masthead { text-align: center; margin-bottom: 80px; }
+  .masthead h1 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 48px;
+    color: #CC785C;
+    margin: 0 0 12px 0;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  .masthead .date {
+    color: #6B6B6B;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .masthead .tagline {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    color: #1A1A1A;
+    font-size: 18px;
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* Section headers */
+  section { margin-bottom: 64px; }
+  .section-header {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: #1A1A1A;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+  }
+  .section-rule {
+    width: 40px;
+    height: 2px;
+    background: #CC785C;
+    border: none;
+    margin: 0 0 32px 0;
+  }
+  .section-intro {
+    color: #6B6B6B;
+    font-size: 15px;
+    margin: -16px 0 28px 0;
+    line-height: 1.6;
+  }
+
+  /* Cards */
+  .card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-bottom: 24px;
+  }
+  .card h3 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.25;
+    margin: 0 0 14px 0;
+    color: #1A1A1A;
+  }
+  .card p { margin: 0 0 16px 0; }
+  .card p:last-child { margin-bottom: 0; }
+  .takeaway { color: #1A1A1A; }
+  .meta {
+    color: #6B6B6B;
+    font-size: 14px;
+    margin: 0 0 12px 0;
+    display: block;
+  }
+  .emerging-flag {
+    display: inline-block;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: #B05B3F;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    background: #F5F1E8;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .sources {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .sources a {
+    color: #CC785C;
+    font-size: 13px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color 0.15s ease;
+  }
+  .sources a:hover { border-bottom-color: #CC785C; }
+  .sources a + a::before {
+    content: '·';
+    color: #E8E2D5;
+    margin-right: 8px;
+  }
+
+  /* Literature */
+  .lit-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-bottom: 18px;
+  }
+  .lit-card h4 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.3;
+    margin: 0 0 6px 0;
+    color: #1A1A1A;
+  }
+  .lit-card .authors { color: #6B6B6B; font-size: 14px; margin: 0 0 4px 0; }
+  .lit-card .journal { font-style: italic; color: #6B6B6B; font-size: 14px; margin: 0 0 12px 0; }
+  .lit-card .relevance { font-size: 16px; color: #1A1A1A; margin: 0 0 12px 0; }
+  .lit-card a { color: #CC785C; text-decoration: none; font-size: 14px; }
+  .lit-card a:hover { border-bottom: 1px solid #CC785C; }
+
+  .other-papers {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-top: 18px;
+  }
+  .other-papers h5 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 0 12px 0;
+    color: #1A1A1A;
+  }
+  .other-papers ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .other-papers li { margin-bottom: 6px; color: #1A1A1A; }
+  .other-papers a {
+    color: #CC785C;
+    text-decoration: none;
+  }
+  .other-papers a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Events row */
+  .event-row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    padding: 18px 4px;
+    border-bottom: 1px solid #E8E2D5;
+  }
+  .event-row:last-child { border-bottom: none; }
+  .event-date {
+    color: #CC785C;
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    min-width: 130px;
+    flex-shrink: 0;
+  }
+  .event-body {
+    flex: 1;
+  }
+  .event-body .name {
+    font-weight: 600;
+    color: #1A1A1A;
+    font-size: 16px;
+  }
+  .event-body .meta-line {
+    color: #6B6B6B;
+    font-size: 14px;
+    margin-top: 2px;
+  }
+  .event-body a {
+    color: #CC785C;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 4px;
+    display: inline-block;
+  }
+  .event-body a:hover { border-bottom: 1px solid #CC785C; }
+  @media (max-width: 600px) {
+    .event-row { flex-direction: column; gap: 4px; }
+    .event-date { min-width: 0; }
+  }
+
+  /* Podcast */
+  .podcast-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    border-left: 4px solid #CC785C;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+  }
+  .podcast-card h4 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 19px;
+    margin: 0 0 6px 0;
+    line-height: 1.3;
+    color: #1A1A1A;
+  }
+  .podcast-card .show { color: #6B6B6B; font-size: 14px; margin: 0 0 12px 0; }
+  .podcast-card p { margin: 0 0 12px 0; font-size: 16px; }
+  .podcast-card a { color: #CC785C; text-decoration: none; font-size: 14px; }
+  .podcast-card a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Tech-talk feature */
+  .techtalk {
+    background: #F5F1E8;
+    border-radius: 12px;
+    padding: 40px 32px;
+    margin-bottom: 24px;
+  }
+  .techtalk h2 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.2;
+    color: #1A1A1A;
+    margin: 0 0 6px 0;
+  }
+  .techtalk .topic-meta {
+    color: #B05B3F;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 15px;
+    margin: 0 0 24px 0;
+  }
+  .techtalk h3 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #1A1A1A;
+    margin: 28px 0 10px 0;
+  }
+  .techtalk p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0 0 14px 0;
+    color: #1A1A1A;
+  }
+  .techtalk ul {
+    padding-left: 22px;
+    margin: 0 0 14px 0;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .techtalk li { margin-bottom: 6px; }
+  .techtalk .further {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #E8E2D5;
+  }
+  .techtalk .further h3 { margin-top: 0; }
+  .techtalk .further ul { padding-left: 0; list-style: none; margin: 0; }
+  .techtalk .further li { margin-bottom: 8px; font-size: 15px; }
+  .techtalk .further a { color: #CC785C; text-decoration: none; }
+  .techtalk .further a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Footer */
+  .footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid #E8E2D5;
+    text-align: center;
+    color: #6B6B6B;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="masthead">
+    <h1>Sport Tech Weekly</h1>
+    <div class="date">Issue 04 · Monday 8 June 2026</div>
+    <p class="tagline">Three days from World Cup kickoff — Oura's Ring 5 ships in earnest, FIFA quietly drops the semi-automated offside threshold from 50 cm to 10 cm, Hudl signs four federations in a week, and an Irish startup gets its concussion-detection wearable on the table — plus a tech-talk on markerless motion capture.</p>
+  </header>
+
+  <!-- BIG STORIES -->
+  <section>
+    <h2 class="section-header">Big stories</h2>
+    <hr class="section-rule">
+
+    <article class="card">
+      <span class="meta">Ships 4 June 2026 · Hardware launch</span>
+      <h3>Oura Ring 5 ships — 40 % smaller, a new "Health Radar" suite, and an obvious pitch at the clinic</h3>
+      <p class="takeaway">Oura's fifth-generation ring started shipping on 4 June after a 28 May reveal. The hardware is the headline: 6.09 mm wide, 2.28 mm thick, 40 % smaller than Ring 4, with six-to-nine-day battery life and titanium IP68 build. Pricing is $399 base / $499 premium finishes, plus a $99 portable charging case. New software rolling out the same day for Ring 3, 4 and 5: GLP-1 Insights (US/UAE/India), Live Activity Tracking, Locate, improved Automatic Activity Detection across 40+ modalities including low-motion work like pilates, and a phased "Health Radar" stack adding nighttime blood-pressure signals and respiratory anomaly flags.</p>
+      <p class="takeaway">For practitioners: the form-factor cut is the genuinely interesting bit — finger-ring compliance during competition was the last real objection, and a 6 mm shank gets the device under taping and gloves without complaint. The Health Radar features are framed for the clinical-AI funnel Oura announced last month, not for sport performance; resting HR/HRV/skin-temperature/sleep onset remain the only metrics worth basing applied decisions on. Take the GLP-1 module as a marketing tell about where the consumer base is heading, not as a sport-science signal.</p>
+      <div class="sources">
+        <a href="https://ouraring.com/blog/introducing-oura-ring-5/">Oura announcement</a>
+        <a href="https://www.businesswire.com/news/home/20260528686853/en/URA-Introduces-The-Worlds-Smallest-Smart-Ring-Oura-Ring-5">BusinessWire press release</a>
+        <a href="https://techcrunch.com/2026/06/04/oura-ring-5-review-thinner-lighter-better/">TechCrunch · 4 Jun review</a>
+        <a href="https://corporate.bestbuy.com/2026/oura-ring-5/">Best Buy launch note</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="meta">3 June 2026 · Officiating tech · FIFA</span>
+      <h3>FIFA drops the semi-automated offside threshold to 10 cm and adds Lenovo-built 3D player avatars</h3>
+      <p class="takeaway">Eight days before World Cup 26 kickoff, FIFA confirmed two material upgrades to the officiating stack. The semi-automated offside system (SAOT) will now flag an offside at &gt; 10 cm of advantage, down from the 50 cm threshold used at Qatar 2022 and the Club World Cup 2025. The TRIONDA ball's 500 Hz IMU determines the kick-point in real time, while Lenovo has built individual 3D AI avatars for every one of the 1,248 players in the tournament — generated from a single one-second whole-body scan that captures limb lengths and segment dimensions — used to compute the player-position side of the offside line. FIFA's match-officials briefing this week also added an in-ear referee feed for SAOT calls.</p>
+      <p class="takeaway">For practitioners: this is the first World Cup where the limiting factor on an offside decision is genuinely the sensor stack and not the camera mesh — sub-10 cm classification implies sub-degree skeletal-joint reconstruction at video frame rates. The under-discussed practitioner angle is that every player in the tournament now has a publishable, FIFA-controlled 3D body scan on record. That dataset is large enough to recalibrate every off-the-shelf markerless-pose model in football within the next twelve months, and the rights to it will quietly become a recruitment chip.</p>
+      <div class="sources">
+        <a href="https://www.insideworldfootball.com/2026/06/03/fifa-upgrades-saot-and-ball-tracking-as-2026-match-officials-given-new-suite-of-tech-tools">Inside World Football · 3 Jun</a>
+        <a href="https://www.techtimes.com/articles/317958/20260607/world-cup-2026s-ai-offside-system-now-pipes-calls-straight-referees-ear.htm">TechTimes · 7 Jun</a>
+        <a href="https://news.lenovo.com/building-3d-player-avatars-fifa-world-cup-2026/">Lenovo StoryHub · avatar pipeline</a>
+        <a href="https://www.aljazeera.com/sports/2026/6/6/fifa-world-cup-2026-what-is-new-sensor-match-ball-ai-player-avatar">Al Jazeera · 6 Jun</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="meta">3–7 June 2026 · Vendor &amp; data infrastructure</span>
+      <h3>Hudl signs four federations in five days — Wyscout pipeline now reaches Indiana high schools, Malaysia, OFC and the CHL</h3>
+      <p class="takeaway">Hudl announced, in sequence: a Lee Enterprises + Franciscan Alliance partnership distributing Hudl high-school broadcasts across Indiana local-news platforms (3 June); a multi-year exclusive scouting-rights renewal with the Malaysian Football League (3 June); a multi-season exclusive renewal with the Canadian Hockey League covering WHL, OHL and QMJHL (4 June); and a multi-year exclusive renewal with the Oceania Football Confederation (7 June). It is a continuation of the lock-up pattern we flagged on 1 June with the NFYL deal.</p>
+      <p class="takeaway">For practitioners: nothing technically novel in any one of these deals, but together they keep the scouting and youth-pipeline graph collapsing toward Hudl/Wyscout. If your federation, academy or national team uses any third-party scouting database for OFC, CHL or Malaysian football, the underlying feed is increasingly going to be the same single source. That has obvious data-integration benefits and equally obvious dependency risks — a single vendor outage, a single price-list reset.</p>
+      <div class="sources">
+        <a href="https://www.globenewswire.com/news-release/2026/06/03/3306170/0/en/Hudl-partners-with-Lee-Enterprises-Franciscan-Alliance-to-expand-access-to-high-school-sports-across-Indiana.html">Lee/Franciscan · 3 Jun</a>
+        <a href="https://www.hudl.com/blog/hudl-and-the-malaysian-football-league-mfl-announce-exclusive-multi-year-scouting-rights-agreement">MFL · 3 Jun</a>
+        <a href="https://www.hudl.com/blog/hudl-canadian-hockey-league-renew-multi-season-scouting-rights-agreement">CHL · 4 Jun</a>
+        <a href="https://www.hudl.com/blog/hudl-oceania-football-confederation-renew-long-term-exclusive-rights-agreement">OFC · 7 Jun</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="meta">2 June 2026 · Hardware leak · Garmin</span>
+      <h3>Garmin Edge 1060 surfaces in UAE and Malaysian regulatory databases — June launch on schedule</h3>
+      <p class="takeaway">A Garmin device under model number A04831 was filed with the UAE TDRA and Malaysian SIRIM regulators this week, with the filing window matching Garmin's biennial June cadence for its flagship cycling head unit (Edge 1040 in June 2022, 1050 in June 2024). The5krunner caught the listing alongside aggressive price cuts on the Edge 1050 across the major distribution channels, which is Garmin's standard signal of imminent product replacement.</p>
+      <p class="takeaway">For practitioners: not a story you act on yet, but worth flagging if you spec equipment for endurance squads. Expect a more power-efficient transflective display, the same odd-shaped premium-Edge case, and — given Garmin's Q2 update cadence — likely some of the Cirqa-derived recovery features ported over. Hold purchase orders for a few weeks.</p>
+      <div class="sources">
+        <a href="https://the5krunner.com/2026/06/02/garmin-edge-1060-regulatory-filing/">the5krunner · 2 Jun</a>
+        <a href="https://www.garminnews.com/exclusive-new-garmin-device-a04831-spotted-in-tdra-and-sirim-is-this-the-edge-1060/">GarminNews · A04831 filing</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="emerging-flag">🌱 Up-and-coming · prototype</span>
+      <h3>Aerly Diagnostics demos a neck-worn wearable for exercise-induced laryngeal obstruction</h3>
+      <p class="takeaway">Indiana University spin-out Aerly Diagnostics unveiled a prototype neck-worn sensor on 3 June that aims to objectively detect exercise-induced laryngeal obstruction (EILO) during training — a breathing disorder that mimics exercise-induced asthma and is routinely misdiagnosed in young athletes. The device combines an external acoustic microphone over the larynx with surface-EMG of strap-muscle activity and an IMU for breathing-cycle segmentation. Founder Rita Patel (IU School of Medicine, Speech-Language-Hearing) reports 100 % agreement with reference flexible laryngoscopy in the prototype clinical cohort.</p>
+      <p class="takeaway"><strong>Maturity:</strong> functioning prototype, no commercial release. <strong>Backing:</strong> a $3.7 M NIH award, plus a Winter 2026 spot in the IU LAB pre-accelerator (powered by gener8tor). <strong>Who's piloting:</strong> IU clinical pulmonology and ENT partners; field pilots with collegiate athletics not yet announced. <strong>What's genuinely new:</strong> EILO has no field-deployable test today — diagnosis means an exercising laryngoscopy in an ENT clinic, which is exactly the situation where the symptoms don't reproduce. A wearable that flags during real exertion would close a known practitioner gap, especially in adolescent middle-distance and rowing programmes. <strong>Skepticism:</strong> the 100 % accuracy headline is a tiny prototype cohort against a single comparator; the technical hard part — acoustic separation of breath-hold versus partial laryngeal closure on a moving runner in wind — is not solved by the sample size. Watch for a multi-site validation study before believing the headline.</p>
+      <div class="sources">
+        <a href="https://news.iu.edu/live/news/51138-wearable-tech-startup-aims-to-diagnose-common">IU News · 3 Jun</a>
+        <a href="https://www.miragenews.com/startup-targets-breathing-disorder-in-young-1685730/">MirageNews coverage</a>
+        <a href="https://iulab.iu.edu/index.html">IU LAB programme</a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- LITERATURE -->
+  <section>
+    <h2 class="section-header">Recent literature</h2>
+    <hr class="section-rule">
+    <p class="section-intro">Peer-reviewed work published or first-issued in the past seven days, biased toward what changes a practitioner's protocol.</p>
+
+    <article class="lit-card">
+      <h4>Navigating the data processing maze: a systematic review of jump height calculations using force platforms</h4>
+      <p class="authors">Eythorsdottir I., Gløersen Ø., Rice H., Solli G.S., Pedersen S., Sandbakk Ø. · open-access · current online issue June 2026</p>
+      <p class="journal">European Journal of Sport Science</p>
+      <p class="relevance">The most practitioner-relevant force-plate paper of the year. Across 47 studies, the authors quantify how much jump height drifts purely as a function of the equation chosen (flight time, impulse–momentum, double-integration), the sampling frequency, the filter cut-off and the take-off threshold. The headline number: data-processing decisions alone can change reported jump height by up to ~26 %, and equation choice by ~15 cm. The non-headline: VALD, Hawkin and the open-source pipelines all default to different equations, so cross-system comparisons across your performance department are essentially unsupported unless you fix the processing chain.</p>
+      <a href="https://onlinelibrary.wiley.com/doi/10.1002/ejsc.70114">doi.org/10.1002/ejsc.70114</a>
+    </article>
+
+    <article class="lit-card">
+      <h4>Automatic event detection in association football using broadcast-derived tracking data</h4>
+      <p class="authors">Mills K., Wang H., Crang Z., et al. · Sports Engineering, vol. 29 (online issue June 2026)</p>
+      <p class="journal">Sports Engineering</p>
+      <p class="relevance">A 90-minute 2022 World Cup match was processed with broadcast-derived player and ball tracking and benchmarked against TRACAB Gen 5 multi-camera optical tracking plus FIFA Data Collection Unit hand tags. Broadcast-camera 1 auto-events approached optical-tracking accuracy for several event classes. Useful for federations that can't afford a multi-camera install — there is now a credible cost-down path for academy-level event data — but the paper is also honest about where broadcast still fails (off-screen receivers, occluded set-pieces).</p>
+      <a href="https://link.springer.com/article/10.1007/s12283-026-00549-4">doi.org/10.1007/s12283-026-00549-4</a>
+    </article>
+
+    <article class="lit-card">
+      <h4>Editorial: AI and wearables in sport — performance, injury risk, and wellbeing</h4>
+      <p class="authors">Frontiers Research Topic editorial · early-June 2026</p>
+      <p class="journal">Frontiers in Artificial Intelligence</p>
+      <p class="relevance">A short framing piece worth ten minutes before any vendor-pitch meeting. The editors call out, explicitly, that "AI-driven readiness" scores in commercial wearables are still trained on small, single-team, mostly-male datasets that don't generalise, and that the injury-risk signal-to-noise ratio in 2026 wearable analytics has not measurably improved over 2022 despite a doubling of available models. Use it as a citation when pushing back on procurement.</p>
+      <a href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1838507/full">doi.org/10.3389/frai.2026.1838507</a>
+    </article>
+
+    <div class="other-papers">
+      <h5>Other notable papers this week</h5>
+      <ul>
+        <li><a href="https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2026.1724364/full">Frontiers in Bioengineering — fully textile passive-wireless sensing for human movement</a> — proof-of-concept knit garment integrating multiple sensors with no battery, no microchip; field-readiness still 3–5 years out, but worth tracking.</li>
+        <li><a href="https://link.springer.com/article/10.1007/s12283-026-00549-4">Sports Engineering 29(1) collection</a> — full June issue covers wheelchair mobility, IMU-based reaction-force estimation and an instrumented-mouthguard validation update from the iMG working group.</li>
+        <li><a href="https://onlinelibrary.wiley.com/journal/15367290">European Journal of Sport Science — current issue</a> — review on artificial intelligence in sports biomechanics framing where wearable + motion-analysis fusion is realistic and where it still over-promises.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section>
+    <h2 class="section-header">Upcoming events</h2>
+    <hr class="section-rule">
+    <p class="section-intro">Conferences, expos and tournament tech debuts in the next four weeks.</p>
+
+    <div class="event-row">
+      <div class="event-date">10–11 Jun</div>
+      <div class="event-body">
+        <div class="name">Wearable Electronics Conference &amp; Exhibition USA 2026</div>
+        <div class="meta-line">In-person · Mountain View, California · sensor and component focus, several elite-sport applied tracks</div>
+        <a href="https://www.techblick.com/wearablesreshapedusa">Programme</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">11 Jun – 19 Jul</div>
+      <div class="event-body">
+        <div class="name">FIFA World Cup 26 — TRIONDA, SAOT-10 and Lenovo avatars go live</div>
+        <div class="meta-line">USA · Canada · Mexico · the first World Cup with a 500 Hz side-mounted ball IMU, individualised 3D player avatars and a 10 cm offside threshold</div>
+        <a href="https://inside.fifa.com/media-releases/lenovo-tech-world-ai-powered-innovations-world-cup-2026">FIFA × Lenovo tech briefing</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">26–28 Jun</div>
+      <div class="event-body">
+        <div class="name">Sportsmith Strength &amp; Power Conference 2026</div>
+        <div class="meta-line">In-person · Intuit Dome, Los Angeles · two-day applied-S&amp;C deep-dive with the Sportsmith roster</div>
+        <a href="https://www.sportsmith.co/">Programme</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">7–10 Jul</div>
+      <div class="event-body">
+        <div class="name">31st Annual ECSS Congress (Lausanne 2026)</div>
+        <div class="meta-line">In-person · University of Lausanne &amp; EPFL · the largest European applied-sport-science gathering of the year</div>
+        <a href="https://sport-science.org/lausanne-2026/">Congress site</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PODCAST -->
+  <section>
+    <h2 class="section-header">Podcast pick</h2>
+    <hr class="section-rule">
+
+    <article class="podcast-card">
+      <h4>Darcy Norman on what an AMS is actually for, ten years into Kitman Labs</h4>
+      <div class="show">Pacey Performance Podcast · early June 2026</div>
+      <p>Rob Pacey sits down with Kitman Labs' Director of Performance Science for a long, unusually candid conversation about athlete-management systems — why most implementations underdeliver in their first 18 months, how to design data pipelines that don't get abandoned the moment a head coach leaves, and where Kitman's "intelligence platform" pitch ends and a practitioner's own judgement begins. The most useful 45 minutes you'll spend on AMS strategy this quarter.</p>
+      <a href="https://paceyperformancepodcast.podbean.com/">Listen</a>
+    </article>
+  </section>
+
+  <!-- TECH-TALK -->
+  <section>
+    <h2 class="section-header">Tech-talk</h2>
+    <hr class="section-rule">
+
+    <div class="techtalk">
+      <h2>Markerless motion capture — computer vision finally eats the lab</h2>
+      <p class="topic-meta">Three years from being "a research toy"; this is the week it became officiating-grade. With FIFA's per-player avatar pipeline live in three days, the practitioner question is no longer "does it work" but "what should I use it for."</p>
+
+      <h3>What it is</h3>
+      <p>Markerless motion capture (MMC) is the umbrella term for systems that reconstruct an athlete's three-dimensional pose from one or more standard video cameras, with no markers, suits or skin-mounted sensors. The core machinery is a deep convolutional or transformer model trained to localise body landmarks (typically 20–50 joint centres) frame-by-frame; a second stage fits a kinematic skeleton, a third stage solves the inverse problem to produce joint angles, velocities and — increasingly — internal joint loads via musculoskeletal modelling. The category covers everything from a single-camera smartphone app to a forty-camera volumetric capture rig in a broadcast stadium.</p>
+
+      <h3>Providers</h3>
+      <ul>
+        <li><strong>Theia Markerless</strong> — Theia3D, the most extensively peer-validated platform in sport; the engine behind the Driveline Launchpad service for collegiate baseball (Ohio State, Florida State and others), with a 2026 expansion into integrated bat and ball tracking.</li>
+        <li><strong>KinaTrax</strong> — multi-camera markerless capture used widely in MLB pitching biomechanics; lower-frame-rate but higher-volume than lab marker systems.</li>
+        <li><strong>Hawk-Eye / Sony</strong> — broadcast-stadium multi-camera mesh now repurposed for skeletal pose in football (FIFA SAOT), basketball (NBA player + ball) and baseball (MLB ABS pipeline).</li>
+        <li><strong>Lenovo</strong> — the new entrant; its FIFA World Cup 26 pipeline generates per-player 3D avatars from one-second whole-body scans, then fuses them with the Hawk-Eye camera mesh and the TRIONDA ball's IMU for offside calls.</li>
+        <li><strong>Move 4D, Notch, Captury, Simi</strong> — broader research-grade and field-deployable systems.</li>
+        <li><strong>Open-source</strong> — OpenPose, MMPose, OpenCap (Stanford), and the University of Bath's CAMERA open-access tooling for "biomechanics in the wild."</li>
+      </ul>
+
+      <h3>Specs that matter</h3>
+      <ul>
+        <li>Camera count: a single phone camera gives you 2D pose plus crude depth via temporal priors; reliable 3D needs at least four synchronised cameras; broadcast-grade joint reconstruction at sub-degree accuracy needs 8–12.</li>
+        <li>Frame rate: 50 Hz is fine for gait and posture; pitching biomechanics, sprint mechanics and bat tracking need 200–500 Hz, which is where smartphone tooling falls down.</li>
+        <li>Joint-angle accuracy versus marker-based gold standard: typically 2–5° RMSE for lower-limb angles in steady-state running, larger for transient movements (cutting, single-leg landings), and consistently worst for axial rotations.</li>
+        <li>Subject calibration: the FIFA pipeline's one-second body scan is the productionised version of a long-standing finding — knowing each athlete's segment lengths a-priori roughly halves joint-centre error.</li>
+        <li>Throughput: a markerless lab session captures 5–10× as many movement reps per hour as a marker lab, because there are no marker placements to redo.</li>
+      </ul>
+
+      <h3>Validation</h3>
+      <p>The validation literature has converged. Theia3D, KinaTrax, OpenCap and OpenPose-based pipelines now consistently meet sub-5° RMSE versus marker-based Vicon/Qualisys for sagittal-plane lower-limb kinematics in walking, running and CMJ. Frontal- and transverse-plane angles, hip/spine angles, and any movement involving heavy soft-tissue artefact remain more variable. Recent open-access work (Tandfonline 2026 on tennis-stroke mechanical work, PLOS One on skeleton push-start) extends the validation envelope into sport-specific contexts and confirms the field-vs-lab agreement is now acceptable for monitoring trends and within-athlete change — but not yet for diagnosing absolute kinematic abnormality.</p>
+
+      <h3>What's new in 2026</h3>
+      <p>Three shifts. First, the productionisation push: Theia3D's integration with bat-and-ball tracking (April), Lenovo's per-player avatar pipeline at the World Cup (June), and the Hawk-Eye optical mesh now serving as a skeletal-pose source for MLB ABS as well as football SAOT mean MMC is no longer a research artefact — it is operational stadium infrastructure. Second, subject-specific scaling has gone from a manual lab calibration to a 1-second pre-tournament body scan, which removes the largest historical error source. Third, the open-source stack (OpenCap, MMPose, University of Bath's "biomechanics in the wild" tooling) has reached the point where a well-resourced academy can build its own usable pipeline with two action cameras and an afternoon's GPU time. The validation envelope for these open tools is narrower than for Theia3D, but the cost difference is real.</p>
+
+      <p>The practitioner takeaway: MMC is now the right default for any new movement-analysis investment in a high-performance environment. Marker-based labs remain the reference for joint-load estimation and for any project that ends in publication; MMC is for the 95 % of your applied work where you need throughput, repeatability and an athlete who isn't covered in retroreflective dots. The remaining live question is data ownership: when your provider hands you joint angles derived from their black-box pose estimator, you are no longer in control of the measurement chain. Insist on validation reports, fixed model versions and exportable raw video.</p>
+
+      <div class="further">
+        <h3>Further reading</h3>
+        <ul>
+          <li><a href="https://www.theiamarkerless.com/blog/theia-and-driveline-baseball-building-a-new-standard-for-athlete-development">Theia × Driveline — Launchpad collegiate baseball</a></li>
+          <li><a href="https://news.lenovo.com/building-3d-player-avatars-fifa-world-cup-2026/">Lenovo StoryHub — 3D player avatars at the World Cup</a></li>
+          <li><a href="https://www.bath.ac.uk/announcements/researchers-develop-markerless-motion-capture-system-to-push-biomechanics-into-the-wild/">University of Bath — markerless biomechanics in the wild</a></li>
+          <li><a href="https://www.tandfonline.com/doi/full/10.1080/02640414.2025.2555096">Journal of Sports Sciences — markerless system for tennis-stroke mechanical work</a></li>
+          <li><a href="https://www.theupside.us/p/upside-analysis-markerless-systems">The Upside — markerless systems in elite sport: vendors, recommendations</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    Sport Tech Weekly &nbsp;·&nbsp; Issue 04 · 8 June 2026 &nbsp;·&nbsp; Generated by Claude
+  </div>
+
+</div>
+</body>
+</html>
