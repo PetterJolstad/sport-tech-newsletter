@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sport Tech Weekly — 15 June 2026</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAF9F5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: #1A1A1A;
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 32px 32px 32px;
+  }
+  @media (max-width: 600px) {
+    .container { padding: 32px 20px 20px 20px; }
+  }
+
+  /* Masthead */
+  .masthead { text-align: center; margin-bottom: 80px; }
+  .masthead h1 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 48px;
+    color: #CC785C;
+    margin: 0 0 12px 0;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  .masthead .date {
+    color: #6B6B6B;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .masthead .tagline {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    color: #1A1A1A;
+    font-size: 18px;
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* Section headers */
+  section { margin-bottom: 64px; }
+  .section-header {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: #1A1A1A;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+  }
+  .section-rule {
+    width: 40px;
+    height: 2px;
+    background: #CC785C;
+    border: none;
+    margin: 0 0 32px 0;
+  }
+  .section-intro {
+    color: #6B6B6B;
+    font-size: 15px;
+    margin: -16px 0 28px 0;
+    line-height: 1.6;
+  }
+
+  /* Cards */
+  .card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-bottom: 24px;
+  }
+  .card h3 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.25;
+    margin: 0 0 14px 0;
+    color: #1A1A1A;
+  }
+  .card p { margin: 0 0 16px 0; }
+  .card p:last-child { margin-bottom: 0; }
+  .takeaway { color: #1A1A1A; }
+  .meta {
+    color: #6B6B6B;
+    font-size: 14px;
+    margin: 0 0 12px 0;
+    display: block;
+  }
+  .emerging-flag {
+    display: inline-block;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: #B05B3F;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    background: #F5F1E8;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .sources {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .sources a {
+    color: #CC785C;
+    font-size: 13px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color 0.15s ease;
+  }
+  .sources a:hover { border-bottom-color: #CC785C; }
+  .sources a + a::before {
+    content: '·';
+    color: #E8E2D5;
+    margin-right: 8px;
+  }
+
+  /* Literature */
+  .lit-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-bottom: 18px;
+  }
+  .lit-card h4 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.3;
+    margin: 0 0 6px 0;
+    color: #1A1A1A;
+  }
+  .lit-card .authors { color: #6B6B6B; font-size: 14px; margin: 0 0 4px 0; }
+  .lit-card .journal { font-style: italic; color: #6B6B6B; font-size: 14px; margin: 0 0 12px 0; }
+  .lit-card .relevance { font-size: 16px; color: #1A1A1A; margin: 0 0 12px 0; }
+  .lit-card a { color: #CC785C; text-decoration: none; font-size: 14px; }
+  .lit-card a:hover { border-bottom: 1px solid #CC785C; }
+
+  .other-papers {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-top: 18px;
+  }
+  .other-papers h5 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 0 12px 0;
+    color: #1A1A1A;
+  }
+  .other-papers ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .other-papers li { margin-bottom: 6px; color: #1A1A1A; }
+  .other-papers a {
+    color: #CC785C;
+    text-decoration: none;
+  }
+  .other-papers a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Events row */
+  .event-row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    padding: 18px 4px;
+    border-bottom: 1px solid #E8E2D5;
+  }
+  .event-row:last-child { border-bottom: none; }
+  .event-date {
+    color: #CC785C;
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    min-width: 130px;
+    flex-shrink: 0;
+  }
+  .event-body {
+    flex: 1;
+  }
+  .event-body .name {
+    font-weight: 600;
+    color: #1A1A1A;
+    font-size: 16px;
+  }
+  .event-body .meta-line {
+    color: #6B6B6B;
+    font-size: 14px;
+    margin-top: 2px;
+  }
+  .event-body a {
+    color: #CC785C;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 4px;
+    display: inline-block;
+  }
+  .event-body a:hover { border-bottom: 1px solid #CC785C; }
+  @media (max-width: 600px) {
+    .event-row { flex-direction: column; gap: 4px; }
+    .event-date { min-width: 0; }
+  }
+
+  /* Podcast */
+  .podcast-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    border-left: 4px solid #CC785C;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+  }
+  .podcast-card h4 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 19px;
+    margin: 0 0 6px 0;
+    line-height: 1.3;
+    color: #1A1A1A;
+  }
+  .podcast-card .show { color: #6B6B6B; font-size: 14px; margin: 0 0 12px 0; }
+  .podcast-card p { margin: 0 0 12px 0; font-size: 16px; }
+  .podcast-card a { color: #CC785C; text-decoration: none; font-size: 14px; }
+  .podcast-card a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Tech-talk feature */
+  .techtalk {
+    background: #F5F1E8;
+    border-radius: 12px;
+    padding: 40px 32px;
+    margin-bottom: 24px;
+  }
+  .techtalk h2 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.2;
+    color: #1A1A1A;
+    margin: 0 0 6px 0;
+  }
+  .techtalk .topic-meta {
+    color: #B05B3F;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 15px;
+    margin: 0 0 24px 0;
+  }
+  .techtalk h3 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #1A1A1A;
+    margin: 28px 0 10px 0;
+  }
+  .techtalk p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0 0 14px 0;
+    color: #1A1A1A;
+  }
+  .techtalk ul {
+    padding-left: 22px;
+    margin: 0 0 14px 0;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .techtalk li { margin-bottom: 6px; }
+  .techtalk .further {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #E8E2D5;
+  }
+  .techtalk .further h3 { margin-top: 0; }
+  .techtalk .further ul { padding-left: 0; list-style: none; margin: 0; }
+  .techtalk .further li { margin-bottom: 8px; font-size: 15px; }
+  .techtalk .further a { color: #CC785C; text-decoration: none; }
+  .techtalk .further a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Footer */
+  .footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid #E8E2D5;
+    text-align: center;
+    color: #6B6B6B;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="masthead">
+    <h1>Sport Tech Weekly</h1>
+    <div class="date">Issue 05 · Monday 15 June 2026</div>
+    <p class="tagline">The World Cup tech stack we've been writing about all month finally goes live. Strava pushes a cross-vendor watch-sync layer. Garmin's CIRQA filings firm up — without the features that would have made it a coach's tool. And continuous lactate biosensors quietly cross the commercial line.</p>
+  </header>
+
+  <!-- BIG STORIES -->
+  <section>
+    <h2 class="section-header">Big stories</h2>
+    <hr class="section-rule">
+
+    <article class="card">
+      <span class="meta">11 June 2026 · Officiating &amp; tracking · FIFA World Cup 26</span>
+      <h3>Mexico v South Africa kicks off the World Cup — and the new SAOT-10 cm, ref-cam and 1,248-avatar stack goes live for real</h3>
+      <p class="takeaway">The 23rd FIFA World Cup opened at the Estadio Azteca at 19:00 GMT on 11 June 2026, Mexico v South Africa, the first of 104 matches across 16 stadiums in the US, Canada and Mexico through to the 19 July final at the New Jersey Stadium. The officiating tech stack we covered piece-by-piece over May and early June is now operational at scale: SAOT with a 10 cm threshold (down from 50 cm at Qatar 2022), the 500 Hz Kinexon IMU inside the adidas TRIONDA ball, Lenovo's individualised 3D avatars for all 1,248 players, an in-ear audio alert direct to the on-field assistant and centre referee, and a head-mounted Lenovo body camera on every referee, stabilised in real time on a private 5G uplink at the Dallas IBC. FIFA's Football AI Pro assistant is also being offered to team analysts for the first time.</p>
+      <p class="takeaway">For practitioners: nothing in this is technologically new — every component shipped in some form at the 2025 Club World Cup — but this is the first 104-match dataset of fully-instrumented, individually-avatared elite football. Two practical points. First, the 10 cm threshold means SAOT is now operationally <em>more</em> precise than the broadcast cameras feeding most clubs' video analysis pipelines; if your offside coaching is built on what a CV-tagged video says, the cards on the pitch will start disagreeing with you. Second, the player-avatar dataset is the single biggest cohort of standardised body-segment scans in football history. Expect it to leak — quietly, via federation tech partners — into the calibration of every commercial markerless-pose product over the next twelve months.</p>
+      <div class="sources">
+        <a href="https://inside.fifa.com/innovation/news/offside-decisions-referee-body-cams-innovation-world-cup-2026">FIFA Innovation · stack overview</a>
+        <a href="https://www.aljazeera.com/news/2026/6/11/world-cup-day-1-schedule-predictions-opening-ceremony-and-what-to-watch">Al Jazeera · Day 1</a>
+        <a href="https://www.techtimes.com/articles/318259/20260611/world-cup-2026-becomes-techs-biggest-live-test-ai-offside-smart-ball-player-data.htm">TechTimes · 11 Jun</a>
+        <a href="https://innotechtoday.com/8-technologies-turning-fifa-world-cup-2026-into-the-most-advanced-sporting-event-ever-held/">Innovation &amp; Tech Today · stack rundown</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="meta">11 June 2026 · Software · Strava</span>
+      <h3>Strava ships a major hiking suite — but the interesting part is the cross-vendor Smart Watch Route Sync</h3>
+      <p class="takeaway">Strava launched a hiking-focused feature drop on 11 June: discovery and route planning for trails, real-time tracking and navigation, social check-ins and group ride/hike clubs, alongside paid extras (advanced route planning, offline maps, cinematic sharing). Buried in the same release: Off-Route Alerts, on-watch Route Following on Apple Watch, Live Elevation, Offline Routes — and Smart Watch Route Sync, which pushes a Strava-planned route directly to Garmin, Apple Watch <em>and</em> COROS devices in a single tap. This lands two weeks after Strava shipped its Model Context Protocol connector, opening the same training history to Claude and other LLM clients for subscribers.</p>
+      <p class="takeaway">For practitioners: the hiking content is essentially irrelevant. The cross-vendor route-push is not. Until last week, getting a planned route from a coach's planning tool onto an athlete's wrist required either a vendor-matched Garmin Connect / COROS App workflow or a fragile FIT-file export. Strava is now the lowest-common-denominator route bus for multi-vendor squads — endurance, ultra, and any field-sport academy where athletes show up with whatever watch they own. Combined with the MCP connector, the practical end-state is that you can plan a session, push it to whatever watch the athlete brought, and ask a model to interpret the resulting file in plain language without leaving the Strava data model. The privacy implications for athlete data flowing into LLM contexts are the next conversation, not this week's.</p>
+      <div class="sources">
+        <a href="https://press.strava.com/articles/strava-adds-new-features-for-hiking-making-the-outdoor-experience-more-discoverable-navigable-and-social">Strava press · 11 Jun</a>
+        <a href="https://endurance.biz/2026/industry-news/strava-introduces-new-hiking-features-as-trail-sports-surge-in-popularity/">endurance.biz · 11 Jun</a>
+        <a href="https://the5krunner.com/2026/06/12/strava-hiking-features-ipo/">the5krunner · 12 Jun analysis</a>
+        <a href="https://press.strava.com/articles/strava-launches-mcp-connector">Strava MCP connector</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="meta">13 June 2026 · Hardware leak · Garmin</span>
+      <h3>Garmin CIRQA clears Singapore's IMDA — and leaks confirm no built-in GPS, no ANT+</h3>
+      <p class="takeaway">Garmin's long-rumoured screenless recovery band, CIRQA, cleared Singapore's IMDA Integrated Regulatory Information System this week — typically a one-to-two-month lead indicator for a Garmin retail launch. The same filings, plus the latest Garmin Connect APK code, line up with months of accumulating signals: Bluetooth-only radio, no integrated GPS module, no ANT+ pairing, and a recovery-and-readiness device profile rather than a workout-tracking one. Indicative pricing leaks remain in the $300–500 band depending on region; the Whoop One subscription comparison is now the consensus framing.</p>
+      <p class="takeaway">For practitioners: CIRQA is the device we'd expect to upend the squad-monitoring market — Garmin's distribution, no subscription. The missing features matter. No ANT+ means it does not interoperate with the Garmin chest-strap, power-meter and HR-broadcast ecosystem your endurance squads already own. No GPS means session distance/pace has to come from a tethered phone or a separate watch. What you actually get is a passively-worn HRV / sleep / skin-temperature recovery proxy in a Garmin app you already use. That is genuinely useful for cohort readiness monitoring on athletes who refuse to wear a watch overnight, but it is not a Whoop-killer and it is not a Catapult-killer; it is a Whoop-bracket recovery band from a brand your athletes already trust. Spec accordingly.</p>
+      <div class="sources">
+        <a href="https://www.techadvisor.com/article/3160441/garmin-cirqa-may-give-fitbit-air-early-win.html">Tech Advisor · 13 Jun</a>
+        <a href="https://the5krunner.com/2026/06/05/garmin-cirqa-imda-singapore-bluetooth-band/">the5krunner · IMDA filing</a>
+        <a href="https://gadgetsandwearables.com/2026/05/31/garmin-cirqa-workout-detection/">Gadgets &amp; Wearables · feature leak</a>
+        <a href="https://the5krunner.com/2026/06/11/whoop-killers-screenless-band/">the5krunner · 11 Jun · competitive scan</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="emerging-flag">🌱 Up-and-coming · pilot deployment / preorder</span>
+      <h3>Continuous lactate biosensors cross the commercial line — PointFit's $10 M round and NDURE's 14-day patch start shipping</h3>
+      <p class="takeaway">Two emerging entrants in continuous-lactate sensing took commercial steps this month. Korean startup <strong>PointFit</strong> closed a round at a reported $10 M valuation on the back of its CES 2026 Digital Health Innovation Award for the PF-Sweat patch — a non-invasive nanomembrane sweat patch that reads lactate, electrolytes and sweat rate during exercise. Danish startup <strong>NDURE</strong> began shipping its <em>continuous interstitial</em> lactate tracker to early-access subscribers: a re-usable electronics puck plus a 10–14-day disposable micro-needle patch, sampled from the interstitial fluid rather than from sweat. Together with a clutch of recent Frontiers and ACS Sensors validation papers (Sweat, tears &amp; beyond, 2025; PF-Sweat field validation pieces, Feb 2026), the case for "continuous lactate as a wearable category" no longer rests on conference posters alone.</p>
+      <p class="takeaway"><strong>Maturity:</strong> PF-Sweat is in pilot deployment with individual athletes and university labs, US clinical-grade clearance not pursued. NDURE shifted to paid early-access subscribers in Q2 2026 — closer to commercially available than to pilot. <strong>Who's piloting:</strong> mostly individual endurance athletes (cycling, triathlon) and a small set of European university labs; no public federation/pro-team partnerships yet. <strong>Genuine novelty:</strong> blood lactate has been the gold-standard endurance-biomarker for forty years and has been a finger-prick test for thirty of them. PF-Sweat replaces the finger-prick with a single-session sweat measurement; NDURE replaces it with a 14-day continuous interstitial signal. The interstitial-fluid approach is the more interesting one for practitioners — it gets you continuous, in-session lactate without sweat-rate confounds. <strong>Reasonable skepticism:</strong> on-body sweat-lactate reliability remains the field's known weak point — Frontiers' own 2025/2026 reviews flag it explicitly — and the interstitial-blood lactate concordance NDURE claims is the same kind of physiological-compartment translation that took CGMs a decade to validate against capillary glucose. Treat both as the case-study tier of evidence for now, not the cohort tier.</p>
+      <div class="sources">
+        <a href="https://athletechnews.com/sweat-reading-wearable-pointfit-10-million-valuation-eyes-us-market/">Athletech News · PointFit valuation</a>
+        <a href="https://the5krunner.com/2026/02/26/non-invasive-lactate-sensor-sport-pointfit-pf-sweat-patch/">the5krunner · PF-Sweat hands-on</a>
+        <a href="https://www.ndure.dk/">NDURE · product page</a>
+        <a href="https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2025.1684674/full">Frontiers Bioengineering · sweat-sensor review</a>
+        <a href="https://www.patsnap.com/resources/blog/rd-blog/wearable-sweat-biosensor-landscape-2026-patsnap-eureka/">PatSnap · 2026 sweat-sensor landscape</a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- LITERATURE -->
+  <section>
+    <h2 class="section-header">Recent literature</h2>
+    <hr class="section-rule">
+    <p class="section-intro">Peer-reviewed work published or first-issued in the past seven days, biased toward what changes a practitioner's protocol.</p>
+
+    <article class="lit-card">
+      <h4>Artificial intelligence and wearables in sport: performance, injury risk, and wellbeing</h4>
+      <p class="authors">Collective review · Frontiers Research Topic editorial collection</p>
+      <p class="journal">Frontiers in Artificial Intelligence, Vol. 9 (2026)</p>
+      <p class="relevance">A useful one-stop summary of where AI-on-wearables actually has evidence behind it (continuous load–response modelling, training-load classification) and where it still doesn't (single-athlete injury prediction, individualised wellbeing scoring). Covers the literature January 2010 – March 2026 and is honest about the methodological floor in most published work.</p>
+      <a href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1838507/full">Read at Frontiers →</a>
+    </article>
+
+    <article class="lit-card">
+      <h4>Editorial: Revolutionizing sports science — biomechanical models, wearable tech, and AI</h4>
+      <p class="authors">Frontiers in Sports and Active Living editorial team</p>
+      <p class="journal">Frontiers in Sports and Active Living, Vol. 8 (2026)</p>
+      <p class="relevance">A short editorial worth ten minutes for the framing alone: the three-corner argument that markerless-pose models, on-body sensors and lab-grade biomech are converging into a single applied pipeline rather than competing for the same budget. Useful end-of-season strategy-planning fodder.</p>
+      <a href="https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2026.1849247/full">Read at Frontiers →</a>
+    </article>
+
+    <article class="lit-card">
+      <h4>Validating subjective ratings with wearable data for a nuanced understanding of load–recovery status in elite endurance athletes</h4>
+      <p class="authors">Multi-centre European endurance cohort</p>
+      <p class="journal">Sports Medicine – Open (Springer Nature)</p>
+      <p class="relevance">A serious attempt to anchor sRPE / wellness questionnaires against wrist HR-variability and sleep wearable data in actual elite endurance athletes. The headline finding is that subjective scores predict short-term overreaching better than the wearable composite — but the wearable composite catches the multi-week drift the questionnaires miss. The practical recommendation: keep both, weight by horizon. Validates a lot of practitioner intuition.</p>
+      <a href="https://link.springer.com/article/10.1186/s40798-025-00958-y">Read at Springer →</a>
+    </article>
+
+    <div class="other-papers">
+      <h5>Other notable papers</h5>
+      <ul>
+        <li>Robust deep-learning skill-level discrimination in tennis strokes using synchronised bilateral IMUs — <a href="https://doi.org/10.3390/s26103273">Sensors (MDPI), Vol. 26, 3273</a></li>
+        <li>Adaptive weighted factor-graph optimisation for GNSS / INS / vision multi-sensor fusion in fast-moving outdoor settings — <a href="https://www.mdpi.com/journal/sensors">Sensors (MDPI), 14 June 2026</a></li>
+        <li>Wearable sweat biosensor landscape 2026: market and validation snapshot — <a href="https://www.patsnap.com/resources/blog/rd-blog/wearable-sweat-biosensor-landscape-2026-patsnap-eureka/">PatSnap Eureka</a></li>
+        <li>Sweat, tears, and beyond: advanced wearable sensors for personalised health and athletic performance — <a href="https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2025.1684674/full">Frontiers in Bioengineering &amp; Biotechnology</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section>
+    <h2 class="section-header">Upcoming events</h2>
+    <hr class="section-rule">
+    <p class="section-intro">Next four weeks — congresses, championships and tournament windows worth blocking out.</p>
+
+    <div class="event-row">
+      <div class="event-date">11 Jun – 19 Jul</div>
+      <div class="event-body">
+        <div class="name">FIFA World Cup 26</div>
+        <div class="meta-line">USA, Canada &amp; Mexico · 48 teams · 104 matches · world's largest live test of SAOT, ref-cam and connected-ball tech</div>
+        <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026">Fixtures and venues →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">29 Jun – 12 Jul</div>
+      <div class="event-body">
+        <div class="name">The Championships, Wimbledon 2026</div>
+        <div class="meta-line">London, UK · 14 days · second year of full electronic line calling, post-2025 system-control changes</div>
+        <a href="https://www.wimbledon.com/en_GB/atoz/dates.html">Dates and schedule →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">4 – 26 Jul</div>
+      <div class="event-body">
+        <div class="name">Tour de France 2026 — Grand Départ in Barcelona</div>
+        <div class="meta-line">Stage 1 team time trial 4 Jul, Barcelona → Barcelona · first ever Spanish Grand Départ · power-meter / GNSS data deluge starts</div>
+        <a href="https://www.letour.barcelona/en/barcelona-start-2026-tour">Barcelona Grand Départ →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">7 – 10 Jul</div>
+      <div class="event-body">
+        <div class="name">31st ECSS Annual Congress — Lausanne 2026</div>
+        <div class="meta-line">SwissTech Convention Center, EPFL · ~2,500 delegates · pre-congress 6 Jul · the year's biggest sport-science exhibition</div>
+        <a href="https://sport-science.org/lausanne-2026/start/welcome/">Programme and registration →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PODCAST -->
+  <section>
+    <h2 class="section-header">Podcast pick</h2>
+    <hr class="section-rule">
+
+    <div class="podcast-card">
+      <h4>Force-plate fundamentals and developing sound return-to-play protocols — with Lauren Green (UC San Diego)</h4>
+      <p class="show">Pacey Performance Podcast · re-aired and republished week of 8 June 2026 in the run-up to Pacey's force-plate roundtable</p>
+      <p>A clean refresher on the practical decisions that actually drive value out of a force-plate testing programme — battery selection, test frequency, the bilateral asymmetry metrics that hold up versus the ones that don't, and how to anchor return-to-play thresholds against pre-injury baselines rather than published norms. Worth the 55 minutes if you're spec'ing or auditing a force-plate workflow for the next season.</p>
+      <a href="https://paceyperformancepodcast.podbean.com/e/pacey-performance-podcast-303-lauren-green-university-of-california-san-diego/">Listen on Podbean →</a>
+    </div>
+  </section>
+
+  <!-- TECH-TALK -->
+  <section>
+    <div class="techtalk">
+      <h2>Tech-talk: continuous lactate biosensors — the sweat-versus-interstitial split</h2>
+      <p class="topic-meta">Pegged to PointFit's funding round and NDURE's commercial preorder, both in the last two weeks.</p>
+
+      <h3>What it is</h3>
+      <p>Lactate has been the single most clinically-useful endurance biomarker for forty years and the single most awkward one to measure. Lactate threshold (LT1 / LT2) defines your aerobic and anaerobic transitions, anchors zone prescription better than HR alone, and tracks fitness changes the way nothing else does — but the canonical test is a graded protocol with capillary finger-pricks at every stage, performed in a lab. Continuous lactate biosensors are a serious attempt to move that signal from a lab visit to a wearable. They split cleanly into two physiological compartments.</p>
+      <p><strong>Sweat-lactate sensors</strong> sit on the skin (typically the forearm) and read lactate concentration in the eccrine sweat reaching the surface, using either enzymatic amperometric electrodes (lactate oxidase) or ion-selective potentiometric chemistry. They are non-invasive, single-session (microfluidic) or short-wear (epidermal patch), and pair with a phone scan or a Bluetooth puck. <strong>Interstitial-lactate sensors</strong> use a CGM-style micro-needle filament inserted just below the dermis and read lactate in the interstitial fluid, sampled continuously for 10–14 days.</p>
+
+      <h3>Who's actually shipping</h3>
+      <ul>
+        <li><strong>PointFit (KR)</strong> — PF-Sweat nanomembrane patch, sweat lactate + sodium + sweat rate. CES 2026 Digital Health Innovation Award. Reported $10 M valuation in June 2026.</li>
+        <li><strong>NDURE (DK)</strong> — continuous interstitial-fluid lactate, 14-day patch + re-usable electronics, paid early-access subscribers from Q2 2026.</li>
+        <li><strong>Abbott / Supersapiens descendants</strong> — Supersapiens itself shut down in 2024 but the Libre-derived form-factor lives on in several research-stage lactate variants; nothing commercial yet.</li>
+        <li><strong>University-tier prototypes</strong> — multiple academic groups (Tsinghua, EPFL, KU Leuven) have published wearable lactate platforms in 2025–2026; none commercial.</li>
+      </ul>
+
+      <h3>Spec snapshot</h3>
+      <ul>
+        <li>Sampling: sweat sensors run at 0.1–1 Hz of effective sample rate, paced by sweat flux. Interstitial sensors sample at 1/min and median-filter to a value-per-five-min on the app side, mirroring CGM design.</li>
+        <li>Dynamic range: 0–25 mM (well above the ~12 mM ceiling of finger-prick test strips), but accuracy drops sharply above ~10 mM in published comparisons.</li>
+        <li>Lag: interstitial-fluid lactate lags blood lactate by 5–15 minutes in early validation work — the same translation gap CGMs took years to characterise.</li>
+        <li>Power: BLE-only, mAh budget supports 10–14 days continuous, comparable to a CGM puck.</li>
+      </ul>
+
+      <h3>Validation picture</h3>
+      <p>Honest summary: the field has a directional signal and a calibration problem. The 2025–2026 review wave (Frontiers in Bioengineering "Sweat, tears and beyond"; the PatSnap Eureka landscape report; the ScienceDirect sweat-biosensors review) all converge on the same message — strong concept validation in controlled cycling/kayaking cohorts, weak on-body reliability outside controlled conditions, and an unresolved sweat-versus-blood compartment-translation problem. Interstitial lactate has fewer published trials but, by analogy with CGM glucose, is the compartment more likely to give a stable absolute reading once the lag is characterised. Neither approach has produced a head-to-head, on-court / on-pitch validation against capillary lactate in a published, peer-reviewed cohort of more than ~30 athletes.</p>
+
+      <h3>What's new this week</h3>
+      <p>PointFit's CES-award-backed financing round and NDURE's transition from waitlist to paid early-access subscriber shipping are the two material moves. Both bring the category from "interesting at a conference poster" to "available to an individual athlete with a credit card." Neither is yet a defensible squad-wide deployment — but the case-study tier (one athlete, multi-month follow-up, against baseline lab lactate testing) is now genuinely doable in 2026, and worth running on a willing endurance athlete before you commit a programme budget.</p>
+
+      <div class="further">
+        <h3>Further reading</h3>
+        <ul>
+          <li><a href="https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2025.1684674/full">Frontiers in Bioengineering · Sweat, tears, and beyond: advanced wearable sensors for personalised health and athletic performance</a></li>
+          <li><a href="https://www.patsnap.com/resources/blog/rd-blog/wearable-sweat-biosensor-landscape-2026-patsnap-eureka/">PatSnap Eureka · Wearable sweat-biosensor landscape 2026</a></li>
+          <li><a href="https://pubs.acs.org/doi/10.1021/acssensors.3c00708">ACS Sensors · Fully integrated wearable device for continuous sweat lactate monitoring in sports</a></li>
+          <li><a href="https://www.sciencedirect.com/science/article/pii/S2950235725000253">ScienceDirect · Sweat-based wearable biosensors: a new era of continuous, non-invasive health monitoring</a></li>
+          <li><a href="https://www.ndure.dk/">NDURE · continuous interstitial-lactate product page</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    Sport Tech Weekly &nbsp;·&nbsp; Issue 05 · 15 June 2026 &nbsp;·&nbsp; Generated by Claude
+  </div>
+
+</div>
+</body>
+</html>
