@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sport Tech Weekly — 22 June 2026</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAF9F5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: #1A1A1A;
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 32px 32px 32px;
+  }
+  @media (max-width: 600px) {
+    .container { padding: 32px 20px 20px 20px; }
+  }
+
+  /* Masthead */
+  .masthead { text-align: center; margin-bottom: 80px; }
+  .masthead h1 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 48px;
+    color: #CC785C;
+    margin: 0 0 12px 0;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  .masthead .date {
+    color: #6B6B6B;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .masthead .tagline {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    color: #1A1A1A;
+    font-size: 18px;
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* Section headers */
+  section { margin-bottom: 64px; }
+  .section-header {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: #1A1A1A;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+  }
+  .section-rule {
+    width: 40px;
+    height: 2px;
+    background: #CC785C;
+    border: none;
+    margin: 0 0 32px 0;
+  }
+  .section-intro {
+    color: #6B6B6B;
+    font-size: 15px;
+    margin: -16px 0 28px 0;
+    line-height: 1.6;
+  }
+
+  /* Cards */
+  .card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-bottom: 24px;
+  }
+  .card h3 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.25;
+    margin: 0 0 14px 0;
+    color: #1A1A1A;
+  }
+  .card p { margin: 0 0 16px 0; }
+  .card p:last-child { margin-bottom: 0; }
+  .takeaway { color: #1A1A1A; }
+  .meta {
+    color: #6B6B6B;
+    font-size: 14px;
+    margin: 0 0 12px 0;
+    display: block;
+  }
+  .emerging-flag {
+    display: inline-block;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: #B05B3F;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    background: #F5F1E8;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .sources {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .sources a {
+    color: #CC785C;
+    font-size: 13px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color 0.15s ease;
+  }
+  .sources a:hover { border-bottom-color: #CC785C; }
+  .sources a + a::before {
+    content: '·';
+    color: #E8E2D5;
+    margin-right: 8px;
+  }
+
+  /* Literature */
+  .lit-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-bottom: 18px;
+  }
+  .lit-card h4 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.3;
+    margin: 0 0 6px 0;
+    color: #1A1A1A;
+  }
+  .lit-card .authors { color: #6B6B6B; font-size: 14px; margin: 0 0 4px 0; }
+  .lit-card .journal { font-style: italic; color: #6B6B6B; font-size: 14px; margin: 0 0 12px 0; }
+  .lit-card .relevance { font-size: 16px; color: #1A1A1A; margin: 0 0 12px 0; }
+  .lit-card a { color: #CC785C; text-decoration: none; font-size: 14px; }
+  .lit-card a:hover { border-bottom: 1px solid #CC785C; }
+
+  .other-papers {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-top: 18px;
+  }
+  .other-papers h5 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 0 12px 0;
+    color: #1A1A1A;
+  }
+  .other-papers ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .other-papers li { margin-bottom: 6px; color: #1A1A1A; }
+  .other-papers a {
+    color: #CC785C;
+    text-decoration: none;
+  }
+  .other-papers a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Events row */
+  .event-row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    padding: 18px 4px;
+    border-bottom: 1px solid #E8E2D5;
+  }
+  .event-row:last-child { border-bottom: none; }
+  .event-date {
+    color: #CC785C;
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    min-width: 130px;
+    flex-shrink: 0;
+  }
+  .event-body {
+    flex: 1;
+  }
+  .event-body .name {
+    font-weight: 600;
+    color: #1A1A1A;
+    font-size: 16px;
+  }
+  .event-body .meta-line {
+    color: #6B6B6B;
+    font-size: 14px;
+    margin-top: 2px;
+  }
+  .event-body a {
+    color: #CC785C;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 4px;
+    display: inline-block;
+  }
+  .event-body a:hover { border-bottom: 1px solid #CC785C; }
+  @media (max-width: 600px) {
+    .event-row { flex-direction: column; gap: 4px; }
+    .event-date { min-width: 0; }
+  }
+
+  /* Podcast */
+  .podcast-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    border-left: 4px solid #CC785C;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+  }
+  .podcast-card h4 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 19px;
+    margin: 0 0 6px 0;
+    line-height: 1.3;
+    color: #1A1A1A;
+  }
+  .podcast-card .show { color: #6B6B6B; font-size: 14px; margin: 0 0 12px 0; }
+  .podcast-card p { margin: 0 0 12px 0; font-size: 16px; }
+  .podcast-card a { color: #CC785C; text-decoration: none; font-size: 14px; }
+  .podcast-card a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Tech-talk feature */
+  .techtalk {
+    background: #F5F1E8;
+    border-radius: 12px;
+    padding: 40px 32px;
+    margin-bottom: 24px;
+  }
+  .techtalk h2 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.2;
+    color: #1A1A1A;
+    margin: 0 0 6px 0;
+  }
+  .techtalk .topic-meta {
+    color: #B05B3F;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 15px;
+    margin: 0 0 24px 0;
+  }
+  .techtalk h3 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #1A1A1A;
+    margin: 28px 0 10px 0;
+  }
+  .techtalk p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0 0 14px 0;
+    color: #1A1A1A;
+  }
+  .techtalk ul {
+    padding-left: 22px;
+    margin: 0 0 14px 0;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .techtalk li { margin-bottom: 6px; }
+  .techtalk .further {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #E8E2D5;
+  }
+  .techtalk .further h3 { margin-top: 0; }
+  .techtalk .further ul { padding-left: 0; list-style: none; margin: 0; }
+  .techtalk .further li { margin-bottom: 8px; font-size: 15px; }
+  .techtalk .further a { color: #CC785C; text-decoration: none; }
+  .techtalk .further a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Footer */
+  .footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid #E8E2D5;
+    text-align: center;
+    color: #6B6B6B;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="masthead">
+    <h1>Sport Tech Weekly</h1>
+    <div class="date">Issue 06 · Monday 22 June 2026</div>
+    <p class="tagline">Amazfit uses the HYROX Worlds stage to drop a sub-$200 dual-sensor body wearable. Two Stanford grads raise $11.6 M to put a continuous hormone monitor on the wrist. And the World Cup tech stack starts earning its keep on real match days.</p>
+  </header>
+
+  <!-- BIG STORIES -->
+  <section>
+    <h2 class="section-header">Big stories</h2>
+    <hr class="section-rule">
+
+    <article class="card">
+      <span class="meta">18 June 2026 · Wearables · HYROX World Championships, Stockholm</span>
+      <h3>Amazfit's Helio Strap Pro lands a dual-sensor body architecture in a $199, subscription-free package</h3>
+      <p class="takeaway">Amazfit unveiled the Helio Strap Pro at the PUMA HYROX World Championships in Stockholm on 18 June 2026, with US pre-orders opening immediately at $199.99 and shipping from 25 June. Unlike its predecessor, the Pro is not a single strap — it is a two-piece system: the Helio Core Motion HR (a 5 Hz arm-worn PPG strap) plus the Helio Core Motion Waist, a screen-free 9-axis IMU worn at the lumbar spine that runs ~40 days on a charge and can record entirely offline. The waist unit is what's new: it segments and scores each of the eight HYROX stations (SkiErg, sled push/pull, burpee broad jumps, row, farmer's carry, sandbag lunges, wall balls) and feeds movement-quality metrics back into the Zepp app via the Balance 3 / Balance Ultra watches. Amazfit is in year two of its multi-year HYROX timekeeping deal.</p>
+      <p class="takeaway">For practitioners: ignore the HYROX-specific scoring for a moment. The interesting bit is the architecture. A trunk-mounted IMU paired with an upper-arm HR strap, both BLE, both consumer-priced, both with no subscription, is the same fundamental sensor topology your S&amp;C floor has been asking GymAware / Output Sports / Catapult Vector about for years — just unbundled and aimed at hybrid-fitness consumers. The waist sensor's IMU stream is the real test bed; if Zepp ever opens raw access (currently the data is HYROX-segmented and Zepp-app-locked), this becomes the cheapest credible trunk-IMU on the market for jump landings, sled-acceleration profiling and lifting-bar proxy work. Worth a punt for a single rack or a hybrid-athlete cohort. Don't replace your validated kit with it yet.</p>
+      <div class="sources">
+        <a href="https://www.businesswire.com/news/home/20260618031434/en/Amazfit-Introduces-Helio-Strap-Pro-Bringing-Body-Worn-Movement-Intelligence-to-HYROX-and-Hybrid-Training">Business Wire · launch release</a>
+        <a href="https://the5krunner.com/2026/06/19/amazfit-helio-strap-pro-vs-helio-strap/">the5krunner · 19 Jun analysis</a>
+        <a href="https://gadgetsandwearables.com/2026/06/19/amazfit-helio-strap-pro-buy/">Gadgets &amp; Wearables · US pre-order</a>
+        <a href="https://us.amazfit.com/products/helio-strap-pro">Amazfit · product page</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="emerging-flag">🌱 Up-and-coming · pre-launch / Q4 2026 ship</span>
+      <span class="meta">17 June 2026 · Funding · Clair Health</span>
+      <h3>Stanford-founded Clair Health raises $11.6 M to put a continuous, non-invasive hormone monitor on the wrist</h3>
+      <p class="takeaway">Clair Health, founded by Stanford grads Jenny Duan (21) and Abhinav Agarwal, announced an $11.6 M seed round on 17 June 2026 led by Khosla Ventures, with participation from a16z speedrun, Reach Capital, Brydge Club, Treehub, Cartan Capital, AGI House, Insiders VC, and angels including 23andMe founder Anne Wojcicki. The product is a jewellery-styled wrist wearable with ten on-board biosensors — including a biomagnetic channel Clair claims is not present in any consumer competitor — that streams skin temperature, HR / HRV, electrodermal activity, sleep and respiratory features into ML models trained to infer estrogen, progesterone, LH, FSH and PdG levels across the cycle. Crucially: Clair is <em>not</em> measuring the hormones directly. It is inferring them. Beta units are out, commercial ship is November 2026 at $369 + $9.99/month, the waitlist is past 25,000, and a Stanford Medicine clinical trial is planned alongside an FDA submission to follow the wellness launch.</p>
+      <p class="takeaway"><strong>Maturity:</strong> closed beta; commercial ship November 2026. <strong>Who's piloting:</strong> beta cohort plus a planned Stanford Medicine trial — no public elite-sport partnership yet, though the company is explicitly pitching the women's-performance use case. <strong>Genuine novelty:</strong> hormone-aware training has been a paper-and-questionnaire exercise. Direct continuous measurement (e.g. the Caltech sweat-aptamer estradiol patch) is still pre-commercial. Clair's bet is that the ML-inferred path — running existing CGM-grade sensors through a hormone-state model — gets practitioners a usable cycle-phase signal a decade before direct-measurement biosensors clear regulatory. <strong>Reasonable skepticism:</strong> the entire output is a model prediction, not a measurement. Validation will live or die on how well the inferred curves track gold-standard salivary or serum assays in unblinded studies — none of which have published yet. Until those land, treat any "Clair says you're in your luteal phase" tag the same way you treat a wrist HRV reading: directionally useful, not a number to chase. The category is real, the company is credible, the data isn't there yet.</p>
+      <div class="sources">
+        <a href="https://techcrunch.com/2026/06/17/two-stanford-grads-raise-11m-to-build-a-noninvasive-wearable-for-hormone-tracking/">TechCrunch · 17 Jun</a>
+        <a href="https://fortune.com/2026/06/17/clair-khosla-anne-wojcicki-wearble-oura-whoop-hormone-women-health/">Fortune · 17 Jun</a>
+        <a href="https://athletechnews.com/clair-health-raises-11-6-million-continuous-hormone-tracking-wearable/">Athletech News</a>
+        <a href="https://www.reachcapital.com/resources/news/hormone-intelligence-made-visible-why-we-invested-in-clair-health/">Reach Capital · investment thesis</a>
+        <a href="https://wearclair.com/">Clair Health · product page</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="meta">19 June 2026 · Officiating &amp; tracking · FIFA World Cup 26</span>
+      <h3>One week in: the Trionda ball quietly saved an offside, the ref-cam delivered the footage, and the integrated stack started looking like infrastructure rather than spectacle</h3>
+      <p class="takeaway">Eight days into the 16-stadium World Cup, the first operational reviews of the FIFA tech stack are landing. The most consequential incident: Sweden v Tunisia in Monterrey on 15 June, where Sweden's Mattias Svanberg scored 12 seconds after coming on, was flagged offside by a linesman who could not have seen the timing of Isak's first touch — and the Trionda's 500 Hz IMU then provided the exact ball-contact timestamp that redrew the SAOT offside line and confirmed Svanberg was onside. SAOT did what last week's brief said it would do: it disagreed with the human read, in the direction of the player. Separately, Lenovo's referee body-cam, stabilised in real time on the IBC's private 5G uplink, produced a viable broadcast feed of South Korea's Hwang In-beom goal against Czechia from the centre referee's first-person point of view — the first time a major-tournament broadcast has cut to that angle live.</p>
+      <p class="takeaway">For practitioners: the SAOT-vs-broadcast precision gap predicted in last week's edition is now showing up in match reports. If your video-analysis pipeline is built on broadcast-tagged camera angles, you have a week or two before clips start arriving in your inbox where the SAOT call on the pitch contradicts the freeze-frame in your tagging software. That gap is not a bug in the SAOT; it is a permanent change in the precision floor of an offside event, and your tagging conventions need to follow. The ref-cam footage is also producing the first broadcast-grade first-person video of elite refereeing decisions — that is a teaching dataset, not just a highlight reel, and it will end up in coaching-education modules within the year.</p>
+      <div class="sources">
+        <a href="https://techweez.com/2026/06/19/fifa-world-cup-2026-technology/">Techweez · 19 Jun review</a>
+        <a href="https://inside.fifa.com/innovation/news/offside-decisions-referee-body-cams-innovation-world-cup-2026">FIFA Innovation · stack overview</a>
+        <a href="https://www.foxsports.com/stories/soccer/referee-world-cup-game-flow-var-red-cards">Fox Sports · officiating &amp; flow</a>
+        <a href="https://www.nationpress.com/sports/fifa-2026-ref-cams-what-the-headgear-does">Nation Press · ref-cam explainer</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="emerging-flag">🌱 Up-and-coming · Kickstarter launch</span>
+      <span class="meta">16 June 2026 · Safety wearable · RunSafePro (NL)</span>
+      <h3>RunSafePro brings rear-radar, GPS panic-alerts and incident detection to a $119 running vest</h3>
+      <p class="takeaway">Netherlands-based RunSafePro launched on Kickstarter on 16 June 2026 with a four-feature smart vest: a 30 m rear radar lifted from the cycling radar category (Garmin Varia-style), a GPS panic button that pings up to 50 pre-set contacts, automatic incident detection that triggers if motion stops without a check-in, and an adaptive 360° backlight that brightens with ambient darkness. Early-bird Kickstarter pricing is $119 with planned retail $175; the app subscription is $0.99/month and the device runs 3–6 hours per charge. <strong>Maturity:</strong> Kickstarter (pre-production). <strong>Who's piloting:</strong> nobody operationally yet — this is a backer-funded pre-order. <strong>Genuine novelty:</strong> radar-equipped runner safety vests aren't conceptually new (the cycling category has had them since Varia in 2015), but RunSafePro is the first to bundle radar, incident detection, GPS-SOS and adaptive visibility into a single sub-$200 wearable explicitly framed as a women's-safety product. For practitioners working with female endurance athletes who routinely train on roads at dawn or dusk, it's worth tracking; the safety question is increasingly upstream of performance.</p>
+      <div class="sources">
+        <a href="https://athletechnews.com/runsafepro-running-safety-wearable/">Athletech News</a>
+        <a href="https://newatlas.com/sports/runsafepro-running-safety-vest">New Atlas</a>
+        <a href="https://www.endurancesportswire.com/many-people-feel-unsafe-while-running-a-new-wearable-aims-to-change-that/">Endurance Sportswire</a>
+        <a href="https://runsafepro.com/">RunSafePro · product page</a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- LITERATURE -->
+  <section>
+    <h2 class="section-header">Recent literature</h2>
+    <hr class="section-rule">
+    <p class="section-intro">A thinner week than usual — the FIFA tournament has soaked up most of the Frontiers / Sports Medicine air. Two papers landed in the last seven days that are worth a practitioner's attention.</p>
+
+    <article class="lit-card">
+      <h4>Systematic review in Sports Medicine – Open (Article 75)</h4>
+      <p class="authors">Abe T., Loenneke J. P., Naito H.</p>
+      <p class="journal">Sports Medicine – Open · open-access · published 19 June 2026</p>
+      <p class="relevance">A new Abe / Loenneke / Naito systematic review landed on Friday 19 June. Given the three-author team's prior decade of work on blood-flow-restriction (BFR) load equivalence and the muscle-size signal in BFR vs heavy-load training, expect the same methodological discipline applied to whatever specific BFR question this article tackles — and treat the full text as the more useful read than any press summary.</p>
+      <a href="https://sportsmedicine-open.springeropen.com/articles">Browse the journal →</a>
+    </article>
+
+    <article class="lit-card">
+      <h4>Resting-state EEG changes after slackline training: a selective post-training increase in beta-band power</h4>
+      <p class="authors">Kenville R., Groß D., Helbich M., Behrens H., Ragert P., Maudrich T.</p>
+      <p class="journal">European Journal of Sport Science · published 16 June 2026</p>
+      <p class="relevance">A small but well-controlled EEG study showing that a single slackline session produced a measurable, region-specific increase in beta-band power at rest. For practitioners running balance / proprioceptive blocks, the headline isn't the slackline itself — it's confirmation that a session length most clinics already prescribe produces an objectively measurable cortical signature, which strengthens the case for using brief balance work as a pre-skill primer rather than a stand-alone block.</p>
+      <a href="https://onlinelibrary.wiley.com/journal/15367290">European Journal of Sport Science →</a>
+    </article>
+
+    <div class="other-papers">
+      <h5>Other notable papers</h5>
+      <ul>
+        <li>Optimizing wearable IMU configurations for running gait analysis: a machine-learning-based sensor-fusion approach — <a href="https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2026.1762919/full">Frontiers in Bioengineering &amp; Biotechnology, 2026</a></li>
+        <li>Mapping HRV in sports science: from monitoring to machine learning (bibliometric review) — <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12833080/">PMC, January 2026 indexed</a></li>
+        <li>Artificial intelligence and wearable sensors in sports injury risk prediction: current status and future perspectives — <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13104011/">PMC, 2026</a></li>
+        <li>Sensors (MDPI) Vol. 26 Issue 12 — sport-relevant articles from the 20 June 2026 issue — <a href="https://www.mdpi.com/1424-8220/26/12">browse the issue</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section>
+    <h2 class="section-header">Upcoming events</h2>
+    <hr class="section-rule">
+    <p class="section-intro">Next four weeks — congresses, championships and tournament windows worth blocking out.</p>
+
+    <div class="event-row">
+      <div class="event-date">11 Jun – 19 Jul</div>
+      <div class="event-body">
+        <div class="name">FIFA World Cup 26 — group stage closes 27 Jun, knockouts 28 Jun</div>
+        <div class="meta-line">USA, Canada &amp; Mexico · 48 teams · 104 matches · SAOT-10 cm, ref-cam, Trionda IMU and Lenovo 3D avatars all live</div>
+        <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026">Fixtures and venues →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">29 Jun – 12 Jul</div>
+      <div class="event-body">
+        <div class="name">The Championships, Wimbledon 2026</div>
+        <div class="meta-line">London, UK · 14 days · Video Review debut on six courts (Centre, No.1, No.2, No.3, Court 12, Court 18) for not-up / double-bounce / touch calls</div>
+        <a href="https://www.skysports.com/tennis/news/32498/13522476/wimbledon-video-review-technology-will-be-available-on-six-courts-at-this-years-grand-slam-starting-on-june-29">Video review details →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">4 – 26 Jul</div>
+      <div class="event-body">
+        <div class="name">Tour de France 2026 — Grand Départ in Barcelona</div>
+        <div class="meta-line">Stage 1 team time trial 4 Jul, Barcelona → Barcelona · first ever Spanish Grand Départ · the power-meter / GNSS data deluge begins</div>
+        <a href="https://www.letour.barcelona/en/barcelona-start-2026-tour">Barcelona Grand Départ →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">7 – 10 Jul</div>
+      <div class="event-body">
+        <div class="name">31st ECSS Annual Congress — Lausanne 2026</div>
+        <div class="meta-line">SwissTech Convention Center, EPFL · ~2,500 delegates · pre-congress 6 Jul · the year's biggest sport-science exhibition</div>
+        <a href="https://sport-science.org/lausanne-2026/start/welcome/">Programme and registration →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PODCAST -->
+  <section>
+    <h2 class="section-header">Podcast pick</h2>
+    <hr class="section-rule">
+
+    <div class="podcast-card">
+      <h4>Playing to the limit: the science of fatigue and recovery at the World Cup</h4>
+      <p class="show">GAINcast · HMMR Media · written by Craig Pickering (Director of Performance Sustainability, Athletics Australia) · published 14 June 2026</p>
+      <p>Pickering takes the tournament-expansion-to-48-teams question and runs it against the actual literature on match congestion: injury rates (particularly hamstring and quad) climb meaningfully when European-league recovery windows drop below four days, and the new World Cup format pushes several squads into precisely that territory. The strongest part is the recovery-protocol section — a clean read of which interventions have data behind them (sleep extension, cold-water immersion timing, protein-distribution macros) and which still don't (most "active recovery" sessions in the 24-hour window). Pitch-side reading for the next four weeks.</p>
+      <a href="https://www.hmmrmedia.com/2026/06/playing-to-the-limit-the-science-of-fatigue-and-recovery-at-the-world-cup/">Read at HMMR Media →</a>
+    </div>
+  </section>
+
+  <!-- TECH-TALK -->
+  <section>
+    <div class="techtalk">
+      <h2>Tech-talk: continuous hormone-aware wearables — direct measurement vs ML inference</h2>
+      <p class="topic-meta">Pegged to Clair Health's $11.6 M Khosla-led seed round announced 17 June 2026.</p>
+
+      <h3>What it is</h3>
+      <p>"Hormone-aware training" has been a software story so far. The wearables menstrual-cycle tags shipping today on Oura, WHOOP, Apple Watch and Garmin all rely on user-logged period-start dates and a textbook 28-day model, which they then drape over a recovery dashboard. None of them actually measures a hormone. The new category that emerged this week — Clair Health's $11.6 M raise being the cleanest pin in the calendar — is the first credible attempt to put a continuous hormone signal on the wrist. It splits cleanly into two technical approaches: direct biosensor measurement, and machine-learning inference from physiology.</p>
+
+      <h3>The two approaches</h3>
+      <p><strong>Direct biosensor measurement</strong> reads the hormone (or a metabolite) in a body-fluid compartment using sensor chemistry. The leading published work is the Caltech / Wei Gao lab's wearable sweat patch using inkjet-printed gold nanoparticles, MXene titanium-carbide films and aptamer-based recognition elements to track estradiol in eccrine sweat — validated across the full reproductive cycle in lab testing, with sweat-estradiol changing roughly ten-fold from menstruation to ovulation. ProgenCare (2025) is the equivalent for salivary progesterone, using Ti3C2-MXene to amplify a signal that sits at 1–2 % of plasma concentration. Both are credible research demonstrations; neither has cleared a regulator and neither is in commercial pilots.</p>
+      <p><strong>ML inference</strong> measures the hormone <em>indirectly</em>, by running standard wearable physiology — skin temperature, HR / HRV, electrodermal activity, sleep architecture, respiratory rate — through a model trained to predict cycle phase and hormone state. This is the Clair Health architecture. Ten on-board biosensors (including a biomagnetic channel Clair flags as proprietary), 130-plus engineered biomarkers, a model trained to output estrogen, progesterone, LH, FSH and PdG curves and a stated nine sub-phases of the cycle — more than double the four typically taught.</p>
+
+      <h3>Who's actually shipping</h3>
+      <ul>
+        <li><strong>Clair Health (US, Stanford-founded)</strong> — wristband, $369 + $9.99/month, ships Nov 2026, ~25,000-deep waitlist. Wellness launch first, FDA submission to follow.</li>
+        <li><strong>Caltech (Gao lab)</strong> — sweat aptamer patch for estradiol; research prototype, no commercial entity yet.</li>
+        <li><strong>ProgenCare (academic, CN)</strong> — microfluidic electrochemical salivary progesterone sensor; lab-validated, no consumer product.</li>
+        <li><strong>Oura / WHOOP / Garmin / Apple</strong> — user-logged cycle apps with light skin-temperature anchoring; not hormone monitors in any meaningful sense.</li>
+      </ul>
+
+      <h3>Spec snapshot</h3>
+      <ul>
+        <li>Compartments: sweat (estradiol patches), saliva (progesterone), interstitial fluid (theoretical for hormones; nothing shipping). ML inference uses no body-fluid sampling at all.</li>
+        <li>Output cadence: direct sensors give a per-sweat-event or per-sample reading; ML inference produces a continuous curve, but the curve is a prediction smoothed across hours-to-days.</li>
+        <li>Sensitivity floor: estradiol moves over ~10× across the cycle (~20–400 pg/mL plasma equivalent), progesterone over ~30× — both well above what aptamer chemistry can resolve in the lab, well below what is reliably extractable from skin-temperature alone without a learned model and a large training corpus.</li>
+        <li>Power: Clair's wristband sits in the same battery / form factor envelope as a smartwatch; direct sweat patches in published work run a day or two on a coin cell.</li>
+      </ul>
+
+      <h3>Validation picture</h3>
+      <p>This is the honest part. Direct sensors have peer-reviewed in-lab data tying patch output to standard ELISA — that's good — but no peer-reviewed published cohort of more than a handful of free-living athletes wearing the patch across multiple cycles. ML inference (Clair's path) has no published validation paper yet. The closest analogy is the early CGM era: the underlying skin-temperature signal does shift across the cycle and the autonomic signal does too — that part is well-established — but inferring a four- or nine-phase hormonal state from those second-order signals is exactly the kind of problem where calibration cohort, ethnicity coverage and contraception status all matter enormously. The Stanford Medicine trial Clair has announced is the right thing to watch; until it reports, treat the device output as directional, not quantitative.</p>
+
+      <h3>What's new this week</h3>
+      <p>Clair's $11.6 M Khosla-led raise (with Reach Capital, a16z speedrun and Anne Wojcicki on the cap table) is the first venture round in this category at this size, and the first to land with a clear commercial-ship date (Nov 2026) and a published clinical-trial pathway. For practitioners working with female-athlete cohorts, that's the inflection: hormone-aware programming moves from a software-on-questionnaire problem to a hardware-with-validation-roadmap problem inside the next 12 months. Case-study tier in late 2026 — squad-wide deployment still a 2027–2028 conversation, dependent on what the Stanford trial actually finds.</p>
+
+      <div class="further">
+        <h3>Further reading</h3>
+        <ul>
+          <li><a href="https://www.caltech.edu/about/news/wearable-patch-wirelessly-monitors-estrogen-in-sweat">Caltech · wearable patch wirelessly monitors estrogen in sweat</a></li>
+          <li><a href="https://pubs.acs.org/doi/10.1021/acssensors.4c02877?articleRef=control">ACS Sensors · toward at-home and wearable monitoring of female hormones</a></li>
+          <li><a href="https://www.sciencedirect.com/science/article/abs/pii/S0956566325010383">Biosensors &amp; Bioelectronics · ProgenCare salivary progesterone platform</a></li>
+          <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10954395/">A wearable aptamer nanobiosensor for non-invasive female hormone monitoring</a></li>
+          <li><a href="https://www.reachcapital.com/resources/news/hormone-intelligence-made-visible-why-we-invested-in-clair-health/">Reach Capital · why we invested in Clair (thesis)</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    Sport Tech Weekly &nbsp;·&nbsp; Issue 06 · 22 June 2026 &nbsp;·&nbsp; Generated by Claude
+  </div>
+
+</div>
+</body>
+</html>
