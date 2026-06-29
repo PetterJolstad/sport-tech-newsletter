@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sport Tech Weekly — 29 June 2026</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAF9F5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: #1A1A1A;
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 32px 32px 32px;
+  }
+  @media (max-width: 600px) {
+    .container { padding: 32px 20px 20px 20px; }
+  }
+
+  /* Masthead */
+  .masthead { text-align: center; margin-bottom: 80px; }
+  .masthead h1 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 48px;
+    color: #CC785C;
+    margin: 0 0 12px 0;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  .masthead .date {
+    color: #6B6B6B;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .masthead .tagline {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    color: #1A1A1A;
+    font-size: 18px;
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* Section headers */
+  section { margin-bottom: 64px; }
+  .section-header {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: #1A1A1A;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+  }
+  .section-rule {
+    width: 40px;
+    height: 2px;
+    background: #CC785C;
+    border: none;
+    margin: 0 0 32px 0;
+  }
+  .section-intro {
+    color: #6B6B6B;
+    font-size: 15px;
+    margin: -16px 0 28px 0;
+    line-height: 1.6;
+  }
+
+  /* Cards */
+  .card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-bottom: 24px;
+  }
+  .card h3 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.25;
+    margin: 0 0 14px 0;
+    color: #1A1A1A;
+  }
+  .card p { margin: 0 0 16px 0; }
+  .card p:last-child { margin-bottom: 0; }
+  .takeaway { color: #1A1A1A; }
+  .meta {
+    color: #6B6B6B;
+    font-size: 14px;
+    margin: 0 0 12px 0;
+    display: block;
+  }
+  .emerging-flag {
+    display: inline-block;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: #B05B3F;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    background: #F5F1E8;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .sources {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .sources a {
+    color: #CC785C;
+    font-size: 13px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color 0.15s ease;
+  }
+  .sources a:hover { border-bottom-color: #CC785C; }
+  .sources a + a::before {
+    content: '·';
+    color: #E8E2D5;
+    margin-right: 8px;
+  }
+
+  /* Literature */
+  .lit-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-bottom: 18px;
+  }
+  .lit-card h4 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.3;
+    margin: 0 0 6px 0;
+    color: #1A1A1A;
+  }
+  .lit-card .authors { color: #6B6B6B; font-size: 14px; margin: 0 0 4px 0; }
+  .lit-card .journal { font-style: italic; color: #6B6B6B; font-size: 14px; margin: 0 0 12px 0; }
+  .lit-card .relevance { font-size: 16px; color: #1A1A1A; margin: 0 0 12px 0; }
+  .lit-card a { color: #CC785C; text-decoration: none; font-size: 14px; }
+  .lit-card a:hover { border-bottom: 1px solid #CC785C; }
+
+  .other-papers {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-top: 18px;
+  }
+  .other-papers h5 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 0 12px 0;
+    color: #1A1A1A;
+  }
+  .other-papers ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .other-papers li { margin-bottom: 6px; color: #1A1A1A; }
+  .other-papers a {
+    color: #CC785C;
+    text-decoration: none;
+  }
+  .other-papers a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Events row */
+  .event-row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    padding: 18px 4px;
+    border-bottom: 1px solid #E8E2D5;
+  }
+  .event-row:last-child { border-bottom: none; }
+  .event-date {
+    color: #CC785C;
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    min-width: 130px;
+    flex-shrink: 0;
+  }
+  .event-body {
+    flex: 1;
+  }
+  .event-body .name {
+    font-weight: 600;
+    color: #1A1A1A;
+    font-size: 16px;
+  }
+  .event-body .meta-line {
+    color: #6B6B6B;
+    font-size: 14px;
+    margin-top: 2px;
+  }
+  .event-body a {
+    color: #CC785C;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 4px;
+    display: inline-block;
+  }
+  .event-body a:hover { border-bottom: 1px solid #CC785C; }
+  @media (max-width: 600px) {
+    .event-row { flex-direction: column; gap: 4px; }
+    .event-date { min-width: 0; }
+  }
+
+  /* Podcast */
+  .podcast-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    border-left: 4px solid #CC785C;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+  }
+  .podcast-card h4 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 19px;
+    margin: 0 0 6px 0;
+    line-height: 1.3;
+    color: #1A1A1A;
+  }
+  .podcast-card .show { color: #6B6B6B; font-size: 14px; margin: 0 0 12px 0; }
+  .podcast-card p { margin: 0 0 12px 0; font-size: 16px; }
+  .podcast-card a { color: #CC785C; text-decoration: none; font-size: 14px; }
+  .podcast-card a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Tech-talk feature */
+  .techtalk {
+    background: #F5F1E8;
+    border-radius: 12px;
+    padding: 40px 32px;
+    margin-bottom: 24px;
+  }
+  .techtalk h2 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.2;
+    color: #1A1A1A;
+    margin: 0 0 6px 0;
+  }
+  .techtalk .topic-meta {
+    color: #B05B3F;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 15px;
+    margin: 0 0 24px 0;
+  }
+  .techtalk h3 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #1A1A1A;
+    margin: 28px 0 10px 0;
+  }
+  .techtalk p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0 0 14px 0;
+    color: #1A1A1A;
+  }
+  .techtalk ul {
+    padding-left: 22px;
+    margin: 0 0 14px 0;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .techtalk li { margin-bottom: 6px; }
+  .techtalk .further {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #E8E2D5;
+  }
+  .techtalk .further h3 { margin-top: 0; }
+  .techtalk .further ul { padding-left: 0; list-style: none; margin: 0; }
+  .techtalk .further li { margin-bottom: 8px; font-size: 15px; }
+  .techtalk .further a { color: #CC785C; text-decoration: none; }
+  .techtalk .further a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Footer */
+  .footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid #E8E2D5;
+    text-align: center;
+    color: #6B6B6B;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="masthead">
+    <h1>Sport Tech Weekly</h1>
+    <div class="date">Issue 07 · Monday 29 June 2026</div>
+    <p class="tagline">Wimbledon kicks off today with three first-time tech shifts running at once — a Video Review premiere, a Whoop-on-court trial and the wreckage of a heat-induced ELC outage from Wednesday's qualifying. Plus the UCI's pocket ban hits race day, greenTEG launches a 2026-season thermal pipeline, and the FIFA stack has already started overturning calls.</p>
+  </header>
+
+  <!-- BIG STORIES -->
+  <section>
+    <h2 class="section-header">Big stories</h2>
+    <hr class="section-rule">
+
+    <article class="card">
+      <span class="meta">27–29 June 2026 · Officiating &amp; wearables · The Championships, Wimbledon</span>
+      <h3>Wimbledon 2026 begins today with three first-time tech changes running at once — and one Wednesday-in-qualifying cautionary tale already on the books</h3>
+      <p class="takeaway">The Championships start this afternoon with the most aggressive tech-policy reset in SW19's modern history. Three changes all hit at the same draw: <strong>(1)</strong> Video Review goes live across six courts (Centre, No. 1, No. 2, No. 3, Court 12, Court 18) — the All England Club confirmed the rollout on Saturday 27 June. Players can request unlimited reviews on double-bounce, foul-shot, not-up and touch calls, ruled on instantly by the chair umpire from a courtside monitor. <strong>(2)</strong> On-court wearables are permitted for the first time. Following Roland Garros's trial-basis approval in May, Wimbledon and the US Open have both confirmed they will join the trial, meaning three of the four Grand Slams now allow players to access live biometric data from any Player Analysis Technology-listed device during matches — Whoop bands chief among them. The Australian Open (where Alcaraz, Sinner and Sabalenka were ordered to remove their Whoops in January) has not reversed. <strong>(3)</strong> The Hawk-Eye Live ELC system has had its "one click" operator deactivation pathway removed after the 2025 mid-tournament shutoff incident, and Wimbledon has added redundant operator workflows.</p>
+      <p class="takeaway">Then the wreckage. On Wednesday 24 June 2026, with Roehampton at 35 °C under an extreme-heat warning, a power outage at the qualifying venue took out the ELC system for over an hour. Players left the court; there are no reserve human line crews in qualifying because they were retired with the ELC rollout. Dan Evans's second-round qualifier resumed only after the system came back up. The All England Club has said the main draw at SW19 has reserve crews available; the qualifying site does not.</p>
+      <p class="takeaway">For practitioners: this is the most consequential rule change for tennis support staff in a decade. Wearables on-court means in-match biometric decisioning is no longer a training-block-only conversation — a player can see HRV trend, strain, and skin-temp in the changeovers, and your messaging now has to handle the question "what should I do with this number, right now." Have a heuristic ready before Day 1 (i.e. today): which metrics you'll actively manage in-match, and which you'll tell the player to ignore. The ELC heat failure is the other half of the lesson — if you build your competition logistics around a single electronic system with no human fallback, the system <em>is</em> your fallback. Build redundancy into anything you do that mirrors that pattern (single-vendor GPS, single-vendor force decks, single-vendor video tagging).</p>
+      <div class="sources">
+        <a href="https://www.skysports.com/tennis/news/32498/13522476/wimbledon-video-review-technology-will-be-available-on-six-courts-at-this-years-grand-slam-starting-on-june-29">Sky Sports · Video Review details</a>
+        <a href="https://www.espn.com/tennis/story/_/id/48266819/wimbledon-introduce-video-review-six-courts-2026">ESPN · 27 Jun announcement</a>
+        <a href="https://www.yardbarker.com/tennis/articles/wimbledon_and_us_open_to_allow_wearable_devices_following_french_open_trial/s1_17770_43741155">Yardbarker · wearables-on-court trial</a>
+        <a href="https://www.sportresolutions.com/news/ao2026-trackers-ban-tennis">Sport Resolutions · the AO ban that triggered the trial</a>
+        <a href="https://www.espn.com/soccer/story/_/id/49165375/wimbledon-qualifying-disrupted-power-outage-extreme-heat-weather-warning">ESPN · 24 Jun heat outage</a>
+        <a href="https://sports.yahoo.com/article/wimbledon-overhauls-hawk-eye-avoid-144800132.html">Yahoo · ELC overhaul after 2025 incident</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="emerging-flag">🌱 Up-and-coming · commercially available · pro pilot at Giro 2026</span>
+      <span class="meta">June 2026 · Thermal monitoring · greenTEG (CH)</span>
+      <h3>greenTEG opens a 2026 race-season thermal pipeline with a transparent Limited Edition CORE 2 — and signals the heat-monitoring category is its own product line now</h3>
+      <p class="takeaway">Swiss thermal-sensor maker greenTEG used the Giro d'Italia (9–31 May 2026) to debut the first transparent version of its CORE 2 heat-flux sensor under a new sub-brand, Sweatlabs. The announcement, published on Endurance Sportswire in June 2026, frames the transparent CORE 2 not as a one-off but as "the first of several product releases scheduled for the year" under a Sweatlabs initiative explicitly aimed at the 2026 race season. The CORE 2 itself shipped in late March 2025 — 48 % smaller and 30 % lighter than the original CORE — and reads skin temperature plus heat flux on the torso, fusing the signal with the wearer's heart rate from any BLE / ANT+ chest strap or watch to estimate core temperature continuously, no pill required.</p>
+      <p class="takeaway"><strong>Maturity:</strong> commercially available (CORE 2 since Q2 2025); Sweatlabs sub-brand and Limited Edition transparent variant new in June 2026. <strong>Who's piloting:</strong> riders across multiple WorldTour teams at the Giro 2026, with Sweatlabs explicitly trialling on-bike. <strong>Genuine novelty:</strong> not the device — the category framing. greenTEG is the first major thermal-wearable vendor to treat heat-readiness as a dedicated product line with a release schedule, rather than a single SKU updated every three years. That matters because the 2026 calendar (Tour de France in summer Spain / France, FIFA World Cup heat in North American venues, World Athletics Ultimate Championships in September Budapest, Wimbledon already running into 33 °C qualifying conditions) is forcing heat tech up the priority list. <strong>Reasonable skepticism:</strong> the foundational validation problem hasn't gone away. The headline 2023 Goods et al. study (EJSS) found "poor" Lin's CCC agreement between CORE and BodyCap pill in elite women's field hockey under heat, and several follow-ups show heat-flux estimates lag the pill by 5–30 minutes during sudden thermal load. The CORE 2 hardware is genuinely better; the algorithmic problem of inferring core temp from skin-side energy transfer plus HR is the same problem it was three years ago. Useful for trend monitoring, heat-acclimation block tracking and as a coach-side flag during sessions. Not a substitute for an ingestible pill on a decision that has to be exactly right (return-to-play after exertional heat illness, race-day go/no-go in extreme conditions).</p>
+      <div class="sources">
+        <a href="https://www.endurancesportswire.com/core-release-new-limited-edition-transparent-thermal-sensor/">Endurance Sportswire · Sweatlabs launch</a>
+        <a href="https://www.greenteg.com/en/news-event/core-2-an-innovative-thermal-monitoring-solution-for-sports-performance">greenTEG · CORE 2 announcement</a>
+        <a href="https://onlinelibrary.wiley.com/doi/10.1080/17461391.2023.2193953">Goods et al. 2023 · CORE vs BodyCap validation (EJSS)</a>
+        <a href="https://www.sciencedirect.com/science/article/pii/S0306456525000245">Januário et al. 2025 · CALERA validity across aerobic fitness levels</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="meta">1 July 2026 · Cycling regulation · UCI</span>
+      <h3>The UCI's front-pocket ban hits race day on 1 July — the first 2026 cycling-tech rule change to land in competition, with a bike-computer size cap and a glucose/lactate display ban following</h3>
+      <p class="takeaway">From Wednesday 1 July 2026 — the day before the Tour de France Grand Départ in Barcelona on Saturday 4 July — UCI Article 1.3.006 bis takes effect on jersey pockets: any pocket positioned on the front of a racing jersey is prohibited, with the sole exception of a pocket intended exclusively for a radio communication device. Riders have spent the past three months shifting nutrition (gel) storage to the rear and side, but the bigger ramification is for the next wave: front-mounted aero-fairing pockets that several teams were trialling in the 2025 spring classics are explicitly out. Two further updates to the same article are also now firm: (a) bike computers will be capped at 126 × 71 mm from 1 January 2028, to "protect cognitive load" — Garmin's Edge 1050, the largest current head unit at 118 × 60 mm, is inside the new envelope; future generations will be constrained from going further. (b) The UCI's data-display restrictions on race-day head units were reiterated last week: heart rate, body temperature and sweat rate may be displayed during competition; <strong>glucose and lactate may not</strong>. Real-time biomarker monitoring stays a training-block tool.</p>
+      <p class="takeaway">For practitioners: the pocket rule itself is a kit-and-soigneur problem, not yours. What matters is the data-display ruling. Sweat-lactate biosensors (covered in Issue 04 of this newsletter, two weeks back) and CGM-based real-time glucose monitoring — increasingly used in training by GC contenders — cannot legally drive in-race fuelling decisions in 2026 via the head unit. That doesn't ban the underlying sensor; it bans the display. If you are coaching a road athlete who wants to use these data streams in racing, the legal workaround is the team radio, not the Edge — which means your race-day fuelling protocol needs to be built around the soigneur and DS, not the rider's screen. Heat-flux core temperature — back to the CORE 2 / Sweatlabs story above — is explicitly permitted, which makes the upcoming Spanish heat at the Grand Départ a worth-watching first test of the regulation's selective tolerance for some biomarkers and not others.</p>
+      <div class="sources">
+        <a href="https://www.cyclingnews.com/pro-cycling/safety/the-uci-says-bike-computers-are-big-enough-moves-to-impose-size-limit-to-protect-cognitive-load-of-riders/">Cyclingnews · UCI head-unit size cap</a>
+        <a href="https://bikerumor.com/uci-says-bike-computers-are-big-enough-moves-to-cap-head-unit-size/">Bikerumor · article 1.3.006 bis details</a>
+        <a href="https://www.uci.org/regulations/3MyLDDrwJCJJ0BGGOFzOat">UCI · regulations</a>
+        <a href="https://www.letour.barcelona/en/barcelona-start-2026-tour">Tour de France 2026 · Barcelona Grand Départ</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="meta">28 June 2026 · Tournament tech update · FIFA World Cup 26 · Round of 16</span>
+      <h3>Knockouts start today: 18 days in, the Trionda IMU has already overturned offside calls, and the ref-cam has produced its first broadcast-grade first-person goal footage</h3>
+      <p class="takeaway">The 2026 World Cup moved into the Round of 32 yesterday (a one-off knockout for the third-placed teams) and the Round of 16 starts today. Mid-tournament reviews of the FIFA tech stack are now landing across major outlets. Two operational data points stand out from the group stage: in Sweden–Tunisia (Monterrey, 15 June), the Trionda's 500 Hz IMU delivered the exact ball-contact timestamp that redrew the SAOT line, confirming Mattias Svanberg was onside — overturning a call the linesman could not have made correctly without the data. Separately, Lenovo's referee body-cam (running over the IBC's private 5G uplink, with stabilisation applied in real time) generated the first broadcast-grade first-person referee view of a major-tournament goal during South Korea–Czechia. The Trionda's much-discussed battery-needs-charging quirk has been operationally invisible — FIFA's protocol of swapping balls on the half-hour appears to be holding.</p>
+      <p class="takeaway">For practitioners: two things to track from the knockouts onwards. First, the SAOT-vs-broadcast precision gap is now visible in published match reports — if you tag clips off broadcast feeds, the freeze-frame increasingly disagrees with the SAOT call on the pitch. The pitch is right. Update your offside tagging conventions accordingly. Second, the ref-cam footage is the first broadcast-grade first-person dataset of elite refereeing decisions in live competition, and it will land in coaching-education and officiating-development modules within months. If you're involved in either, start archiving now; this is teaching material, not a highlight reel.</p>
+      <div class="sources">
+        <a href="https://www.espn.com/soccer/story/_/id/49083534/world-cup-smart-ball-adidas-trionda-charge-balls-sam-borden">ESPN · Trionda smart-ball review</a>
+        <a href="https://global.gengee.com/blog/connected-ball-technology-world-cup-2026">Gengee · connected-ball explainer</a>
+        <a href="https://inside.fifa.com/innovation/news/offside-decisions-referee-body-cams-innovation-world-cup-2026">FIFA Innovation · stack overview</a>
+        <a href="https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage">Knockout-stage schedule</a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- LITERATURE -->
+  <section>
+    <h2 class="section-header">Recent literature</h2>
+    <hr class="section-rule">
+    <p class="section-intro">A relatively quiet week for sport-specific releases — the literature flow is still dominated by tournament-window editorials and conference pre-print pushes ahead of ECSS Lausanne next week. Three pieces worth a practitioner's attention.</p>
+
+    <article class="lit-card">
+      <h4>Development of wearable multimodal sensor probe for measurement of core body temperature, heart rate, and sweat rate</h4>
+      <p class="authors">Hashimoto Y., Sato T., Yamamoto K., Tanaka R., et al.</p>
+      <p class="journal">Electrical Engineering in Japan · Wiley · Vol. 218, Issue e70031 · 2026</p>
+      <p class="relevance">A compact, single-patch wearable that combines a heat-flux module (for core temperature, the same physical principle as CORE / CALERA) with a 3-lead ECG, photoplethysmography for HR, and a computational sweat-rate estimator. Validated against 10 healthy men cycling in a controlled heat chamber. Headline finding: multimodal fusion narrows the heat-flux-vs-pill error window meaningfully relative to a heat-flux-only device, which is the strongest published support yet for the direction CORE 2 and CALERA Research are already heading. Worth reading in full ahead of Wednesday's pocket-rule debate and any decisions about heat-acclimation protocols for athletes heading into the Tour de France or Tokyo September.</p>
+      <a href="https://onlinelibrary.wiley.com/doi/10.1002/eej.70031">DOI: 10.1002/eej.70031 →</a>
+    </article>
+
+    <article class="lit-card">
+      <h4>Wearable technologies in team sports: a systematic review of their role in training-load management and injury prevention</h4>
+      <p class="authors">multi-author · open-access</p>
+      <p class="journal">peer-reviewed systematic review · accepted 30 March 2026, published online 4 April 2026</p>
+      <p class="relevance">A practitioner-readable systematic review covering training-load monitoring with GPS, accelerometers, LPS and UWB systems in team sport contexts, with a particular focus on integration between internal (HR, RPE, biochemical markers) and external (GPS / IMU / LPS) load streams. The most useful section is the framework for combining UWB indoor positioning with outdoor GPS — relevant for any club that runs hybrid indoor-outdoor sessions and is currently juggling two incompatible vendor data formats. Not a 2026-specific clinical paper, but a clean reference to send a new sport scientist on day one.</p>
+      <a href="https://www.researchgate.net/publication/403512901_Wearable_Technologies_in_Team_Sports_A_Systematic_Review_of_Their_Role_in_Training_Load_Management_and_Injury_Prevention">ResearchGate listing →</a>
+    </article>
+
+    <article class="lit-card">
+      <h4>Optimizing wearable IMU configurations for running gait analysis: a machine-learning-based sensor-fusion approach</h4>
+      <p class="authors">multi-author</p>
+      <p class="journal">Frontiers in Bioengineering and Biotechnology · 2026 · DOI 10.3389/fbioe.2026.1762919</p>
+      <p class="relevance">25 recreational runners ran a treadmill protocol while wearing the gold-standard Xsens MVN 17-IMU system. The authors then systematically reduced the sensor count and trained ML models to recover full-body gait kinematics from minimal configurations. The practitioner-relevant finding: a three-sensor configuration (pelvis + two tibia) recovers ~85 % of full-body kinematic variance for steady-state running — useful for any clinic considering whether to invest in a 17-IMU suit or whether a sub-set is adequate for their use case. Strong, applied, immediately citable.</p>
+      <a href="https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2026.1762919/full">Open-access article →</a>
+    </article>
+
+    <div class="other-papers">
+      <h5>Other notable papers</h5>
+      <ul>
+        <li>A comprehensive IMU dataset for evaluating sensor layouts in human activity and intensity recognition — <a href="https://www.nature.com/articles/s41597-026-06710-9">Scientific Data, 2026</a> (12 daily activities, 30 participants, 17 IMUs each — a useful open dataset for benchmarking)</li>
+        <li>Editorial: Revolutionizing sports science: biomechanical models, wearable tech, and AI — <a href="https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2026.1849247/full">Frontiers in Sports and Active Living, 27 April 2026</a></li>
+        <li>Epidemiology, injury mechanisms, and prevention strategies in Ultimate Frisbee — <a href="https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2026.1714194/full">Frontiers in Sports and Active Living, 2026</a> (IMU + GPS quantification of fatigue in an emerging discipline; first paper at this scale)</li>
+        <li>Sensors (MDPI) Vol. 26 sport-relevant articles from the late-June issue — <a href="https://www.mdpi.com/1424-8220/26">browse the volume</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section>
+    <h2 class="section-header">Upcoming events</h2>
+    <hr class="section-rule">
+    <p class="section-intro">Next four weeks — three of the year's biggest sport-tech-relevant events all overlap, and 1 July is the day the UCI's first 2026 rule change actually takes effect.</p>
+
+    <div class="event-row">
+      <div class="event-date">29 Jun – 12 Jul</div>
+      <div class="event-body">
+        <div class="name">The Championships, Wimbledon 2026 — starts today</div>
+        <div class="meta-line">London, UK · Video Review live on six courts · on-court wearables permitted under trial · ELC overhauled post-2025 incident</div>
+        <a href="https://www.wimbledon.com/">Tournament hub →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">1 Jul</div>
+      <div class="event-body">
+        <div class="name">UCI front-pocket ban takes effect (Article 1.3.006 bis)</div>
+        <div class="meta-line">All UCI-sanctioned races · front-of-jersey pockets prohibited except for radio · bike-computer 126 × 71 mm cap follows on 1 Jan 2028</div>
+        <a href="https://www.uci.org/regulations/3MyLDDrwJCJJ0BGGOFzOat">UCI regulations →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">4 – 26 Jul</div>
+      <div class="event-body">
+        <div class="name">Tour de France 2026 — Grand Départ in Barcelona</div>
+        <div class="meta-line">Stage 1: 19.7 km team time trial in Barcelona · first Tour ever to start from the Catalan capital · the new pocket rule's first major test</div>
+        <a href="https://www.letour.barcelona/en/barcelona-start-2026-tour">Barcelona Grand Départ →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">7 – 10 Jul</div>
+      <div class="event-body">
+        <div class="name">31st ECSS Annual Congress — Lausanne 2026</div>
+        <div class="meta-line">SwissTech Convention Center, EPFL · "Coming back to the Olympic Capital" · ~2,500–3,000 delegates · SportEx exhibition</div>
+        <a href="https://sport-science.org/lausanne-2026/start/welcome/">Programme and registration →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">8 – 10 Jul</div>
+      <div class="event-body">
+        <div class="name">SPORTEC 2026 — Tokyo</div>
+        <div class="meta-line">East Hall, Tokyo Big Sight · ~550 exhibitors, ~45,000 visitors · Japan's largest sports and health-tech exhibition · AI physical testing showcase</div>
+        <a href="https://sports-st.com/en/">SPORTEC 2026 →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">19 Jul</div>
+      <div class="event-body">
+        <div class="name">FIFA World Cup 26 Final — MetLife Stadium</div>
+        <div class="meta-line">East Rutherford, NJ · the closing test of the SAOT, ref-cam, Trionda and Lenovo-avatar stack at the very end of a 39-day tournament</div>
+        <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/knockout-stage-match-schedule-bracket">Knockout schedule →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PODCAST -->
+  <section>
+    <h2 class="section-header">Podcast pick</h2>
+    <hr class="section-rule">
+
+    <div class="podcast-card">
+      <h4>The risks of over-relying on wearable tech in return-to-play decisions</h4>
+      <p class="show">Science for Sport Podcast · hosted by Richard Graves · 2026 series</p>
+      <p>A timely listen for the week wearables walk on court at Wimbledon. The episode unpacks the gap between what a Whoop / Oura / Garmin recovery score actually measures and what a return-to-play decision actually requires — sleep architecture, autonomic balance and resting HR aren't bad signals, but they're not the same signals as tissue load, neurocognitive recovery from a concussion event, or hamstring re-injury risk. Worth a 30-minute commute, especially before you start fielding "but my readiness was green" questions from athletes who now have those scores in their pocket during competition.</p>
+      <a href="https://scienceforsport.fireside.fm/tags/wearable%20technology/rss">Science for Sport · wearable-technology episodes →</a>
+    </div>
+  </section>
+
+  <!-- TECH-TALK -->
+  <section>
+    <div class="techtalk">
+      <h2>Tech-talk: continuous core body temperature monitoring — ingestible pills vs heat-flux skin sensors</h2>
+      <p class="topic-meta">Pegged to Wednesday's ELC heat outage in Wimbledon qualifying, greenTEG's Sweatlabs sub-brand launch at the Giro, and the Tour de France's Spanish Grand Départ on Saturday.</p>
+
+      <h3>What it is</h3>
+      <p>Continuous core body temperature monitoring sits in a different practitioner category from the temperature features bundled into smart rings or smartwatches. Those measure peripheral (skin) temperature at the wrist or finger — useful for circadian and cycle-tracking, useless for heat-stress decisions during exercise. True core temperature (T<sub>c</sub>) is the operationally relevant signal: it's what drives heat-illness risk, dictates the slope of the heat-acclimation adaptation, and underpins go/no-go decisions at the edge. The category splits cleanly into two technical approaches: ingestible telemetric pills, which measure T<sub>c</sub> directly inside the gut, and heat-flux skin sensors, which estimate it indirectly from skin temperature plus heat flow plus heart rate.</p>
+
+      <h3>The two approaches</h3>
+      <p><strong>Ingestible telemetric pills</strong> are battery-powered sensor capsules swallowed 4–8 h before exercise. As the capsule passes through the GI tract, a thermistor reads gastrointestinal temperature directly and a low-power radio (typically 433 MHz) transmits it to a body-worn receiver every 10–60 seconds. The 1990s CorTemp (HQ Inc., FL) was the field-grade pioneer; the modern reference is the BodyCap e-Celsius Performance (Hérouville-Saint-Clair, FR), an 8.9 × 17.7 mm capsule with claimed ±0.20 °C accuracy in the 25–45 °C range, used by national federations from rugby to athletics. Pills measure T<sub>c</sub> directly and lag-free; they are the gold standard against which everything else is validated.</p>
+      <p><strong>Heat-flux skin sensors</strong> sit on the skin (typically chest or trunk) and fuse two channels — skin temperature and the rate of heat flow between skin and ambient — with the wearer's heart rate to model an inferred T<sub>c</sub>. The two leading commercial devices are <strong>CORE</strong> (greenTEG, Switzerland) — now in its second generation, 4 × 5 × 0.8 cm, 12 g, BLE + ANT+ — and <strong>CALERA Research</strong> (also greenTEG, marketed as the research-grade variant). Heat-flux sensors are non-invasive, don't need a 4-hour ingestion lead time, can be moved between athletes, and tolerate long-form wear. The trade-off is the inference: skin-to-core lag, model sensitivity to ambient airflow and to fitness-driven HR coupling.</p>
+
+      <h3>Who's actually shipping</h3>
+      <ul>
+        <li><strong>BodyCap e-Celsius Performance (FR)</strong> — pill + monitor kit; the reference device for elite federation work; ~€350–500/pill, single-use.</li>
+        <li><strong>HQ Inc. CorTemp (US)</strong> — pill + receiver; field-grade since the 1990s; FDA-cleared.</li>
+        <li><strong>greenTEG CORE 2 (CH)</strong> — heat-flux skin sensor, BLE/ANT+; consumer-priced (~$295); now under a Sweatlabs sub-brand with a 2026 race-season pipeline.</li>
+        <li><strong>greenTEG CALERA Research (CH)</strong> — research-grade variant used in published validation studies; institutional pricing.</li>
+        <li><strong>Hashimoto et al. 2026 (multimodal probe)</strong> — heat flux + ECG + HR + sweat-rate estimation in a single patch; published this month (see Literature). Research-stage; no commercial entity yet.</li>
+      </ul>
+
+      <h3>Spec snapshot</h3>
+      <ul>
+        <li><strong>Accuracy (manufacturer-claimed):</strong> e-Celsius ±0.20 °C in the calibrated range; CORE 2 ±0.21 °C against pill in benign conditions, widening to ±0.5 °C+ in heat-stress and during fast thermal transitions.</li>
+        <li><strong>Latency:</strong> pill is real-time; heat-flux sensors lag the pill by 5–30 minutes during sudden core temperature changes (cold-water ingestion, work bout onset).</li>
+        <li><strong>Wear duration:</strong> pill 24–72 h (GI transit); heat-flux skin sensor multi-day per battery cycle, washable strap, swap-between-athletes ready.</li>
+        <li><strong>Compartment:</strong> pill measures gut, which closely tracks blood; heat-flux infers a deep-body proxy from skin-side thermal energy transfer.</li>
+        <li><strong>Cost-per-data-point:</strong> pill is the most expensive (each capsule is single-use); heat-flux is the cheapest at squad scale.</li>
+      </ul>
+
+      <h3>Validation picture</h3>
+      <p>This is the honest part. The Goods et al. (2023, EJSS) head-to-head of CORE vs BodyCap pill in elite women's field hockey at heat-acclimation camp found "poor" Lin's Concordance Correlation Coefficients during all four sessions — peak T<sub>c</sub> agreement between devices was particularly weak. Subsequent CALERA Research work (Januário et al. 2024 in heat, Cabré-Riera et al. 2025 in heart-failure patients) is more favourable to heat flux: mean bias of −0.01 °C in cycling-heat conditions, with the temperature-rise profile mirroring the pill's shape even when absolute values diverge. The defensible read is that heat-flux skin sensors are <em>directionally accurate</em> — they capture the slope of T<sub>c</sub> change and the timing of peak — but underestimate the absolute peak by 0.2–0.5 °C and lag during fast thermal transitions. For trend monitoring across a heat-acclimation block, or as a coach-side flag during a session, that's fine. For a go/no-go race-morning decision where being 0.4 °C wrong matters, it isn't. Use the pill.</p>
+
+      <h3>What's new this week</h3>
+      <p>Three things converged. First, greenTEG used the Giro to debut the transparent Limited Edition CORE 2 and announce Sweatlabs as a 2026 race-season product line — the first time a thermal-wearable vendor has framed the category this way. Second, the Hashimoto et al. multimodal probe paper landed this month — adding ECG and sweat-rate channels to a heat-flux patch is the most concrete attempt yet to attack the heat-flux validation gap from the sensor side. Third, the Wimbledon qualifying ELC outage in 35 °C heat on Wednesday reset the conversation about heat preparation at outdoor majors: if the system administering the tournament can fall over from heat, the athletes are operating closer to the edge than the schedule suggests. The Tour de France Grand Départ kicks off the same week. Pills are the safer choice for the riders at the front of GC; CORE 2 is a useful squad-wide layer for the rest. Both, not either.</p>
+
+      <div class="further">
+        <h3>Further reading</h3>
+        <ul>
+          <li><a href="https://onlinelibrary.wiley.com/doi/10.1080/17461391.2023.2193953">Goods et al. 2023 · CORE vs BodyCap pill in elite women's field hockey (EJSS)</a></li>
+          <li><a href="https://www.sciencedirect.com/science/article/pii/S0306456525000245">Januário et al. 2025 · CALERA validity across aerobic fitness levels</a></li>
+          <li><a href="https://www.mdpi.com/1424-8220/24/3/807">CALERA validity in maximum exercise (heart-failure cohort) · Sensors 2024</a></li>
+          <li><a href="https://www.bodycap-medical.com/e-celsius-performance-body-temperature-monitoring-telemetric-pill/">BodyCap e-Celsius Performance · spec sheet</a></li>
+          <li><a href="https://onlinelibrary.wiley.com/doi/10.1002/eej.70031">Hashimoto et al. 2026 · multimodal probe paper</a></li>
+          <li><a href="https://www.thermalhyperformance.com.au/post/core-temperature-wearables-are-we-there-yet">Thermal Hyperformance · "core temperature wearables, are we there yet?"</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    Sport Tech Weekly &nbsp;·&nbsp; Issue 07 · 29 June 2026 &nbsp;·&nbsp; Generated by Claude
+  </div>
+
+</div>
+</body>
+</html>
