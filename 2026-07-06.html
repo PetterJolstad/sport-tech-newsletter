@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sport Tech Weekly — 6 July 2026</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAF9F5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: #1A1A1A;
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 32px 32px 32px;
+  }
+  @media (max-width: 600px) {
+    .container { padding: 32px 20px 20px 20px; }
+  }
+
+  /* Masthead */
+  .masthead { text-align: center; margin-bottom: 80px; }
+  .masthead h1 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 48px;
+    color: #CC785C;
+    margin: 0 0 12px 0;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  .masthead .date {
+    color: #6B6B6B;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .masthead .tagline {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    color: #1A1A1A;
+    font-size: 18px;
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* Section headers */
+  section { margin-bottom: 64px; }
+  .section-header {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: #1A1A1A;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+  }
+  .section-rule {
+    width: 40px;
+    height: 2px;
+    background: #CC785C;
+    border: none;
+    margin: 0 0 32px 0;
+  }
+  .section-intro {
+    color: #6B6B6B;
+    font-size: 15px;
+    margin: -16px 0 28px 0;
+    line-height: 1.6;
+  }
+
+  /* Cards */
+  .card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-bottom: 24px;
+  }
+  .card h3 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.25;
+    margin: 0 0 14px 0;
+    color: #1A1A1A;
+  }
+  .card p { margin: 0 0 16px 0; }
+  .card p:last-child { margin-bottom: 0; }
+  .takeaway { color: #1A1A1A; }
+  .meta {
+    color: #6B6B6B;
+    font-size: 14px;
+    margin: 0 0 12px 0;
+    display: block;
+  }
+  .emerging-flag {
+    display: inline-block;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: #B05B3F;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    background: #F5F1E8;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .sources {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .sources a {
+    color: #CC785C;
+    font-size: 13px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color 0.15s ease;
+  }
+  .sources a:hover { border-bottom-color: #CC785C; }
+  .sources a + a::before {
+    content: '·';
+    color: #E8E2D5;
+    margin-right: 8px;
+  }
+
+  /* Literature */
+  .lit-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-bottom: 18px;
+  }
+  .lit-card h4 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.3;
+    margin: 0 0 6px 0;
+    color: #1A1A1A;
+  }
+  .lit-card .authors { color: #6B6B6B; font-size: 14px; margin: 0 0 4px 0; }
+  .lit-card .journal { font-style: italic; color: #6B6B6B; font-size: 14px; margin: 0 0 12px 0; }
+  .lit-card .relevance { font-size: 16px; color: #1A1A1A; margin: 0 0 12px 0; }
+  .lit-card a { color: #CC785C; text-decoration: none; font-size: 14px; }
+  .lit-card a:hover { border-bottom: 1px solid #CC785C; }
+
+  .other-papers {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-top: 18px;
+  }
+  .other-papers h5 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 0 12px 0;
+    color: #1A1A1A;
+  }
+  .other-papers ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .other-papers li { margin-bottom: 6px; color: #1A1A1A; }
+  .other-papers a {
+    color: #CC785C;
+    text-decoration: none;
+  }
+  .other-papers a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Events row */
+  .event-row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    padding: 18px 4px;
+    border-bottom: 1px solid #E8E2D5;
+  }
+  .event-row:last-child { border-bottom: none; }
+  .event-date {
+    color: #CC785C;
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    min-width: 130px;
+    flex-shrink: 0;
+  }
+  .event-body {
+    flex: 1;
+  }
+  .event-body .name {
+    font-weight: 600;
+    color: #1A1A1A;
+    font-size: 16px;
+  }
+  .event-body .meta-line {
+    color: #6B6B6B;
+    font-size: 14px;
+    margin-top: 2px;
+  }
+  .event-body a {
+    color: #CC785C;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 4px;
+    display: inline-block;
+  }
+  .event-body a:hover { border-bottom: 1px solid #CC785C; }
+  @media (max-width: 600px) {
+    .event-row { flex-direction: column; gap: 4px; }
+    .event-date { min-width: 0; }
+  }
+
+  /* Podcast */
+  .podcast-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    border-left: 4px solid #CC785C;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+  }
+  .podcast-card h4 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 19px;
+    margin: 0 0 6px 0;
+    line-height: 1.3;
+    color: #1A1A1A;
+  }
+  .podcast-card .show { color: #6B6B6B; font-size: 14px; margin: 0 0 12px 0; }
+  .podcast-card p { margin: 0 0 12px 0; font-size: 16px; }
+  .podcast-card a { color: #CC785C; text-decoration: none; font-size: 14px; }
+  .podcast-card a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Tech-talk feature */
+  .techtalk {
+    background: #F5F1E8;
+    border-radius: 12px;
+    padding: 40px 32px;
+    margin-bottom: 24px;
+  }
+  .techtalk h2 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.2;
+    color: #1A1A1A;
+    margin: 0 0 6px 0;
+  }
+  .techtalk .topic-meta {
+    color: #B05B3F;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 15px;
+    margin: 0 0 24px 0;
+  }
+  .techtalk h3 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #1A1A1A;
+    margin: 28px 0 10px 0;
+  }
+  .techtalk p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0 0 14px 0;
+    color: #1A1A1A;
+  }
+  .techtalk ul {
+    padding-left: 22px;
+    margin: 0 0 14px 0;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .techtalk li { margin-bottom: 6px; }
+  .techtalk .further {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #E8E2D5;
+  }
+  .techtalk .further h3 { margin-top: 0; }
+  .techtalk .further ul { padding-left: 0; list-style: none; margin: 0; }
+  .techtalk .further li { margin-bottom: 8px; font-size: 15px; }
+  .techtalk .further a { color: #CC785C; text-decoration: none; }
+  .techtalk .further a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Footer */
+  .footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid #E8E2D5;
+    text-align: center;
+    color: #6B6B6B;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="masthead">
+    <h1>Sport Tech Weekly</h1>
+    <div class="date">Issue 08 · Monday 6 July 2026</div>
+    <p class="tagline">Heat is the story that ate the week. The Tour de France opened under the UCI High Temperature Protocol; officials at the Barcelona start ramp forced riders to strip ice socks out of their skinsuits; Wimbledon triggered its brand-new heat break rule; and adidas quietly rolled out a Formula 1-derived cooling package to every partner federation at the World Cup. Plus ECSS Lausanne opens tomorrow — and a tech-talk on how practitioners should think about pre-, per- and post-cooling gear now that it has become mainstream.</p>
+  </header>
+
+  <!-- BIG STORIES -->
+  <section>
+    <h2 class="section-header">Big stories</h2>
+    <hr class="section-rule">
+
+    <article class="card">
+      <span class="meta">4–6 July 2026 · Racing regulation &amp; heat management · Tour de France 2026</span>
+      <h3>The Tour de France opens in Barcelona under the UCI High Temperature Protocol — Visma-Lease a Bike wins the team time trial, and officials pull ice socks out of riders' skinsuits at the start ramp</h3>
+      <p class="takeaway">Saturday 4 July: the first Grand Départ ever held on Catalan soil. Team Visma | Lease a Bike win the 19.7 km team time trial in Barcelona in 21:47.87, seven seconds up on Netcompany-INEOS and eleven up on UAE Team Emirates-XRG. Jonas Vingegaard takes the first yellow jersey of the 2026 Tour ahead of Filippo Ganna (+8 s) and Tadej Pogačar (+12 s). What happened at the start ramp, however, is the practitioner story. In 30 °C conditions, UCI commissaires enforced Article 1.3.006 bis against "modifications to the morphology of the rider" — sending riders back to strip ice-filled stockings out of the small of their skinsuits before they were allowed onto the ramp. The rule is not aimed at the cold; it is aimed at the shape. In the UCI's reading, the ice bundle creates an aerodynamic fairing.</p>
+      <p class="takeaway">By Sunday's Tarragona–Barcelona road stage, the ice socks were back — the ban is being enforced only where a rider is measured in a rigid morphology (TTs, sprint stages under aerodynamic scrutiny). But the far bigger regulatory story is what came behind: with Europe in the middle of a documented heatwave (1,200+ deaths recorded in France on 24 June and 1,400+ on 25 and 26 June), the UCI has activated its High Temperature Protocol for the first time at a Tour de France. Race director Christian Prudhomme confirmed the WBGT-driven safeguards are in force, and the organisation has openly discussed the possibility that Stage 3 (Granollers–Les Angles) and Stage 4 (Carcassonne–Foix) could be cut, neutralised or in extreme cases cancelled outright over a combination of forecast 40 °C+ air temperature and active wildfire risk along the route.</p>
+      <p class="takeaway">For practitioners: three concrete signals. First, the UCI has now shown it will use the WBGT metric (temperature + humidity + solar + wind) rather than raw air temperature to trigger race-day intervention — the 28 °C WBGT threshold set out in the 2024 protocol is now operationally meaningful. Second, the ice-sock ruling is the first time a sport governing body has explicitly regulated a passive cooling insert as an equipment modifier, not a physiological one. If you are running summer heat strategy for road or triathlon, the message is that in-competition cooling gear is now a scrutinised object — its aerodynamic footprint matters as much as its physics. Third, the same protocol allows expanded water supply from km 0, expanded time limits and shortened stages — if you have an athlete at the Tour or at a UCI event this month, know what the protocol permits you to hand up and where.</p>
+      <div class="sources">
+        <a href="https://www.cyclingnews.com/pro-cycling/racing/tour-de-france-jonas-vingegaard-takes-the-races-first-yellow-jersey-as-he-delivers-visma-lease-a-bike-to-stage-1-team-time-trial-victory/">Cyclingnews · Stage 1 result</a>
+        <a href="https://www.cyclingnews.com/pro-cycling/rules/uci-bans-tour-de-france-riders-from-using-ice-socks-for-cooling-in-stage-1-team-time-trial/">Cyclingnews · UCI ice-sock ruling</a>
+        <a href="https://velo.outsideonline.com/road/road-racing/tour-de-france/uci-blocks-sneaky-ice-socks-from-tour-de-france-heatwave/">Velo · morphology reasoning</a>
+        <a href="https://www.cyclingnews.com/pro-cycling/safety/tour-de-france-stages-3-and-4-at-risk-of-cancellation-due-to-wildfires-heat/">Cyclingnews · Stage 3/4 at risk</a>
+        <a href="https://www.cyclingweekly.com/racing/tour-de-france/temperatures-set-to-soar-at-the-tour-de-france-as-uci-clamps-down-on-ice-socks">Cycling Weekly · UCI clampdown</a>
+        <a href="https://www.uci.org/regulations/3MyLDDrwJCJJ0BGGOFzOat">UCI · Article 1.3.006 bis</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="meta">29 June – 6 July 2026 · Tournament tech · Wimbledon 2026 Week 1</span>
+      <h3>Wimbledon triggers its brand-new heat break rule in Week 1 — with wearables on court, video review live and the qualifying ELC outage still hanging over the operations team</h3>
+      <p class="takeaway">One week into The Championships, all three of the tournament's simultaneous first-time tech changes are now visible on court. The new heat rule is the headline: for the first time in Wimbledon's history, either player can trigger a 10-minute heat break between the second and third set of a women's match or between the third and fourth of a men's match once the heat stress index — which combines air temperature, humidity and surface temperature — crosses 30.1 °C at the time of the changeover reading. That is a materially different threshold from the WBGT the UCI is using at the Tour, and the difference matters: Wimbledon's index is court-surface-inclusive, which is why matches on Centre and No 1 (roofs, more radiant heat, slower airflow) will trigger sooner than outside courts even in the same air temperature.</p>
+      <p class="takeaway">The other two changes have been quieter but no less consequential. Video Review is live on six courts (Centre, No 1, No 2, No 3, Court 12, Court 18); players can now challenge specific chair-umpire judgement calls — double-bounce, not-up, foul-shot, touch — and the chair rules from a courtside monitor in seconds. And the Player Analysis Technology trial is running for the first time at SW19: WHOOP is the most-visible on-body device (Sabalenka and Sinner both confirmed wearers), with sweat patches (including Abbott Lingo continuous glucose sensors used by some players as a fuelling tool) also spotted courtside. Not every match report has surfaced first-week biometric data, but coaching staff at the tour level are already fielding "my recovery says green — should I play through this?" conversations in changeovers, which is exactly the operational shift the trial was going to force.</p>
+      <p class="takeaway">For practitioners: two calls to action. First, if you support a tennis athlete anywhere on tour, define now — not later — which two or three biomarkers you will actively coach on during a changeover and which you will tell the athlete to hide from themselves. HRV and recovery scores are lagging indicators; letting them drive an in-match tactical decision is almost always wrong. Second, watch how the 30.1 °C surface-inclusive threshold plays out against Wimbledon's forecast this week (a return to 30 °C+ air is expected) — this is the first live example of a "microclimate-aware" heat protocol at a Grand Slam, and if it holds, ATP/WTA and the US Open (and eventually the Australian Open, still holding the wearables line) will be under pressure to match it.</p>
+      <div class="sources">
+        <a href="https://en.tennistemple.com/actu/wimbledon-2026-new-heat-rule-introduces-10-minute/zfKF">Tennis Temple · heat-break rule details</a>
+        <a href="https://streamlinefeed.co.ke/news/wimbledon-2026-heat-curfew-tech-rules-explained"> Streamline · 30.1 °C threshold explainer</a>
+        <a href="https://www.espn.com/tennis/story/_/id/49155408/wimbledon-2026-there-hydration-breaks-happens-there-heatwave">ESPN · hydration and heat rules</a>
+        <a href="https://lovemylibre.com/blogs/libre-life-news-articles-latest/wimbledon-2026-wearable-health-trackers">Love My Libre · who's wearing what</a>
+        <a href="https://www.sportsvideo.org/2026/06/29/wimbledon-introduces-ai-powered-fan-features-modernized-digital-platforms-for-2026-championships/">SVG · Video Review + AI features</a>
+        <a href="https://www.wimbledon.com/">Wimbledon · tournament hub</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="emerging-flag">🌱 Up-and-coming · commercially deployed · every adidas WC26 federation</span>
+      <span class="meta">Late June – early July 2026 · Personal cooling systems · adidas &amp; Nike (WC26)</span>
+      <h3>adidas rolls out its Climacool cooling package — Mercedes-AMG Petronas F1 tech, adapted for football — to every one of its World Cup federations, with Nike's Aero-FIT running in parallel</h3>
+      <p class="takeaway">Now three weeks into a World Cup that has already produced multiple 35 °C+ kick-offs (Monterrey group stage, Dallas mid-days, southern-US knockout venues), adidas has publicly confirmed that the "Climacool System" being handed to all of its sponsored federations is a direct adaptation of the cooling suite it built for the Mercedes-AMG Petronas Formula 1 drivers' seat. The package is not one product but three: (1) a pre-frozen gel cooling vest worn 20–30 minutes before kick-off, at half-time and post-match; (2) an insulating over-jacket that stops the vest thawing prematurely in the tunnel and warm-up zone; (3) a specialised over-shoe that reduces foot temperature during the pre-match. adidas claims the stack drops core body temperature by up to 0.5 °C and skin temperature by up to 13 °C when used pre-match — numbers that would sit at the upper end of the published pre-cooling literature if they hold up in an independent chamber.</p>
+      <p class="takeaway"><strong>Maturity:</strong> commercially deployed to all adidas partner federations at WC26; not on sale to clubs or consumers. <strong>Who's piloting:</strong> every adidas WC26 kit federation — including Argentina, Germany, Spain, Japan, Mexico. <strong>Genuine novelty:</strong> not the ice vest (INUTEQ, Cool58, Techniche, Hyperwear have shipped PCM vests for a decade), and not the F1 origin (COMPCOOL and Sparco have adapted circuit tech for a while) — the novelty is that a kit sponsor now bundles a full pre-, per- and post-cooling package as standard equipment for a federation. Nike is running its own parallel play: the newly launched Aero-FIT technology (100% textile-waste sourced, ventilated apparel with graphene heat-transfer layers) is quietly being deployed to Nike-sponsored teams — the first mainstream kit shift explicitly designed for a warmer competition schedule. <strong>Reasonable skepticism:</strong> pre-cooling literature is genuinely positive but the effect is modest (mean improvement in time-to-exhaustion under heat of ~5–7 % in Bongers' 2015 BJSM review; smaller in intermittent team-sport tasks), and vendor ΔT<sub>c</sub> claims almost never survive independent replication with the same numbers. The bigger story is not "does the vest work" (it does, at the margin) but that federations that previously shipped ad-hoc kit have suddenly been handed a standardised protocol — which changes the compliance picture significantly.</p>
+      <div class="sources">
+        <a href="https://www.footyheadlines.com/9838117043/adidas-unveils-climacool-system-for-2026-world-cup.html">Footy Headlines · Climacool full detail</a>
+        <a href="https://www.sgieurope.com/product/adidas-launches-climacool-system-for-world-cup-2026/121568.article">SGI Europe · federation rollout</a>
+        <a href="https://manofmany.com/entertainment/sport/adidas-climacool-system-world-cup-2026">Man of Many · F1 origin</a>
+        <a href="https://about.nike.com/en/newsroom/releases/nike-aero-fit-official-images">Nike · Aero-FIT launch</a>
+        <a href="http://researchonline.ljmu.ac.uk/id/eprint/2688/3/Manuscript_BJSM_REVIEW_COOLING_unmarked.pdf">Bongers et al. 2015 · pre- and per-cooling BJSM review</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="meta">3–6 July 2026 · Tournament tech · FIFA World Cup 26 · Round of 16 wrap</span>
+      <h3>Round of 16 closes today and the FIFA stack keeps quietly earning its keep — plus a pre-quarterfinal look at what the ref-cam has taught practitioners already</h3>
+      <p class="takeaway">The Round of 16 wraps this evening in New York. Twenty-three days into WC26, the tech stack that dominated the June kick-off — Trionda smart ball, SAOT with Lenovo per-player avatars, referee body-cams over 5G, adidas Climacool at the sideline — has settled into a work-a-day rhythm. Two data points worth flagging heading into the quarterfinals (Thursday and Friday, 9–10 July). First, the Trionda's 500 Hz IMU has now been the deciding evidence on offside calls in at least four match reports; the operational protocol of swapping balls at the half-hour to manage the sensor battery has been publicly invisible. Second, the referee body-cam footage has already begun circulating in coaching-education circles as the first broadcast-grade first-person dataset of elite refereeing in live competition. If you are a club or federation coaching-education lead, treat this month as the harvest window — this footage will not stay open-access forever.</p>
+      <p class="takeaway">For practitioners: two operating lessons for the last ten days of the tournament. First, if your team is still in the bracket, the ref-cam-side data is the single best-in-class asset for opposition-tagging behavioural cues (where the referee is looking, what he is signalling, tempo of card-vs-warning decisions) — worth an intern-week to systematically pull from the FIFA and IBC feeds. Second, the SAOT-vs-broadcast timing gap that emerged in the group stage has widened, not narrowed: broadcast freeze-frames are increasingly wrong in the direction of "onside" against a SAOT "offside" — the ball IMU sees a contact frame the camera physically cannot. Update your video-tagging vocabulary; a freeze-frame is now an approximation, and the pitch is right.</p>
+      <div class="sources">
+        <a href="https://worldcuppass.com/world-cup-2026-quarterfinals/">World Cup Pass · quarterfinal schedule</a>
+        <a href="https://techround.co.uk/tech/fifa-world-cup-2026-tech/">TechRound · Trionda stack in the knockouts</a>
+        <a href="https://www.sify.com/technology/the-trionda-story-the-technology-inside-the-2026-fifa-world-cup-ball/">Sify · Trionda technology</a>
+        <a href="https://inside.fifa.com/innovation/news/offside-decisions-referee-body-cams-innovation-world-cup-2026">FIFA Innovation · stack overview</a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- LITERATURE -->
+  <section>
+    <h2 class="section-header">Recent literature</h2>
+    <hr class="section-rule">
+    <p class="section-intro">A heavy environmental-physiology week ahead of ECSS Lausanne (starts tomorrow). Three studies on the heat / heat-plus-altitude axis, plus a Frontiers editorial worth using as a citable overview for your line manager.</p>
+
+    <article class="lit-card">
+      <h4>Heat acclimation during the third week of a live-high-train-high training camp does not impair the hematological and perceptual responses to altitude</h4>
+      <p class="authors">Vidal L., Faiss R., Deshayes T., Boudet P., Louis J., Millet G. P., et al.</p>
+      <p class="journal">Scandinavian Journal of Medicine &amp; Science in Sports · Vol. 36, e70236 · 2026 (published online, in-press)</p>
+      <p class="relevance">23 well-trained triathletes on a 21-day live-high-train-high camp at ~2,300 m; from day 14 to day 21, one group added a daily 1-hour cycling session in a 36 °C / 40 % RH chamber. Headline finding: adding heat acclimation in the third week of the altitude block did not blunt the hematological (erythropoietic) or perceptual altitude responses relative to a matched control. Practitioner value: the combined-stressor training model — heat block layered on top of an altitude block — is very active right now for teams heading into hot summer competitions after mountain camps, and until this paper the concern that heat exposure might blunt the altitude EPO response was live. Vidal et al. is the strongest evidence to date that the two can co-exist inside a properly periodised camp.</p>
+      <a href="https://onlinelibrary.wiley.com/doi/10.1111/sms.70236">DOI: 10.1111/sms.70236 →</a>
+    </article>
+
+    <article class="lit-card">
+      <h4>Factors associated with performance decrements in elite athletes during exercise under hot and humid ambient conditions</h4>
+      <p class="authors">Peggen J. and colleagues</p>
+      <p class="journal">International Journal of Sports Physiology and Performance · 2026, in-press</p>
+      <p class="relevance">A multi-cohort observational analysis of elite endurance and team-sport athletes exercising in controlled heat + humidity, teasing apart which of the usual suspects — pre-competition heat acclimation status, sweat-rate individualisation, morning core temperature, WBGT at start, hydration lead — most consistently predict individual performance loss. Nothing exotic, but the correlation matrix is a very useful "which of my variables to actually chase" sheet for a small performance team ahead of any hot-weather competition block. Pair it with Vidal for a full pre-camp / mid-camp / on-race-day heat playbook.</p>
+      <a href="https://journals.humankinetics.com/view/journals/ijspp/ijspp-overview.xml">IJSPP article listing →</a>
+    </article>
+
+    <article class="lit-card">
+      <h4>Artificial intelligence and wearables in sport: performance, injury risk, and wellbeing (Editorial)</h4>
+      <p class="authors">Frontiers editorial team · multi-author</p>
+      <p class="journal">Frontiers in Artificial Intelligence · Vol. 9 · 2026 · Article 1838507</p>
+      <p class="relevance">A short editorial framing the Frontiers Research Topic on AI × wearables. The valuable part is the taxonomy: it separates continuous-signal AI (HR, IMU, GPS turned into training-load and injury-risk models) from decision-support AI (return-to-play, opposition analysis, tactical recommendation) and calls out the different validation standards each should meet. Useful as a citable one-pager if you are trying to talk a coach or medical director out of treating "the wearable says X" and "the algorithm says X" as the same class of evidence.</p>
+      <a href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1838507/full">Open-access editorial →</a>
+    </article>
+
+    <div class="other-papers">
+      <h5>Other notable papers</h5>
+      <ul>
+        <li>The effects of palm cooling on repeat sprint ability following a fatigue-inducing protocol in collegiate female athletes — <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12143273/">open-access, 2025</a> (cited widely this week off the CoolMitt-USA Cycling announcement; still the cleanest field-side palm-cooling repeat-sprint study).</li>
+        <li>Thermoregulatory responses in open water and pool swimming — <a href="https://www.jsams.org/article/S1440-2440(25)00195-1/fulltext">JSAMS, 2025</a> (relevant for the growing number of open-water swim-triathlon squads dealing with the same UCI-style ambient / water-temperature thresholds).</li>
+        <li>Wearable technology for athletes: material innovations, performance monitoring, and emerging paradigms — <a href="https://link.springer.com/article/10.1007/s00604-025-07792-9">Microchimica Acta, 2026</a> (readable materials-science overview, useful for the physics of graphene-heat-transfer garments the Nike Aero-FIT press mentions).</li>
+        <li>Application potential of continuous glucose monitoring (CGM) in elite endurance athletes without diabetes — <a href="https://link.springer.com/article/10.1186/s44410-025-00013-7">Performance Nutrition, 2025</a> (the piece to send anyone asking why Abbott Lingo sensors are now normal on tour).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section>
+    <h2 class="section-header">Upcoming events</h2>
+    <hr class="section-rule">
+    <p class="section-intro">Two conferences and a Grand Slam final in the same week — ECSS Lausanne opens tomorrow morning at EPFL.</p>
+
+    <div class="event-row">
+      <div class="event-date">6 – 7 Jul</div>
+      <div class="event-body">
+        <div class="name">ECSS Lausanne 2026 — Pre-Congress (starts today)</div>
+        <div class="meta-line">SwissTech Convention Center, EPFL · anti-doping, biomechanics, nutrition, IOC visits and masterclasses · attend as a warm-up before the main scientific programme opens Tuesday</div>
+        <a href="https://sport-science.org/lausanne-2026/start/welcome/">Pre-congress programme →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">7 – 10 Jul</div>
+      <div class="event-body">
+        <div class="name">31st ECSS Annual Congress — Lausanne 2026</div>
+        <div class="meta-line">EPFL, Lausanne · theme "Coming back to the Olympic Capital" · ~3,000 delegates · SportEx exhibition · Bengt Saltin 5K and Friday Night Party</div>
+        <a href="https://sport-science.org/lausanne-2026/">Congress hub →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">8 – 10 Jul</div>
+      <div class="event-body">
+        <div class="name">SPORTEC 2026 — Tokyo</div>
+        <div class="meta-line">East Hall, Tokyo Big Sight · ~550 exhibitors, ~45,000 visitors · Japan's largest sports and health-tech exhibition · AI physical-testing showcase</div>
+        <a href="https://sports-st.com/en/">SPORTEC 2026 →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">9 – 10 Jul</div>
+      <div class="event-body">
+        <div class="name">FIFA World Cup 26 — Quarterfinals</div>
+        <div class="meta-line">Boston, Kansas City, Los Angeles, Miami · knockout continues Thursday and Friday · SAOT-10 cm, Trionda IMU and ref-cam remain live</div>
+        <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/knockout-stage-match-schedule-bracket">Knockout schedule →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">11 – 12 Jul</div>
+      <div class="event-body">
+        <div class="name">Wimbledon 2026 Finals Weekend</div>
+        <div class="meta-line">All England Club, London · Women's Singles Final Saturday, Men's Singles Final Sunday · Video Review and heat-index protocol active on Centre Court</div>
+        <a href="https://www.wimbledon.com/">Tournament hub →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">26 Jul</div>
+      <div class="event-body">
+        <div class="name">Tour de France 2026 — final stage into Paris</div>
+        <div class="meta-line">Champs-Élysées finish · closing weekend of a heat-protocol-defined edition · a first go/no-go read on how the UCI's WBGT-driven decision framework holds under a live GC fight</div>
+        <a href="https://en.wikipedia.org/wiki/2026_Tour_de_France">Tour route →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PODCAST -->
+  <section>
+    <h2 class="section-header">Podcast pick</h2>
+    <hr class="section-rule">
+
+    <div class="podcast-card">
+      <h4>Preparing players for the 2026 Men's World Cup — Dr Ben Rosenblatt</h4>
+      <p class="show">Science for Sport Podcast · hosted by Richard Graves · 2026 series</p>
+      <p>The single most-relevant listen for the week the World Cup enters its knockout finale under the adidas Climacool sideline. Rosenblatt (founder of 292 Performance, formerly Lead Men's Physical Performance Coach at The FA and prep lead for two men's World Cups plus a Euros) walks through how a national-team performance staff actually thinks about heat, humidity, altitude and travel across 48 nations, 104 matches and three host countries — with a very useful section on why "individualised" recovery and cooling protocols beat team-wide protocols in the tournament window, and how small doses of the right training can shift a player from "available" to "ready to compete." Pairs neatly with this week's tech-talk on personal cooling gear.</p>
+      <a href="https://www.scienceforsport.com/world-cup-heat-science-technology/">Science for Sport · World Cup heat, science &amp; tech →</a>
+    </div>
+  </section>
+
+  <!-- TECH-TALK -->
+  <section>
+    <div class="techtalk">
+      <h2>Tech-talk: personal athlete cooling — pre-cooling, per-cooling and the wearable stack for a warmer season</h2>
+      <p class="topic-meta">Pegged to adidas's Climacool F1-derived rollout to every WC26 federation, the UCI's ice-sock ruling at the Barcelona TTT, and Wimbledon triggering its 10-minute heat-break rule for the first time this week.</p>
+
+      <h3>What it is</h3>
+      <p>Personal athlete cooling is the actuator side of last week's core-body-temperature conversation. Where the pill and the heat-flux patch tell you where the athlete's core temperature is heading, cooling gear is what you actually deploy to slow the climb, cut the peak or accelerate the recovery. The category splits along three usage windows — <em>pre-cooling</em> (before the event, to bank thermal headroom), <em>per-cooling</em> (during breaks in play, to interrupt heat accumulation) and <em>post-cooling</em> (after the event, to accelerate recovery and blunt heat-shock protein up-regulation you don't want) — and along four physical mechanisms: latent heat of fusion (ice, phase-change gels), forced convection (ventilated garments), radiative cooling (graphene / high-emissivity fabrics) and vasocooling of glabrous skin (the palm-cooling family).</p>
+
+      <h3>The four physical mechanisms</h3>
+      <p><strong>Latent heat of fusion — ice and phase-change vests.</strong> The vast majority of the market. An ice or PCM insert absorbs heat as it changes state, drawing warmth from the skin above it. Ice-water vests give the biggest ΔT but only for 10–20 minutes; PCM vests (INUTEQ PAC, Polar Products Cool58, Techniche HyperKewl, Hyperwear CoolOver) hold a constant 14–15 °C or 18–20 °C for 90–150 minutes at the cost of a smaller instantaneous temperature drop. adidas's Climacool vest, delivered to every partner federation at WC26, is a pre-frozen gel construction with an insulating over-jacket that adidas claims reduces core body temperature up to 0.5 °C and skin temperature up to 13 °C — this sits at the upper end of published pre-cooling numbers but not implausibly high.</p>
+      <p><strong>Forced convection — ventilated garments.</strong> Nike's Aero-FIT (launched in June 2026 for its WC26 federations) is the first mainstream kit shift in this direction: 100 % textile-waste yarn, ventilated construction, layered with a graphene heat-transfer skin. The physics here is not new — sweat evaporation cooling has always dominated the field of play once the vest is off — but the delivery is: fabric that structurally boosts convection at speeds under 10 km/h (i.e. the walking / jogging phases of a match) is a genuine incremental step for team sports.</p>
+      <p><strong>Radiative cooling — graphite/graphene headgear.</strong> Omius (Switzerland/US) sells graphite-lined caps, visors and headbands that use high-emissivity contact patches to radiate heat away from the head. Physiology-wise the head is the least effective single site for whole-body cooling — the neck and torso dominate — but for endurance athletes (marathon, triathlon) who cannot wear a vest, headgear is what you have; Omius's radiative approach is a step up from a wet cap.</p>
+      <p><strong>Vasocooling of glabrous skin — palm cooling.</strong> Stanford biologists Craig Heller and Dennis Grahn's key insight: the palms, soles and cheeks have arteriovenous anastomoses that can dump enormous heat when the skin is cooled to just above the vasoconstriction threshold. CoolMitt (Arteria Technology, formerly AVAcore) is the commercial version — a water-cooled mitt held at 50–53 °F (10–12 °C) that the athlete grips for 3–5 minutes between efforts. USA Cycling announced a formal collaboration with CoolMitt this year to trial the device with pro cyclists; Miami football, the Milwaukee Bucks and Manchester United have all publicly reported using variants. Field validation is stronger for repeat-sprint scenarios than for continuous endurance work; the effect vanishes if the palm temperature drops below ~9 °C because peripheral vasoconstriction shuts the door.</p>
+
+      <h3>Who's actually shipping</h3>
+      <ul>
+        <li><strong>adidas Climacool System (DE)</strong> — pre-frozen gel vest + insulating jacket + over-shoe; deployed to every adidas WC26 federation from June 2026. Not on sale to clubs.</li>
+        <li><strong>Nike Aero-FIT (US)</strong> — ventilated recycled-yarn kit with graphene heat-transfer layer; deployed to Nike WC26 federations.</li>
+        <li><strong>INUTEQ (NL) / Polar Products Cool58 (US) / Techniche HyperKewl (US) / Hyperwear CoolOver (US)</strong> — the PCM-vest incumbents; ~$150–$400 per unit; the sensible off-the-shelf pick for a club-side kit locker.</li>
+        <li><strong>Omius (CH/US)</strong> — radiative-cooling caps, visors, headbands; ~$120–$200; adopted by Kipchoge's camp and multiple pro triathlon squads.</li>
+        <li><strong>CoolMitt / Arteria Technology (US)</strong> — palm-cooling mitt, water circulated at 10–12 °C; ~$1,600 per unit, professional deployment via bench-side chiller.</li>
+        <li><strong>Ice slurry</strong> — the un-branded gold standard for internal pre-cooling; 7–14 g/kg body mass at −1 to +1 °C, ingested 30 minutes before start; the cheapest and most reliable performance intervention in the category.</li>
+      </ul>
+
+      <h3>Spec snapshot</h3>
+      <ul>
+        <li><strong>Pre-cooling effect size (Bongers et al. 2015 BJSM meta-analysis):</strong> ~5–7 % improvement in time-to-exhaustion under heat; mixed-method cooling (vest + ice slurry + palm) outperforms any single modality by a further ~1.5–2 %.</li>
+        <li><strong>Per-cooling effect size:</strong> smaller (~3–5 %), but with the advantage that it doesn't require a 20-minute pre-event window — critical for intermittent team sport where the biggest cooling opportunity is half-time, not warm-up.</li>
+        <li><strong>Ice slurry dosing (Ross et al. scoping reviews):</strong> 7–14 g/kg body mass at −1 to +1 °C, ingested 30 min pre-start, reliably drops T<sub>c</sub> 0.2–0.4 °C. GI discomfort is the main compliance failure.</li>
+        <li><strong>Palm-cooling window (Heller lab):</strong> palm skin temperature 10–13 °C is optimal; below ~9 °C the arteriovenous anastomoses shut and the effect disappears.</li>
+        <li><strong>Vendor ΔT<sub>c</sub> claims:</strong> take with grain of salt — adidas's "up to 0.5 °C" for Climacool is at the plausibility ceiling of independent pre-cooling literature but not off it.</li>
+      </ul>
+
+      <h3>Validation picture</h3>
+      <p>The honest read is that the category is well-validated in aggregate but modestly so per unit. The two meta-analyses of external cooling (Ross 2013 in Sports Medicine, and the updated Chan et al. 2023 Frontiers systematic review) both find small-to-moderate performance improvements from pre-cooling that survive publication-bias adjustment; the strongest effects are for continuous endurance (~40–90 min) in ambient temperatures above 30 °C. Per-cooling literature is thinner but consistently positive in cycling and running. Palm cooling has genuinely strong repeat-sprint data in men and women (see Cabral et al. 2024 in the "other papers" list); the endurance-cycling case that USA Cycling is now piloting is still building. Ice slurry is the workhorse — cheap, well-evidenced, no equipment. If you have to prioritise one cooling intervention on a fixed budget: ice slurry pre-start, then a PCM vest at half-time, then everything else.</p>
+
+      <h3>What's new this week</h3>
+      <p>Three signals converged. First, adidas confirmed that its WC26 federation package is directly derived from the Mercedes-AMG Petronas F1 driver-cooling system — the first time a kit sponsor has bundled a full pre-, per- and post-cooling stack as standard federation equipment at a major tournament. Second, Nike ran a parallel play with the Aero-FIT technology launch, expanding the definition of "cooling kit" to include the fabric layer itself. Third, the UCI's ice-sock ruling at the Barcelona TTT is the first time a governing body has formally regulated a passive cooling insert as an aerodynamic morphology modifier — a rule that will now shape which pre-race cooling interventions are viable in a road time trial for the rest of the season. And in the background, USA Cycling's public collaboration with CoolMitt formally puts palm cooling on the professional cycling map. For a practitioner heading into a hot summer competition, the shopping-list argument has changed: the question is no longer whether to invest in cooling gear, but which combination of the four physical mechanisms to layer for the specific event and athlete profile in front of you.</p>
+
+      <div class="further">
+        <h3>Further reading</h3>
+        <ul>
+          <li><a href="http://researchonline.ljmu.ac.uk/id/eprint/2688/3/Manuscript_BJSM_REVIEW_COOLING_unmarked.pdf">Bongers et al. 2015 · precooling and percooling meta-analysis (BJSM)</a></li>
+          <li><a href="https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2022.1091228/full">Chan et al. 2023 · external cooling placement systematic review (Front. Physiol.)</a></li>
+          <li><a href="https://pubmed.ncbi.nlm.nih.gov/38288403/">Nakamura et al. 2024 · ice-slurry precooling scoping review</a></li>
+          <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12143273/">Cabral et al. · palm cooling and repeated sprints in collegiate female athletes</a></li>
+          <li><a href="https://stanfordmag.org/contents/just-cool-it">Stanford Magazine · Craig Heller and Dennis Grahn on palm-cooling physiology</a></li>
+          <li><a href="https://usacycling.org/article/coolmitt-and-usa-cycling-team-up-to-explore-the-impact-of-cooling-technology-on-athletes">USA Cycling × CoolMitt · partnership announcement</a></li>
+          <li><a href="https://www.gssiweb.org/sports-science-exchange/article/sse-153-heat-acclimatization-to-improve-athletic-performance-in-warm-hot-environments">GSSI SSE #153 · heat-acclimatisation practitioner brief</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    Sport Tech Weekly &nbsp;·&nbsp; Issue 08 · 6 July 2026 &nbsp;·&nbsp; Generated by Claude
+  </div>
+
+</div>
+</body>
+</html>
