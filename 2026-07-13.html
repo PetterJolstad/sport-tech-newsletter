@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sport Tech Weekly — 13 July 2026</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAF9F5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: #1A1A1A;
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 32px 32px 32px;
+  }
+  @media (max-width: 600px) {
+    .container { padding: 32px 20px 20px 20px; }
+  }
+
+  /* Masthead */
+  .masthead { text-align: center; margin-bottom: 80px; }
+  .masthead h1 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 48px;
+    color: #CC785C;
+    margin: 0 0 12px 0;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  .masthead .date {
+    color: #6B6B6B;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .masthead .tagline {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    color: #1A1A1A;
+    font-size: 18px;
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* Section headers */
+  section { margin-bottom: 64px; }
+  .section-header {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: #1A1A1A;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+  }
+  .section-rule {
+    width: 40px;
+    height: 2px;
+    background: #CC785C;
+    border: none;
+    margin: 0 0 32px 0;
+  }
+  .section-intro {
+    color: #6B6B6B;
+    font-size: 15px;
+    margin: -16px 0 28px 0;
+    line-height: 1.6;
+  }
+
+  /* Cards */
+  .card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-bottom: 24px;
+  }
+  .card h3 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.25;
+    margin: 0 0 14px 0;
+    color: #1A1A1A;
+  }
+  .card p { margin: 0 0 16px 0; }
+  .card p:last-child { margin-bottom: 0; }
+  .takeaway { color: #1A1A1A; }
+  .meta {
+    color: #6B6B6B;
+    font-size: 14px;
+    margin: 0 0 12px 0;
+    display: block;
+  }
+  .emerging-flag {
+    display: inline-block;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: #B05B3F;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    background: #F5F1E8;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .sources {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .sources a {
+    color: #CC785C;
+    font-size: 13px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color 0.15s ease;
+  }
+  .sources a:hover { border-bottom-color: #CC785C; }
+  .sources a + a::before {
+    content: '·';
+    color: #E8E2D5;
+    margin-right: 8px;
+  }
+
+  /* Literature */
+  .lit-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-bottom: 18px;
+  }
+  .lit-card h4 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.3;
+    margin: 0 0 6px 0;
+    color: #1A1A1A;
+  }
+  .lit-card .authors { color: #6B6B6B; font-size: 14px; margin: 0 0 4px 0; }
+  .lit-card .journal { font-style: italic; color: #6B6B6B; font-size: 14px; margin: 0 0 12px 0; }
+  .lit-card .relevance { font-size: 16px; color: #1A1A1A; margin: 0 0 12px 0; }
+  .lit-card a { color: #CC785C; text-decoration: none; font-size: 14px; }
+  .lit-card a:hover { border-bottom: 1px solid #CC785C; }
+
+  .other-papers {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-top: 18px;
+  }
+  .other-papers h5 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 0 12px 0;
+    color: #1A1A1A;
+  }
+  .other-papers ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .other-papers li { margin-bottom: 6px; color: #1A1A1A; }
+  .other-papers a {
+    color: #CC785C;
+    text-decoration: none;
+  }
+  .other-papers a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Events row */
+  .event-row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    padding: 18px 4px;
+    border-bottom: 1px solid #E8E2D5;
+  }
+  .event-row:last-child { border-bottom: none; }
+  .event-date {
+    color: #CC785C;
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    min-width: 130px;
+    flex-shrink: 0;
+  }
+  .event-body {
+    flex: 1;
+  }
+  .event-body .name {
+    font-weight: 600;
+    color: #1A1A1A;
+    font-size: 16px;
+  }
+  .event-body .meta-line {
+    color: #6B6B6B;
+    font-size: 14px;
+    margin-top: 2px;
+  }
+  .event-body a {
+    color: #CC785C;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 4px;
+    display: inline-block;
+  }
+  .event-body a:hover { border-bottom: 1px solid #CC785C; }
+  @media (max-width: 600px) {
+    .event-row { flex-direction: column; gap: 4px; }
+    .event-date { min-width: 0; }
+  }
+
+  /* Podcast */
+  .podcast-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    border-left: 4px solid #CC785C;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+  }
+  .podcast-card h4 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 19px;
+    margin: 0 0 6px 0;
+    line-height: 1.3;
+    color: #1A1A1A;
+  }
+  .podcast-card .show { color: #6B6B6B; font-size: 14px; margin: 0 0 12px 0; }
+  .podcast-card p { margin: 0 0 12px 0; font-size: 16px; }
+  .podcast-card a { color: #CC785C; text-decoration: none; font-size: 14px; }
+  .podcast-card a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Tech-talk feature */
+  .techtalk {
+    background: #F5F1E8;
+    border-radius: 12px;
+    padding: 40px 32px;
+    margin-bottom: 24px;
+  }
+  .techtalk h2 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.2;
+    color: #1A1A1A;
+    margin: 0 0 6px 0;
+  }
+  .techtalk .topic-meta {
+    color: #B05B3F;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 15px;
+    margin: 0 0 24px 0;
+  }
+  .techtalk h3 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #1A1A1A;
+    margin: 28px 0 10px 0;
+  }
+  .techtalk p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0 0 14px 0;
+    color: #1A1A1A;
+  }
+  .techtalk ul {
+    padding-left: 22px;
+    margin: 0 0 14px 0;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .techtalk li { margin-bottom: 6px; }
+  .techtalk .further {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #E8E2D5;
+  }
+  .techtalk .further h3 { margin-top: 0; }
+  .techtalk .further ul { padding-left: 0; list-style: none; margin: 0; }
+  .techtalk .further li { margin-bottom: 8px; font-size: 15px; }
+  .techtalk .further a { color: #CC785C; text-decoration: none; }
+  .techtalk .further a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Footer */
+  .footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid #E8E2D5;
+    text-align: center;
+    color: #6B6B6B;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="masthead">
+    <h1>Sport Tech Weekly</h1>
+    <div class="date">Issue 09 · Monday 13 July 2026</div>
+    <p class="tagline">Two mid-July trademark filings from Garmin quietly reveal a wearable Whoop cannot answer — the first mainstream EDA sensor on a 24/7 wristband — while the World Cup enters its semifinals with a new Trionda ball, Sinner defends Wimbledon on a rebuilt tech stack, and the Tour de France runs a heat playbook the peloton is still improvising in real time. Plus a tech-talk on electrodermal activity: what it actually measures, why HRV does not, and whether a $500 wristband can finally make it useful outside the lab.</p>
+  </header>
+
+  <!-- BIG STORIES -->
+  <section>
+    <h2 class="section-header">Big stories</h2>
+    <hr class="section-rule">
+
+    <article class="card">
+      <span class="meta">8–10 July 2026 · Wearables regulatory · Garmin</span>
+      <h3>Garmin's Canadian and European Cirqa trademark filings reveal EDA emotional-stress sensing — a category no mainstream 24/7 wristband ships today</h3>
+      <p class="takeaway">Two structural deadlines closed this week. Garmin filed its Canadian trademark application (CIPO 2483360) for the Cirqa band on 19 June, publicly indexed by CIPO in the middle of last week, and matched it with UK trademark UK00004405896 (23 June) and EUIPO 019384825 (23 June) — all three now visible in analyst filings pulled through 8–10 July 2026. The unusual line in the goods description is that "emotional stress" is enumerated separately from "physical stress." No other 24/7 wristband on the market — Whoop, Fitbit Air, Oura Ring, Ultrahuman R2 — lists a distinct emotional-stress sensor in its data specification, and Garmin's own current stack derives stress-score from HRV, which by construction cannot separate psychological from physical arousal.</p>
+      <p class="takeaway">The strongly-implied sensor is electrodermal activity (EDA), also known as galvanic skin response — a measure of skin conductance driven by the eccrine sweat glands on the palm and wrist that respond specifically to sympathetic nervous system activation. EDA has been the gold standard for arousal quantification in psychophysiology for six decades (Boucsein 2012 is the canonical reference), but the last mainstream 24/7 wristband to attempt it was the Fitbit Sense/Charge series, which required the user to manually press-and-hold a palm plate for a spot reading rather than a continuous background stream. Garmin's Cirqa filing implies a passive continuous EDA sensor on the wrist — a genuinely new category on a device that is meant to compete directly with Whoop and the newly-shipped Fitbit Air. Notebookcheck, gadgetsandwearables and TechTimes all independently corroborate the CIPO/EUIPO/UK trio; the5krunner published launch date modelling narrowing to 15 or 22 July 2026 based on the FCC confidentiality window and the UK trademark pre-publication timer.</p>
+      <p class="takeaway">For practitioners: this is the most consequential filing of Garmin's Cirqa saga so far. HRV is a beautiful integrative signal, but it is an integrative signal — it cannot separate "I ran hard this morning" from "my dashboard has 47 unopened emails" from "I am about to give a talk to 300 people." EDA, when it is done well, isolates the sympathetic arm of the autonomic nervous system on a much faster time-scale (phasic responses within 1–3 s, tonic drift over minutes) and specifically to non-thermal, non-metabolic stressors. Continuous wrist EDA has three known problems — motion artefact, sweat saturation and wearer variability — that Empatica's medical-grade EmbracePlus solves partially by chasing a research-grade skin-contact quality and a strap-tightness protocol most consumers will not follow. The question is whether Garmin has cracked the wrist-EDA validation problem or is going to ship a signal that reads well on marketing slides and rots in the field. If you support athletes running a training-load model on Garmin, tag Cirqa as a "watch and pilot" priority; the tech-talk below is the primer.</p>
+      <div class="sources">
+        <a href="https://the5krunner.com/2026/07/08/garmin-cirqa-cipo-filing/">the5krunner · CIPO filing detail</a>
+        <a href="https://gadgetsandwearables.com/2026/07/08/garmin-cirqa-new-trademark-filings/">gadgets &amp; wearables · trademark filings</a>
+        <a href="https://www.techtimes.com/articles/319967/20260709/garmin-cirqa-new-filings-signal-stress-sensor-whoop-fitbit-air-lack.htm">TechTimes · sensor Whoop lacks</a>
+        <a href="https://www.notebookcheck.net/Garmin-CIRQA-trademarks-in-Europe-and-Canada-point-to-new-sensor.1337636.0.html">Notebookcheck · Europe &amp; Canada filings</a>
+        <a href="https://the5krunner.com/2026/07/10/garmin-cirqa-launch-dates-july/">the5krunner · launch date modelling</a>
+        <a href="https://www.geeky-gadgets.com/garmin-cirqa-trademark-stress-sensing/">Geeky-Gadgets · EDA stress tracking</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="meta">6–7 July 2026 · Tournament tech · FIFA World Cup 26 · Trionda Final</span>
+      <h3>adidas unveils the Trionda Final — gold, black and red, all sixteen host cities on the panels, and the Connected Ball IMU retained for the final four matches</h3>
+      <p class="takeaway">On 6 July 2026, adidas revealed the Trionda Final: the special-edition Official Match Ball that will be used in the two semifinals (14 and 15 July, Kansas City and Dallas), the third-place match (18 July, Miami) and the World Cup Final itself (19 July, MetLife Stadium, East Rutherford). The ball is a colourway variant of the group-stage Trionda — gold, white and black with red accents replacing the pink of the tournament palette, and graphics honouring all sixteen host cities across the US, Canada and Mexico. Critically, the same 500 Hz IMU-plus-UWB Connected Ball Technology package sits inside: nothing has been changed in the sensor stack for the final matches, which means the practitioner-relevant data pipeline running the semi-automated offside (SAOT-10 cm) system, the ball-side event tagging and the VAR touch-detection layer is continuous end-to-end with the group and knockout stages.</p>
+      <p class="takeaway">For practitioners: two operational points. First, if you have been pulling ball-side event data through the FIFA / IFAB feed or via broadcaster APIs, the tournament sensor pipeline does not reset for the semifinals — data continuity is maintained, which is unusual for a special-edition final ball. Second, the batteries in the ball still run on the same rotation protocol (roughly a 30-minute active window per unit, swapped through the game), so any time-series analysis that spans a ball swap needs the same synchronisation hygiene you have been using since the group stage. And a small correction to earlier reporting: the Final itself is 19 July 2026, not 12 July — the semifinals begin tomorrow.</p>
+      <div class="sources">
+        <a href="https://inside.fifa.com/organisation/news/final-four-world-cup-2026-matches-trionda-official-match-ball">FIFA · Trionda Final announcement</a>
+        <a href="https://sportingtribune.com/fifa-unveils-match-ball-for-world-cup-semi-finals-final/">Sporting Tribune · design detail</a>
+        <a href="https://www.thebiglead.com/2026-world-cup-semifinals-final-adidas-trionda-ball-revealed/">The Big Lead · semifinals ball</a>
+        <a href="https://www.tribuneindia.com/news/sports/fifa-world-cup-2026-adidas-unveils-trionda-final-official-match-ball-for-final-stages/">Tribune India · full stack recap</a>
+        <a href="https://www.nss-sports.com/en/lifestyle/46099/adidas-trionda-final-fifa-world-cup-2026-official-match-ball">nss sports · Connected Ball retention</a>
+        <a href="https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_final">World Cup Final · schedule 19 July</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="meta">12–13 July 2026 · Tournament tech · Wimbledon 2026 Finals Weekend</span>
+      <h3>Sinner defends Wimbledon over Zverev — first Slam completed with the new umpire-side Video Review and Hawk-Eye Live ELC on every show court</h3>
+      <p class="takeaway">Sunday 13 July: Jannik Sinner defended the Wimbledon men's singles title over Alexander Zverev 6–7(7), 7–6(2), 6–3, 6–4 on a Centre Court running the fullest tech stack the tournament has ever deployed simultaneously. Linda Nosková beat Karolína Muchová for the women's singles title on Saturday. The operational novelties: (1) Hawk-Eye Live electronic line-calling projecting "out" and "fault" straight to the courtside scoreboards, with player challenges of line calls formally removed; (2) the new umpire-side Video Review on six courts (Centre, No 1, No 2, No 3, Court 12, Court 18) — unlimited player requests on double-bounce, foul-shot, not-up and touch calls, decisions from a courtside monitor in seconds; (3) the Player Analysis Technology trial permitting on-court wearables (Whoop most-visible, Abbott Lingo CGM patches spotted courtside). One notable in-match hiccup: a fourth-set line-call dispute went the chair umpire's way rather than through the video-review pipe, which reopens the "who reviews what" boundary conversation between ELC and the new video system.</p>
+      <p class="takeaway">For practitioners: two lessons carry forward. First, staged-rollout works — AELTC explicitly framed this year's video-review addition as a direct response to Year 1 of ELC feedback, and if you are advocating for tech rollout at your federation, this is the template to point at. Second, on the wearables trial: Sabalenka and Sinner both confirmed as Whoop wearers on tour; the operational shift the trial forces is a conversation with your athlete about which two or three biomarkers you actively coach during a changeover and which they must ignore. HRV is a lagging indicator; letting it drive an in-match tactical decision is almost always wrong.</p>
+      <div class="sources">
+        <a href="https://www.atptour.com/en/news/sinner-zverev-wimbledon-2026-final-sunday">ATP Tour · Sinner defends the crown</a>
+        <a href="https://www.cbssports.com/tennis/news/wimbledon-2026-live-updates-results-bracket-jannik-sinner-alexander-zverev/live/">CBS Sports · finals wrap</a>
+        <a href="https://www.aol.com/news/rules-wimbledon-2026-video-review-083126616.html">AOL · Video Review and ELC rules</a>
+        <a href="https://www.wimbledon.com/">Wimbledon · tournament hub</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="meta">7–8 July 2026 · Environmental physiology in-race · Tour de France 2026</span>
+      <h3>Heat becomes a "logistical nightmare" at the Tour de France — Pogačar goes public, teams double down on forearm immersion, mist fans and team-specific ice vests as the peloton improvises its own protocol</h3>
+      <p class="takeaway">Nine days into the Tour, defending champion Tadej Pogačar called cooling at this race a "logistical nightmare" in a 7 July Euronews interview, with forecasts of up to 41 °C around Carcassonne and active wildfires along the route. Every WorldTour team has ice vests on hand for pre-stage warm-ups now (Soudal Quick-Step and Netcompany-INEOS have both moved to team-specific PCM constructions with sub-zero gel that stays in gel form). The novel field-side technique of the second week: forearm immersion in iced water at the sign-in, aiming to dump heat through the AVA-rich glabrous skin of the palm and forearm without over-cooling the vastus muscle groups (Netcompany-INEOS have been photographed doing this; it is essentially palm-cooling physiology applied outside a CoolMitt). Jayco-AlUla went to cold moist towels at the neck; Team Visma runs a purpose-built high-pressure mist fan that injects cool water droplets into the airflow around each rider on the bus.</p>
+      <p class="takeaway">For practitioners: three points. First, the UCI's active High Temperature Protocol is now producing an observable behavioural response — teams are competing on cooling infrastructure the same way they compete on nutrition. Second, forearm immersion is a low-cost, high-benefit intervention any club, federation or academy heat programme can copy immediately: ice bath at 10–12 °C, forearms in for 3–5 min, right after warm-up. Third, on the ice-sock front: the UCI ban continues to be enforced on TTs and other "morphology-controlled" contexts, but riders were photographed with ice socks back in on the standard road stages. If you are writing a summer cooling SOP, the message is unchanged: mixed-method cooling (ice slurry pre-start plus PCM vest at the warm-up plus targeted glabrous-skin cooling in the last five minutes) still outperforms any single modality.</p>
+      <div class="sources">
+        <a href="https://www.euronews.com/my-europe/2026/07/07/cooling-down-a-logistical-nightmare-at-tour-de-france-champ-tadej-pogacar-says">Euronews · Pogačar on the "logistical nightmare"</a>
+        <a href="https://www.taipeitimes.com/News/sport/archives/2026/07/08/2003860405">Taipei Times · Tour heat wrap</a>
+        <a href="https://www.cyclingnews.com/cycling-tech-components/from-alcohol-sprays-to-forearm-bathing-all-the-cooling-strategies-the-pros-use-to-beat-the-heat-at-the-tour-de-france/">Cyclingnews · forearm bathing, mist fans, alcohol sprays</a>
+        <a href="https://www.cyclingweekly.com/racing/tour-de-france/temperatures-set-to-soar-at-the-tour-de-france-as-uci-clamps-down-on-ice-socks">Cycling Weekly · UCI ice-sock enforcement</a>
+        <a href="https://velo.outsideonline.com/road/road-gear/tour-de-france-2026-team-time-trial-tech-gallery/">Velo · TTT cooling tech gallery</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="emerging-flag">🌱 Up-and-coming · early pilot · NBA Launchpad Cohort 5</span>
+      <span class="meta">9–19 July 2026 · Startup showcase · NBA Summer League Las Vegas</span>
+      <h3>Atlas, Peripheral Labs and Swish Basket surface at NBA Summer League — the first practitioner-visible moment for Launchpad Cohort 5, and a cognitive-clarity wearable joins the readiness conversation</h3>
+      <p class="takeaway">NBA Summer League runs 9–19 July at Thomas &amp; Mack in Las Vegas, and Launchpad Demo Day is the sport-tech scouting event of the month in North America. Cohort 5 (announced by the NBA in January) now goes public in front of team performance staff and league executives. The three most-performance-relevant picks: <strong>Atlas</strong> — a multi-modal brain-sensing wearable that quantifies "cognitive clarity," pitched as a sympathetic-arm-of-arousal readiness signal distinct from HRV; <strong>Peripheral Labs</strong> — a spatial-intelligence platform applying autonomous-vehicle perception to reconstruct live sport into photorealistic 3D volumes with high-fidelity player and ball tracking; <strong>Swish Basket</strong> — a camera-plus-lidar shot-form tracker with a gamified consumer app on top, previously a category dominated by Noah and RSPCT.</p>
+      <p class="takeaway"><strong>Maturity:</strong> pilot-stage, all three. Atlas is the least conventional and the biggest signal — a cognitive-load wearable is a different animal from an HRV / sleep stack, and it should be treated as a next-generation-readiness pilot, not a validated tool. <strong>Who's piloting:</strong> unspecified beyond "NBA and WNBA franchises through the Launchpad programme"; watch for named-team pilots to emerge in the first month after Demo Day. <strong>Genuine novelty:</strong> Atlas explicitly separates cognitive clarity from cardio-autonomic HRV — the same conceptual split that motivates the Garmin Cirqa EDA filing above. Peripheral Labs is the first sport-tech application of AV-scale spatial reconstruction hardware; Swish Basket bundles lidar + camera in a way established shot-form-tracking incumbents do not. <strong>Reasonable skepticism:</strong> "cognitive-clarity wearables" are a category with a long history of overclaiming — see Muse, Emotiv, Halo Sport, various tDCS devices — and until a peer-reviewed validation appears, treat Atlas as pilot-tier. Swish Basket enters a market with entrenched incumbents; the lidar+camera combo has to justify itself against a Noah 4000 install. Peripheral Labs is the most technically interesting of the three, but the sport-tech AV-perception category is littered with pilots that never made it out of the lab.</p>
+      <div class="sources">
+        <a href="https://www.nba.com/news/nba-launchpad-announces-5th-group-companies">NBA · Launchpad Cohort 5 announcement</a>
+        <a href="https://www.launchpad.nba.com/">NBA Launchpad · programme hub</a>
+        <a href="https://youthsportsbusinessreport.com/nba-launchpad-selects-five-startups-for-fifth-cohort-including-youth-basketball-tech/">YSBR · cohort profile</a>
+        <a href="https://www.sportsvideo.org/2026/01/23/nba-launchpad-unveils-fifth-cohort-of-emerging-technology-companies/">SVG · cohort overview</a>
+        <a href="https://www.nba.com/summer-league">NBA Summer League Las Vegas 2026</a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- LITERATURE -->
+  <section>
+    <h2 class="section-header">Recent literature</h2>
+    <hr class="section-rule">
+    <p class="section-intro">A quiet week for on-body-sensor validation studies, but a strong Journal of Sports Sciences batch on training-methods, contextual factors and the causal effect of a mid-season sacking.</p>
+
+    <article class="lit-card">
+      <h4>The sacking illusion: a counterfactual analysis of mid-season coaching changes using points and expected points in European football</h4>
+      <p class="authors">Lundkvist E., Söderström T., Fransson D., et al.</p>
+      <p class="journal">Journal of Sports Sciences · published online 9 July 2026 · open access</p>
+      <p class="relevance">Counterfactual analysis of mid-season coaching changes across multiple European leagues using both accrued points and cumulative expected points (xPts) as outcomes. The value for a performance department is not the sacking result per se — it is the demonstration that "new-manager bounce" largely disappears when the counterfactual is xPts rather than raw points. Useful conversation-piece with a sporting director around the (small) causal signal a change of head coach actually produces once you strip out schedule luck and finishing variance. Read as an evidence sheet before the next in-season inflection point.</p>
+      <a href="https://www.tandfonline.com/journals/rjsp20">Journal of Sports Sciences →</a>
+    </article>
+
+    <article class="lit-card">
+      <h4>The interaction effects of flight distance, scheduling and contextual factors on basketball performance</h4>
+      <p class="authors">Zhang X., et al.</p>
+      <p class="journal">Journal of Sports Sciences · published online 7 July 2026</p>
+      <p class="relevance">Multilevel analysis of NBA game-level performance conditioned on flight distance (eastbound vs westbound), rest-day count, back-to-back status and home/away split. Practical use: this is the kind of evidence that lets you argue for or against a specific travel + recovery protocol on hard numbers rather than "we've always done it this way." Especially relevant for teams still building out their in-season travel-load model going into the 2026–27 season.</p>
+      <a href="https://www.tandfonline.com/journals/rjsp20">Journal of Sports Sciences →</a>
+    </article>
+
+    <article class="lit-card">
+      <h4>Comparing the effects of small-sided games, skill development and plyometric training on basketball learning and athletic performance in youth male athletes: a quasi-experimental study</h4>
+      <p class="authors">Kamarauskas P., et al.</p>
+      <p class="journal">Journal of Sports Sciences · published online 5 July 2026</p>
+      <p class="relevance">A rare three-arm youth intervention explicitly designed to compare SSG, skill-development and plyometric blocks against the same cohort's technical learning and athletic-performance markers. Directly useful when defending the SSG or plyometric split against coaches who want to load in more skills work — the effect-size table is the specific artefact worth pulling before you write a youth block. Worth reading with the standard caveat that quasi-experimental designs in youth sport are noisier than the effect sizes suggest.</p>
+      <a href="https://www.tandfonline.com/journals/rjsp20">Journal of Sports Sciences →</a>
+    </article>
+
+    <div class="other-papers">
+      <h5>Other notable papers</h5>
+      <ul>
+        <li>The Algorithmic Athlete: a call to standardize assessment of sensor technologies and AI in sport — <a href="https://doi.org/10.1123/ijspp.2025-0547">IJSPP, 2026</a> (the paper to reach for when you need a citable framework for evaluating a new sensor / model claim in an internal proposal).</li>
+        <li>Transdisciplinary innovations in athlete health: 3D-printable wearable sensors for health monitoring and sports psychology — <a href="https://www.mdpi.com/1424-8220/25/5/1453">Sensors (MDPI), 2025</a> (materials-science overview of 3D-printed wearable substrates and the interface layer with a psychological monitoring stack — reads directly into the EDA question this week).</li>
+        <li>Wearable technology for athletes: material innovations, performance monitoring, and emerging paradigms — <a href="https://link.springer.com/article/10.1007/s00604-025-07792-9">Microchimica Acta, 2026</a> (useful physics-of-the-textile primer for anyone trying to interpret the vendor claims coming out of Nike Aero-FIT and adidas Climacool).</li>
+        <li>Calibrated uncertainty for trustworthy clinical gait analysis using probabilistic multi-view markerless motion capture — <a href="https://arxiv.org/abs/2601.22412">arXiv preprint, 2026</a> (a Bayesian-uncertainty framing on markerless mocap; worth reading in parallel with the Theia / OpenCap operational conversations you're likely having with your biomechanist).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section>
+    <h2 class="section-header">Upcoming events</h2>
+    <hr class="section-rule">
+    <p class="section-intro">The tournament calendar dominates the next two weeks; a submission window closes at the end of the month.</p>
+
+    <div class="event-row">
+      <div class="event-date">14 – 15 Jul</div>
+      <div class="event-body">
+        <div class="name">FIFA World Cup 26 — Semifinals</div>
+        <div class="meta-line">Kansas City &amp; Dallas · first competitive use of the Trionda Final ball · SAOT-10 cm, ref-cam and Connected Ball IMU all live</div>
+        <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/knockout-stage-match-schedule-bracket">Knockout schedule →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">9 – 19 Jul</div>
+      <div class="event-body">
+        <div class="name">NBA Summer League + Launchpad Demo Day</div>
+        <div class="meta-line">Thomas &amp; Mack Center, Las Vegas · Cohort 5 startups on public display · Atlas, Peripheral Labs, Swish Basket, CRED, Diddo</div>
+        <a href="https://www.launchpad.nba.com/">NBA Launchpad →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">15 or 22 Jul</div>
+      <div class="event-body">
+        <div class="name">Garmin Cirqa · projected launch window</div>
+        <div class="meta-line">FCC confidentiality expiry + UK trademark pre-publication timer both close inside a two-week window · watch for continuous-EDA sensor spec</div>
+        <a href="https://the5krunner.com/2026/07/10/garmin-cirqa-launch-dates-july/">Launch-date modelling →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">19 Jul</div>
+      <div class="event-body">
+        <div class="name">FIFA World Cup 26 — Final</div>
+        <div class="meta-line">MetLife Stadium, East Rutherford · Trionda Final ball · closing showcase for the WC26 stack</div>
+        <a href="https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_final">Final details →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">21 Jul</div>
+      <div class="event-body">
+        <div class="name">SportsPro Investment Summit</div>
+        <div class="meta-line">London · investor-focused programme · a useful barometer of where H2 2026 sport-tech capital is flowing</div>
+        <a href="https://www.sportspro.com/announcements/">SportsPro programme →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">26 Jul</div>
+      <div class="event-body">
+        <div class="name">Tour de France 2026 · final stage into Paris</div>
+        <div class="meta-line">Champs-Élysées finish · closing weekend of a heat-protocol-defined edition · a first go/no-go read on how the UCI's WBGT-driven decision framework held under a live GC fight</div>
+        <a href="https://en.wikipedia.org/wiki/2026_Tour_de_France">Route detail →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">31 Jul</div>
+      <div class="event-body">
+        <div class="name">MDPI Biomechanics · special issue submission deadline</div>
+        <div class="meta-line">"The Mechanics of Movement: Biomechanics in Sports Performance" · relevant if you have field data sitting in a drawer</div>
+        <a href="https://www.mdpi.com/journal/biomechanics/special_issues">Special issue call →</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">17 – 20 Aug</div>
+      <div class="event-body">
+        <div class="name">NSCA Tactical Annual Training 2026</div>
+        <div class="meta-line">Orlando, FL · tactical-population S&amp;C conference · practitioner CEU offering</div>
+        <a href="https://www.nsca.com/events/conferences/tactical-training/">Conference hub →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PODCAST -->
+  <section>
+    <h2 class="section-header">Podcast pick</h2>
+    <hr class="section-rule">
+
+    <div class="podcast-card">
+      <h4>Wearable technology, AI, return to play and the transfer portal — Heather Farmer</h4>
+      <p class="show">Science for Sport Podcast · hosted by Richard Graves · 2026 series</p>
+      <p>The listen for a practitioner arguing about "how much wearable is too much wearable" this week. Farmer (Assistant Athletics Director, Sports Science at UNLV) walks through how a collegiate performance department actually builds a human-first, data-informed model — including a candid section on the risks of over-relying on wearable output when the roster changes every twelve months via the transfer portal, why the female-athlete data problem is still not solved, and what a return-to-play decision needs beyond a timeline and basic fitness markers. Pairs directly with this week's tech-talk on EDA: same broader question of "what does the sensor actually tell you that HRV, GPS and RPE do not?"</p>
+      <a href="https://scienceforsport.fireside.fm/">Science for Sport Podcast →</a>
+    </div>
+  </section>
+
+  <!-- TECH-TALK -->
+  <section>
+    <div class="techtalk">
+      <h2>Tech-talk: electrodermal activity (EDA) — the sympathetic-arousal signal HRV cannot deliver, and whether a wristband can finally make it useful</h2>
+      <p class="topic-meta">Pegged to Garmin's Canadian and European Cirqa trademark filings surfacing an "emotional stress" sensor separate from physical stress, and to the mid-July Cirqa launch window narrowing to 15 or 22 July 2026.</p>
+
+      <h3>What it is</h3>
+      <p>Electrodermal activity — also called galvanic skin response (GSR) or skin conductance response (SCR) — is the change in electrical conductance of the skin driven by the eccrine sweat glands in the palms, fingertips, soles and wrist. Unlike heart rate variability, which is the composite output of both parasympathetic and sympathetic branches of the autonomic nervous system and cannot separate the two, EDA is essentially <em>only</em> sympathetic: eccrine sweat glands in the glabrous skin have no parasympathetic innervation. When the sympathetic nervous system fires — startle, cognitive load, emotional arousal, an approaching test, an angry email, the last twenty seconds before a start whistle — those glands secrete micro-quantities of ionic sweat and skin conductance rises. The signal decomposes into a slow-moving <em>tonic</em> component (skin conductance level, drifting over minutes) and a fast <em>phasic</em> component (skin conductance response, sub-second latency, 1–3 s rise and 3–5 s decay). Boucsein's <em>Electrodermal Activity</em> (2012) remains the reference textbook; the Society for Psychophysiological Research publication guidelines (Boucsein et al. 2012) set the field's methodological standards.</p>
+
+      <h3>Why HRV isn't a substitute</h3>
+      <p>The single most common practitioner misconception is that a "high stress score" from an HRV-based wearable already captures what EDA measures. It doesn't. HRV integrates both branches of the ANS; a suppressed HRV can mean "I did a heavy session this morning," "I slept 4 hours," "I have a low-grade infection" or "my sympathetic tone is elevated because I am about to walk on court" — the wearable cannot tell you which. EDA specifically tracks the sympathetic contribution and does so on a faster time-scale (1–3 s response latency vs the beat-to-beat window HRV needs to resolve), which is why it is the physiological readout of choice in lie-detection, VR emotion research, and the classic startle-response literature. For a performance practitioner, the useful question EDA answers is: <em>is this athlete's autonomic elevation a physical-load residual or a psychological arousal signal?</em> HRV cannot answer that. EDA, in principle, can.</p>
+
+      <h3>Who's shipping (as of July 2026)</h3>
+      <ul>
+        <li><strong>Empatica EmbracePlus (US/IT)</strong> — the medical-grade research standard: wrist-worn, continuous EDA at 4 Hz with a proper skin-contact protocol; primarily sold into clinical research and pharma. ~$3,000+ with a data-management subscription. The device to beat.</li>
+        <li><strong>Fitbit Sense / Sense 2 / Charge 6 (US)</strong> — palm-plate spot-check EDA: user presses fingers on a metal plate for 30–120 s. Not continuous. Now largely superseded by the Fitbit Air stack.</li>
+        <li><strong>BIOPAC MP-series + EDA100C (US)</strong> — the lab-standard tethered system for a sport-science research bench.</li>
+        <li><strong>Shimmer3 GSR+ (IE)</strong> — the pragmatic middle ground: research-grade wrist unit, ~£400, popular in sport-psychology labs.</li>
+        <li><strong>Movesense sensor + third-party EDA electrodes</strong> — modular and hackable; used by a handful of research groups but not a plug-and-play sport product.</li>
+        <li><strong>Samsung Galaxy Watch (Ultra, 6, 7)</strong> — offers a stress score derived partly from EDA measured through the finger during a spot check, similar to Fitbit's approach.</li>
+        <li><strong>Garmin Cirqa (US, expected 15 or 22 July 2026)</strong> — the trademark language strongly implies passive continuous wrist EDA in a 24/7 subscription-free wristband. If it delivers, it is the first mainstream continuous EDA on a $250–500 consumer device. Read as trademark-implied until Garmin publicly names the sensor.</li>
+      </ul>
+
+      <h3>Spec snapshot and known pitfalls</h3>
+      <ul>
+        <li><strong>Signal:</strong> skin conductance measured in microsiemens (µS); tonic SCL typically 2–20 µS, phasic SCR amplitude 0.05–1.0 µS.</li>
+        <li><strong>Sample rate:</strong> ≥ 4 Hz for phasic-response detection; ≥ 32 Hz for research-grade artefact rejection.</li>
+        <li><strong>Site:</strong> palm and fingertip have the highest density of eccrine glands and give the strongest signal; wrist EDA is lower-amplitude and much more motion-vulnerable — which is the whole reason wrist-EDA on a 24/7 wearable is a hard engineering problem.</li>
+        <li><strong>Motion artefact:</strong> the single biggest reason wrist-EDA has failed in consumer wearables to date. Empatica solves it partly with a proper strap-tightness protocol; any Garmin Cirqa validation will live or die here.</li>
+        <li><strong>Sweat saturation:</strong> thermoregulatory sweat is not sympathetic sweat, and once sweat pooling starts (hot session, humid conditions) the EDA signal saturates and cannot distinguish arousal. This is the reason a running EDA trace during a hard training session is essentially uninterpretable.</li>
+        <li><strong>Individual variability:</strong> resting SCL varies 5–10× between individuals; EDA must be interpreted intra-individually with a subject-specific baseline, never with a cross-athlete normative range.</li>
+      </ul>
+
+      <h3>Validation picture</h3>
+      <p>The <em>signal</em> is one of the best-validated psychophysiological measures in existence — six decades of psychophysiology literature back the tonic-phasic decomposition, the sympathetic specificity and the sub-second latency claim. The <em>wearable</em> story is much weaker. A 2021 systematic review of consumer wrist-EDA devices (Ronca et al., Sensors) found only Empatica's E4 (predecessor to EmbracePlus) achieved research-acceptable agreement with lab-standard finger EDA in resting conditions, and none of the consumer-grade devices held up under free-living movement. Empatica has published cleaner comparison work under EmbracePlus, but the operationally useful literature — free-living, athlete population, sympathetic arousal vs training load separation — is essentially unwritten. The Garmin Cirqa, if it ships passive continuous wrist EDA in July, will be the largest natural experiment for the category to date; expect first-year validation attempts inside 3–6 months of ship date.</p>
+
+      <h3>What's new this week</h3>
+      <p>The Cirqa CIPO / EUIPO / UK trademark trio is the event. Garmin has explicitly listed "emotional stress" as a distinct trademark class, which is a stronger implicit claim than the Fitbit Sense's palm-plate spot-check EDA and stronger than the Samsung Galaxy Watch line's finger EDA. The5krunner's launch-date modelling narrows to 15 or 22 July 2026 based on the FCC confidentiality window and the UK trademark pre-publication timer. Alongside this, NBA Launchpad Cohort 5's Atlas — a multi-modal brain-sensing "cognitive clarity" wearable — surfacing at Summer League this week is a reminder that the whole category of "the-signal-HRV-cannot-give-you" is heating up. For a practitioner: do not swap your HRV workflow for an EDA workflow — HRV integrates both branches for a reason, and it is genuinely useful. But if Cirqa (or a next-generation EmbracePlus) delivers a validated continuous EDA on the wrist, you will have a second, physiologically distinct signal to layer on top — one that specifically flags the pre-competition psychological-arousal window HRV cannot see. That is a real advance, if the validation holds.</p>
+
+      <div class="further">
+        <h3>Further reading</h3>
+        <ul>
+          <li><a href="https://www.springer.com/gp/book/9781461411253">Boucsein · Electrodermal Activity (Springer, 2012)</a> — the canonical reference textbook.</li>
+          <li><a href="https://onlinelibrary.wiley.com/doi/10.1111/j.1469-8986.2012.01384.x">Boucsein et al. 2012 · Publication recommendations for EDA (Psychophysiology)</a> — the SPR methodological standard.</li>
+          <li><a href="https://www.mdpi.com/1424-8220/21/9/3079">Ronca et al. 2021 · Wearable EDA validation review (Sensors)</a> — evidence-base on consumer devices.</li>
+          <li><a href="https://the5krunner.com/2026/07/08/garmin-cirqa-cipo-filing/">the5krunner · Garmin Cirqa CIPO filing detail (Jul 2026)</a></li>
+          <li><a href="https://www.notebookcheck.net/Garmin-CIRQA-trademarks-in-Europe-and-Canada-point-to-new-sensor.1337636.0.html">Notebookcheck · CIPO + EUIPO filings pointing to new sensor (Jul 2026)</a></li>
+          <li><a href="https://www.empatica.com/en-int/embraceplus/">Empatica EmbracePlus · medical-grade wrist EDA</a></li>
+          <li><a href="https://www.geeky-gadgets.com/garmin-cirqa-trademark-stress-sensing/">Geeky-Gadgets · why EDA differs from HRV-derived stress (Jul 2026)</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    Sport Tech Weekly &nbsp;·&nbsp; Issue 09 · 13 July 2026 &nbsp;·&nbsp; Generated by Claude
+  </div>
+
+</div>
+</body>
+</html>
