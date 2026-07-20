@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sport Tech Weekly — 20 July 2026</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAF9F5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: #1A1A1A;
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 32px 32px 32px;
+  }
+  @media (max-width: 600px) {
+    .container { padding: 32px 20px 20px 20px; }
+  }
+
+  /* Masthead */
+  .masthead { text-align: center; margin-bottom: 80px; }
+  .masthead h1 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 48px;
+    color: #CC785C;
+    margin: 0 0 12px 0;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  .masthead .date {
+    color: #6B6B6B;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .masthead .tagline {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    color: #1A1A1A;
+    font-size: 18px;
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* Section headers */
+  section { margin-bottom: 64px; }
+  .section-header {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: #1A1A1A;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+  }
+  .section-rule {
+    width: 40px;
+    height: 2px;
+    background: #CC785C;
+    border: none;
+    margin: 0 0 32px 0;
+  }
+  .section-intro {
+    color: #6B6B6B;
+    font-size: 15px;
+    margin: -16px 0 28px 0;
+    line-height: 1.6;
+  }
+
+  /* Cards */
+  .card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-bottom: 24px;
+  }
+  .card h3 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.25;
+    margin: 0 0 14px 0;
+    color: #1A1A1A;
+  }
+  .card p { margin: 0 0 16px 0; }
+  .card p:last-child { margin-bottom: 0; }
+  .takeaway { color: #1A1A1A; }
+  .meta {
+    color: #6B6B6B;
+    font-size: 14px;
+    margin: 0 0 12px 0;
+    display: block;
+  }
+  .emerging-flag {
+    display: inline-block;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: #B05B3F;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    background: #F5F1E8;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .sources {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .sources a {
+    color: #CC785C;
+    font-size: 13px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color 0.15s ease;
+  }
+  .sources a:hover { border-bottom-color: #CC785C; }
+  .sources a + a::before {
+    content: '·';
+    color: #E8E2D5;
+    margin-right: 8px;
+  }
+
+  /* Literature */
+  .lit-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-bottom: 18px;
+  }
+  .lit-card h4 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.3;
+    margin: 0 0 6px 0;
+    color: #1A1A1A;
+  }
+  .lit-card .authors { color: #6B6B6B; font-size: 14px; margin: 0 0 4px 0; }
+  .lit-card .journal { font-style: italic; color: #6B6B6B; font-size: 14px; margin: 0 0 12px 0; }
+  .lit-card .relevance { font-size: 16px; color: #1A1A1A; margin: 0 0 12px 0; }
+  .lit-card a { color: #CC785C; text-decoration: none; font-size: 14px; }
+  .lit-card a:hover { border-bottom: 1px solid #CC785C; }
+
+  .other-papers {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+    margin-top: 18px;
+  }
+  .other-papers h5 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 0 12px 0;
+    color: #1A1A1A;
+  }
+  .other-papers ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .other-papers li { margin-bottom: 6px; color: #1A1A1A; }
+  .other-papers a {
+    color: #CC785C;
+    text-decoration: none;
+  }
+  .other-papers a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Events row */
+  .event-row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    padding: 18px 4px;
+    border-bottom: 1px solid #E8E2D5;
+  }
+  .event-row:last-child { border-bottom: none; }
+  .event-date {
+    color: #CC785C;
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    min-width: 130px;
+    flex-shrink: 0;
+  }
+  .event-body {
+    flex: 1;
+  }
+  .event-body .name {
+    font-weight: 600;
+    color: #1A1A1A;
+    font-size: 16px;
+  }
+  .event-body .meta-line {
+    color: #6B6B6B;
+    font-size: 14px;
+    margin-top: 2px;
+  }
+  .event-body a {
+    color: #CC785C;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 4px;
+    display: inline-block;
+  }
+  .event-body a:hover { border-bottom: 1px solid #CC785C; }
+  @media (max-width: 600px) {
+    .event-row { flex-direction: column; gap: 4px; }
+    .event-date { min-width: 0; }
+  }
+
+  /* Podcast */
+  .podcast-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 28px;
+    border-left: 4px solid #CC785C;
+    box-shadow: 0 2px 16px rgba(204, 120, 92, 0.08);
+  }
+  .podcast-card h4 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 19px;
+    margin: 0 0 6px 0;
+    line-height: 1.3;
+    color: #1A1A1A;
+  }
+  .podcast-card .show { color: #6B6B6B; font-size: 14px; margin: 0 0 12px 0; }
+  .podcast-card p { margin: 0 0 12px 0; font-size: 16px; }
+  .podcast-card a { color: #CC785C; text-decoration: none; font-size: 14px; }
+  .podcast-card a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Tech-talk feature */
+  .techtalk {
+    background: #F5F1E8;
+    border-radius: 12px;
+    padding: 40px 32px;
+    margin-bottom: 24px;
+  }
+  .techtalk h2 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.2;
+    color: #1A1A1A;
+    margin: 0 0 6px 0;
+  }
+  .techtalk .topic-meta {
+    color: #B05B3F;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 15px;
+    margin: 0 0 24px 0;
+  }
+  .techtalk h3 {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #1A1A1A;
+    margin: 28px 0 10px 0;
+  }
+  .techtalk p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0 0 14px 0;
+    color: #1A1A1A;
+  }
+  .techtalk ul {
+    padding-left: 22px;
+    margin: 0 0 14px 0;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .techtalk li { margin-bottom: 6px; }
+  .techtalk .further {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #E8E2D5;
+  }
+  .techtalk .further h3 { margin-top: 0; }
+  .techtalk .further ul { padding-left: 0; list-style: none; margin: 0; }
+  .techtalk .further li { margin-bottom: 8px; font-size: 15px; }
+  .techtalk .further a { color: #CC785C; text-decoration: none; }
+  .techtalk .further a:hover { border-bottom: 1px solid #CC785C; }
+
+  /* Footer */
+  .footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid #E8E2D5;
+    text-align: center;
+    color: #6B6B6B;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="masthead">
+    <h1>Sport Tech Weekly</h1>
+    <div class="date">Monday 20 July 2026 · Issue 10</div>
+    <p class="tagline">Garmin's screenless play walks out of the leak files and onto Garmin's own backend, Vegas turns Summer League into a 35-vendor tech expo, and the muscle-oxygen wristband race finally has both a patent and a shipping product to argue about.</p>
+  </header>
+
+  <!-- ============ BIG STORIES ============ -->
+  <section>
+    <h2 class="section-header">Big stories</h2>
+    <hr class="section-rule">
+
+    <!-- Story 1: Garmin Cirqa pricing -->
+    <article class="card">
+      <h3>Garmin CIRQA pricing surfaces on Garmin's own backend — launch imminent, $199.99 confirmed across 20+ markets</h3>
+      <p class="takeaway">Between 18 and 19 July, both the5krunner and gadgetsandwearables independently queried Garmin's live pricing endpoint using the leaked part number and pulled a confirmed <strong>$199.99 US / €199 / £179</strong> across more than twenty markets. Two colours (Black, French Grey), two strap sizes, USB-C, SpO2, skin temp, no display — all data lives in Garmin Connect. Health Status (five overnight metrics) and possible passive wrist-EDA are on the sensor list. FCC image confidentiality expires 19 July; the last leak-window before official announce points to Wednesday 22 July.</p>
+      <p class="takeaway">For practitioners: this is the first serious subscription-free challenger to WHOOP One at exactly half the annual cost. If the EDA channel from last week's tech-talk ships in-the-box rather than as a firmware unlock, Garmin is quietly first-in-category on continuous consumer skin-conductance — a market position no one currently occupies. Wait for validation studies before recommending it to athletes over an existing HRV pipeline; the sensor stack is standard-Garmin but the hardware form-factor is new.</p>
+      <div class="sources">
+        <a href="https://the5krunner.com/2026/07/19/garmin-cirqa-what-we-know/">the5krunner · 19 Jul</a>
+        <a href="https://gadgetsandwearables.com/2026/07/19/garmin-cirqa-price-backend/">gadgetsandwearables · 19 Jul</a>
+        <a href="https://www.notebookcheck.net/Garmin-CIRQA-to-launch-at-a-significantly-lower-price-than-expected-according-to-Garmin-s-official-database.1346669.0.html">Notebookcheck</a>
+        <a href="https://the5krunner.com/2026/07/18/2-garmin-cirqa-images-leaked/">Images leaked · 18 Jul</a>
+      </div>
+    </article>
+
+    <!-- Story 2: Suunto -->
+    <article class="card">
+      <h3>Suunto ships Q2 2026 firmware (v2.56.18) to Race 2 &amp; Vertical 2 — 200 routes, contour maps, Sony GNSS chipset firmware</h3>
+      <p class="takeaway">Staged rollout began 14 July 2026. On-watch route storage jumps from 15 to 200, offline maps gain contour shading and toggleable street/trail/river layers, a new Tide widget lands (relevant to coastal S&amp;C, ocean-based endurance camps and open-water triathlon planning), and — the practitioner headline — Sony's updated GNSS chipset firmware ships in the same package, which Suunto claims cuts satellite acquisition time and improves track fidelity in dense-canopy and urban-canyon environments. Elevation goals can now be set inside custom sport modes.</p>
+      <p class="takeaway">Not on the update list: the older Race and Vertical (both still on their April/January builds). If you run mixed Suunto squads, budget for the split until Q3. The Sony chipset firmware is the substantive change worth testing yourself; contour shading is nice-to-have but doesn't move the physiology needle.</p>
+      <div class="sources">
+        <a href="https://the5krunner.com/2026/07/14/suunto-race-2-vertical-2-july-update/">the5krunner · 14 Jul</a>
+        <a href="https://forum.suunto.com/topic/15522/suunto-software-update-q2-2.56.18-july-14th-2026-vertical-2-and-race-2">Suunto community release notes</a>
+        <a href="https://www.dcrainmaker.com/2026/07/suuntos-summer-2026-features-updates.html">DC Rainmaker</a>
+      </div>
+    </article>
+
+    <!-- Story 3: NBA Summer League tech expo -->
+    <article class="card">
+      <h3>NBA Summer League doubles as a 35-vendor tech expo — Launchpad Demo Day and a sensor-embedded basketball on live courts</h3>
+      <p class="takeaway">Reported out of Las Vegas on 13 July: 35 companies exhibited coaching, protective, biomechanics and tracking products alongside the Summer League slate that ran through 19 July, capped by Launchpad Cohort 5's Demo Day. Cohort 5 headliners include <strong>Peripheral Labs</strong> (Toronto — spatial-intelligence platform borrowing autonomous-vehicle stack to reconstruct games into photorealistic 3D with player and ball tracking), <strong>Swish Basket</strong> (Tel Aviv — camera + LiDAR shot analytics on a consumer app), and — the one to watch — <strong>Atlas</strong> (San Francisco — dry-electrode EEG in a behind-the-ear form factor outputting a "Clarity" cognitive-readiness score).</p>
+      <p class="takeaway">Also live on the Vegas floor: the NBA quietly rolled a <strong>connected basketball</strong> with an embedded contact-sensing IMU across all Summer League games. The league is transparent about the near-term application (last-touch out-of-bounds decisions) and equally transparent that the ball feel/weight is unchanged. This is the NBA's version of the FIFA Connected Ball path — same 14 g class of embedded sensor, same officiating-first justification, same governing-body ownership of the raw stream.</p>
+      <p><span class="emerging-flag">🌱 Up-and-coming — Atlas</span></p>
+      <p class="takeaway">Atlas: prototype-to-early-pilot, six-month NBA/WNBA collaboration under way. Genuine novelty is the form factor — most sports-grade EEG lives in caps or hairbands that require gel or dense electrodes; a behind-the-ear dry-electrode headset that captures useful frontal-lobe signal in the field would be a genuine step. Reasonable skepticism: (a) the composite "Clarity" score is proprietary and unpublished, so it's a black box vs. the underlying EEG channels a lab would want; (b) motion-artefact rejection during high-intensity contact is the historical failure mode of consumer EEG and there's no independent validation yet; (c) the pilot cohort model at NBA Launchpad has previously produced both winners (Sports Innovation Lab, Verb) and silent exits — a demo day is not a deployment.</p>
+      <div class="sources">
+        <a href="https://lvsportsbiz.com/2026/07/13/nba-pushing-technology-frontier-with-tech-expo-launchpad-event-during-nba-summer-league-in-las-vegas/">LVSportsBiz · 13 Jul</a>
+        <a href="https://www.nba.com/news/nba-summer-league-free-throw-connected-basketball">NBA · Summer League connected basketball</a>
+        <a href="https://pr.nba.com/nba-launchpad-fifth-group/">NBA Launchpad Cohort 5</a>
+        <a href="https://www.neurofounders.co/startups/atlas">Atlas company profile</a>
+      </div>
+    </article>
+
+    <!-- Story 4: Forme x WNBPA -->
+    <article class="card">
+      <h3>Forme Science becomes WNBPA's official posture &amp; recovery partner — pilot activates at All-Star 25 July</h3>
+      <p class="takeaway">Announced mid-week (~15 July, per Athletech News). Forme Science — best known for compression garments with embedded "posture intelligence" driven by a passive band that biases scapular retraction and thoracic extension — signed a multi-year deal with the Women's National Basketball Players Association. A player-ambassador activation runs at WNBA All-Star Weekend on 25 July in Chicago, with a full roster rollout targeted for 2027. Three explicitly-scoped use cases: travel-related spinal decompression, sleep-related postural stress reducing overnight HRV, and in-season durability.</p>
+      <p class="takeaway">The signal is not the garments per se — it's that a players' union is now sourcing recovery infrastructure directly. Practitioners running WNBA cross-collaborations (medical, S&amp;C consulting) should expect Forme dashboards to appear in return-to-play data feeds this season. As always with posture wearables: the strongest evidence base is subjective comfort and adherence; downstream performance claims remain thin. Treat it as adjunct kit, not a training-load surrogate.</p>
+      <div class="sources">
+        <a href="https://athletechnews.com/wnbpa-wnba-players-forme-science-posture-health-recovery-partnership/">Athletech News</a>
+        <a href="https://forme.science/">Forme Science</a>
+        <a href="https://www.wnba.com/allstar/2026">WNBA All-Star 26</a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ============ LITERATURE ============ -->
+  <section>
+    <h2 class="section-header">Recent literature</h2>
+    <hr class="section-rule">
+    <p class="section-intro">Peer-reviewed research published in the last seven days that matters for applied practice.</p>
+
+    <article class="lit-card">
+      <h4>Parameters associated with podium success at benchmark events in speed and power-based track and field disciplines: a systematic review</h4>
+      <p class="authors">Elvish TM, Impellizzeri FM, Steele RJ, Croghan AE, Newton RU, Reiter JL, Andrade BB.</p>
+      <p class="journal">Sports Medicine — Online first, 16 July 2026 (open access).</p>
+      <p class="relevance">Practitioner-facing systematic review that quantifies which longitudinal training and testing parameters actually correlate with medal-round outcomes at Worlds, Olympics and Diamond League finals across sprints, jumps and throws. Useful for programming decisions on how much weight to assign each testable KPI when annual planning against a benchmark-event goal.</p>
+      <p><a href="https://link.springer.com/journal/40279/online-first">Read on Springer Nature Link →</a></p>
+    </article>
+
+    <article class="lit-card">
+      <h4>An accelerometer-equipped running watch provides a valid estimate of peak vertical ground reaction force and cumulative weighted damage: a cross-sectional laboratory study</h4>
+      <p class="authors">Willy RW, Moore IS, Leske J, Polson T, Ruby BC.</p>
+      <p class="journal">European Journal of Sport Science — 2026, 26: e70215.</p>
+      <p class="relevance">Eighteen well-trained runners on an instrumented treadmill at 2.7–4.0 m/s plus training pace. A chest-mounted accelerometer + GPS running watch, combined with a spring-mass-model equation corrected by linear regression, estimated peak vGRF and cumulative weighted damage with ≤5% error. The corrected equation is generalisable across wearables. Directly usable in in-field return-to-run rehabilitation and large-cohort injury epidemiology where lab plates are impossible.</p>
+      <p><a href="https://onlinelibrary.wiley.com/journal/15367290">Read on Wiley →</a></p>
+    </article>
+
+    <article class="lit-card">
+      <h4>Biomechanical characterisation of Paralympic seated throwing: original research</h4>
+      <p class="authors">Santos Guedes de Sá K, Gorla JI, Digo E, Ohlsson ML, Bjerkefors A, Vanlandewijck Y.</p>
+      <p class="journal">Frontiers in Sports and Active Living — Biomechanics &amp; Control of Human Movement, 17 July 2026. DOI: 10.3389/fspor.2026.1872207.</p>
+      <p class="relevance">Timely for LA28-facing Para programmes. Kinematic analysis of throwing performance in seated-throwing Para athletes gives S&amp;C coaches concrete joint-torque and release-angle targets that, until now, have been mostly extrapolated from able-bodied throwing literature. Directly relevant to classification-informed programming.</p>
+      <p><a href="https://www.frontiersin.org/journals/sports-and-active-living/sections/biomechanics-and-control-of-human-movement">Read on Frontiers →</a></p>
+    </article>
+
+    <div class="other-papers">
+      <h5>Other notable papers this week</h5>
+      <ul>
+        <li>Miller DJ, Facer-Childs ER. Original Research (Sleep &amp; recovery in elite sport). <em>Sports Medicine — Open</em>, Article 94, 9 July 2026 (open access). <a href="https://link.springer.com/journal/40798/articles">Springer</a></li>
+        <li>Xiao and Guo. Application of wearable intelligent devices in college sports training — multi-modal system validation. <em>Discover Applied Sciences</em>, 2026. <a href="https://link.springer.com/article/10.1007/s42452-026-08620-2">DOI</a></li>
+        <li>Reed JA, Pate RR. Original research article. <em>Journal of Science and Medicine in Sport</em>, online 12 July 2026. <a href="https://www.sciencedirect.com/journal/journal-of-science-and-medicine-in-sport">JSAMS</a></li>
+        <li>SportRxiv preprint — posted 13 July 2026 (community-led open-access sport-science preprint server). <a href="https://sportrxiv.org/index.php/server/index">Browse</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ EVENTS ============ -->
+  <section>
+    <h2 class="section-header">Upcoming events</h2>
+    <hr class="section-rule">
+
+    <div class="event-row">
+      <div class="event-date">20–23 Jul</div>
+      <div class="event-body">
+        <div class="name">Chicago Sports Tech Week (CSTW)</div>
+        <div class="meta-line">Chicago, IL · Four-day industry gathering: pitch competition, women's-sports day, media &amp; performance-tech showcases.</div>
+        <a href="https://chicagosportstechweek.com/">chicagosportstechweek.com</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">25 Jul</div>
+      <div class="event-body">
+        <div class="name">WNBA All-Star Weekend</div>
+        <div class="meta-line">Chicago · AT&amp;T All-Star Game 25 July. Forme Science player-ambassador pilot activates on-site.</div>
+        <a href="https://www.wnba.com/allstar/2026">wnba.com/allstar/2026</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">26 Jul</div>
+      <div class="event-body">
+        <div class="name">Tour de France 2026 — Stage 21 (Champs-Élysées)</div>
+        <div class="meta-line">Paris · Final of the 21-stage race. Watch the tech gallery: heat-management kit (forearm immersion, PCM vests, cooling helmets), NTT tracking transponders, aero-cooling helmet trade-offs.</div>
+        <a href="https://en.wikipedia.org/wiki/2026_Tour_de_France">Route</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">5 Aug</div>
+      <div class="event-body">
+        <div class="name">ICBSE — Intl Conference on Biomechanics &amp; Sports Engineering</div>
+        <div class="meta-line">Vancouver, Canada · Applied-biomechanics and sensor-engineering track — good scout venue for lab-to-market device candidates.</div>
+        <a href="https://internationalconferencealerts.com/sports-science">Details</a>
+      </div>
+    </div>
+
+    <div class="event-row">
+      <div class="event-date">20–22 Aug</div>
+      <div class="event-body">
+        <div class="name">Sport India 2026</div>
+        <div class="meta-line">Bharat Mandapam, New Delhi · Sports goods, gym &amp; rehab equipment, sports flooring and technology exhibition — one of the larger APAC showcases.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PODCAST ============ -->
+  <section>
+    <h2 class="section-header">Podcast pick</h2>
+    <hr class="section-rule">
+    <div class="podcast-card">
+      <h4>Preparing athletes for a Men's World Cup — Dr Ben Rosenblatt with Richard Graves</h4>
+      <p class="show">Science for Sport Podcast · July 2026</p>
+      <p>Rosenblatt draws on his England, GB Hockey and Olympic-programme experience to talk through tournament readiness, heat and altitude preparation, individualised support and how to build performance under extreme pressure — with WC26's tournament data culture as the running example. Direct read-across to what you saw on the live GPS dashboards the England camp used in the group stage.</p>
+      <p><a href="https://scienceforsport.fireside.fm/">Listen on Science for Sport →</a></p>
+    </div>
+  </section>
+
+  <!-- ============ TECH-TALK ============ -->
+  <section>
+    <div class="techtalk">
+      <h2>Tech-talk: Muscle-oxygenation wearables (NIRS)</h2>
+      <p class="topic-meta">Moxy · Train.Red (Artinis) · NNOXX · Humon (assets → WHOOP) · greenTEG spin-outs · the WHOOP + Garmin race</p>
+
+      <p>Continuous-wave near-infrared spectroscopy has been physiologists' compact way of watching what's happening inside the working muscle for two decades. In the last year the field has shifted from "endurance-lab niche kit" to "the next signal both major recovery-band vendors want in their consumer stack." That's the reason it's this week's topic — not a single new launch, but a category that has quietly become the next competitive frontier in wearables while a small handful of shipping products fight for the applied-practice foothold.</p>
+
+      <h3>What it is</h3>
+      <p>Two narrow-band LEDs — typically ~660 nm and ~855 nm — sit on the skin over a target muscle belly. Oxygenated and deoxygenated haemoglobin absorb the two wavelengths differently, so a linear array of photodetectors positioned 5–50 mm from the emitter can back out muscle oxygen saturation (SmO<sub>2</sub>, %) and, in some devices, total-haemoglobin index (tHb). The result is a continuous, non-invasive readout of local O<sub>2</sub> supply vs demand at the working tissue — the physiological gap HRV, SpO<sub>2</sub> and RPE cannot fill because they read whole-body or vascular signals.</p>
+
+      <h3>Providers today</h3>
+      <ul>
+        <li><strong>Moxy Monitor</strong> (Fortiori Design, Minnesota) — the reference wearable NIRS since 2013. 15 mm × 60 mm probe, ANT+ / BLE, agnostic to head-unit. The de-facto research-friendly device.</li>
+        <li><strong>Train.Red</strong> (FYER / PLUS models, Netherlands) — sensor hardware from Artinis Medical Systems, the same lab that makes the PORTAMON. Adds an app-side coaching layer and cheaper price point ($299–599).</li>
+        <li><strong>NNOXX One</strong> (Rhode Island) — the only shipping consumer wearable that also claims a nitric-oxide channel alongside SmO<sub>2</sub>, with an AI-coach app built on top. Peer-reviewed SmO<sub>2</sub> validation; NO claim less validated.</li>
+        <li><strong>WHOOP</strong> — no shipping product. US patent 12,594,037 B2 granted 7 April 2026 to Whoop, listing Humon's founding team as inventors after Whoop absorbed Humon's assets in 2020. Patent explicitly describes thigh/chest/arm placement, not the wrist.</li>
+        <li><strong>Garmin</strong> — no shipping product. "Muscle Battery" trademark filed early 2026; multiple analyst read-throughs (the5krunner, gadgetsandwearables) suggest a strap-mounted SmO<sub>2</sub> accessory is on the roadmap for late 2026 or 2027.</li>
+      </ul>
+
+      <h3>Specs to insist on</h3>
+      <p>Continuous-wave NIRS is inexpensive but path-length-normalisation-limited; frequency-domain and time-domain NIRS are more accurate but rarely field-ready. Insist on: two-wavelength (not one), a minimum inter-optode separation of 25 mm for adult vastus lateralis (deeper penetration), skinfold thickness measured before every session (the biggest single confound), and a device that reports raw SmO<sub>2</sub> % rather than a smoothed proprietary score. Sampling at ≥1 Hz is enough for training; 10 Hz for interval reconstruction.</p>
+
+      <h3>Validation status</h3>
+      <p>Muscle Oximetry in Sports Science (Perrey &amp; Ferrari, updated systematic review, <em>Sports Medicine</em>) rates NIRS as a validated non-invasive measure of skeletal-muscle O<sub>2</sub> supply/utilisation dynamics — the SmO<sub>2</sub> desaturation slope during incremental exercise coincides with lactate-based thresholds in trained cyclists (Feldmann et al., <em>EJAP</em> 2023). Where the evidence weakens: static values, inter-day repeatability of absolute SmO<sub>2</sub>, and interpretation across muscle sites (locomotor is more reliable than accessory sites — Frontiers in Physiology 2024). Skinfold thickness at the sensor site introduces 5–15 % error unmodelled. A November 2025 Bioengineering paper cross-validated a wearable CW-NIRS sensor against gold-standard frequency-domain NIRS in cyclists and found strong agreement across the incremental protocol but growing bias at high intensity.</p>
+
+      <h3>What's new</h3>
+      <p>Three vectors converging: (1) the WHOOP patent + the Humon-into-WHOOP acqui-hire signal that a consumer wearable-format NIRS is being seriously engineered by the strain-and-recovery leader; (2) Garmin's Muscle Battery trademark and the analyst consensus that Garmin will need its own SmO<sub>2</sub> module to keep Physio pace; (3) NNOXX's positioning as the only currently-shipping consumer NIRS device with a serious app layer while both giants remain paperware. Add the Muscle Oxygen Monitors category-market analysis pegging 14.8 % CAGR through 2035 and the direction is clear: NIRS is moving from "niche endurance-lab kit for the physiologist" toward "expected feature in the next-generation recovery wristband." Practitioner takeaway: incorporate a Moxy or Train.Red probe into your threshold and interval-quality workflows now if you haven't; treat any 2026 consumer-wrist NIRS claim skeptically until independent validation on the specific device drops.</p>
+
+      <div class="further">
+        <h3>Further reading</h3>
+        <ul>
+          <li><a href="https://link.springer.com/article/10.1007/s40279-023-01987-x">Perrey &amp; Ferrari. Muscle oximetry in sports science: an updated systematic review. <em>Sports Medicine</em>, 2023.</a></li>
+          <li><a href="https://the5krunner.com/2026/04/13/whoop-muscle-oxygen-sensor-patent/">the5krunner. WHOOP vs Garmin: both target muscle-oxygen sensors — what it means. April 2026.</a></li>
+          <li><a href="https://www.mdpi.com/2306-5354/12/11/1153">Continuous monitoring of muscle oxygenation in endurance athletes: experimental validation of a wearable CW-NIRS sensor. <em>Bioengineering</em>, Nov 2025.</a></li>
+          <li><a href="https://www.nnoxx.com/">NNOXX One product &amp; validation studies.</a></li>
+          <li><a href="https://www.moxymonitor.com/">Moxy Monitor — reference research-grade wearable NIRS.</a></li>
+          <li><a href="https://train.red/">Train.Red (Artinis) — muscle-oxygen sensor family.</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    Sport Tech Weekly &nbsp;·&nbsp; Issue 10 · 20 July 2026 &nbsp;·&nbsp; Generated by Claude
+  </div>
+
+</div>
+</body>
+</html>
